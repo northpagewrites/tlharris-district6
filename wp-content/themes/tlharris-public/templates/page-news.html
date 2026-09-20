@@ -1,0 +1,44 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","anchor":"main-content","layout":{"type":"constrained"}} -->
+<main id="main-content" class="wp-block-group">
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"4rem","bottom":"2rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-top:4rem;padding-bottom:2rem">
+<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
+<p class="tlharris-eyebrow has-muted-color has-text-color">Updates</p>
+<!-- /wp:paragraph -->
+<!-- wp:post-title {"level":1,"fontSize":"x-large"} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"3rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:3rem">
+<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:query {"query":{"perPage":12,"pages":0,"offset":0,"postType":"board_update","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-date {"className":"tlharris-meta"} /-->
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:post-excerpt /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>Updates will appear here as they are published.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+<!-- wp:query-pagination -->
+<div class="wp-block-query-pagination"><!-- wp:query-pagination-previous /--><!-- wp:query-pagination-numbers /--><!-- wp:query-pagination-next /--></div>
+<!-- /wp:query-pagination -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

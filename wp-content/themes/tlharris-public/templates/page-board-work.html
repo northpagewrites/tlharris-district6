@@ -1,0 +1,192 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","anchor":"main-content","layout":{"type":"constrained"}} -->
+<main id="main-content" class="wp-block-group">
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"4rem","bottom":"2rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-top:4rem;padding-bottom:2rem">
+<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
+<p class="tlharris-eyebrow has-muted-color has-text-color">Public Record</p>
+<!-- /wp:paragraph -->
+<!-- wp:post-title {"level":1,"fontSize":"x-large"} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"3rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:3rem">
+<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Upcoming Board meetings</h2>
+<!-- /wp:heading -->
+<!-- wp:query {"query":{"perPage":6,"pages":0,"offset":0,"postType":"event","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-upcoming-events"} -->
+<div class="wp-block-query tlharris-query-upcoming-events">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"tlharris_event_date"}}}},"className":"tlharris-meta"} -->
+<p class="tlharris-meta"></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"tlharris_event_time"}}}},"className":"tlharris-meta"} -->
+<p class="tlharris-meta"></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"tlharris_event_location"}}}},"className":"tlharris-meta"} -->
+<p class="tlharris-meta"></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No Board meetings are currently listed. The district's own calendar is the authoritative schedule.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+<!-- wp:pattern {"slug":"tlharris-public/board-work-meetings"} /-->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Board record</h2>
+<!-- /wp:heading -->
+<!-- wp:query {"query":{"perPage":6,"pages":0,"offset":0,"postType":"board_action","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-date {"className":"tlharris-meta"} /-->
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:post-excerpt /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>Board activity and public records will be added here as meetings, actions and official documents are published.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+<!-- wp:query-pagination -->
+<div class="wp-block-query-pagination"><!-- wp:query-pagination-previous /--><!-- wp:query-pagination-numbers /--><!-- wp:query-pagination-next /--></div>
+<!-- /wp:query-pagination -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Board updates</h2>
+<!-- /wp:heading -->
+<!-- wp:query {"query":{"perPage":6,"pages":0,"offset":0,"postType":"board_update","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-date {"className":"tlharris-meta"} /-->
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:post-excerpt /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>Updates from the Board will appear here as they are published.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+<!-- wp:query-pagination -->
+<div class="wp-block-query-pagination"><!-- wp:query-pagination-previous /--><!-- wp:query-pagination-numbers /--><!-- wp:query-pagination-next /--></div>
+<!-- /wp:query-pagination -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Committees</h2>
+<!-- /wp:heading -->
+<!-- wp:query {"query":{"perPage":6,"pages":0,"offset":0,"postType":"committee","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:post-excerpt /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>Committee assignments will be listed here once each one is confirmed against an official source.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Board documents</h2>
+<!-- /wp:heading -->
+<!-- wp:query {"query":{"perPage":6,"pages":0,"offset":0,"postType":"board_document","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-date {"className":"tlharris-meta"} /-->
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:post-excerpt /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>Documents will be linked here, each pointing back to its official source.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Meeting archive</h2>
+<!-- /wp:heading -->
+<!-- wp:query {"query":{"perPage":12,"pages":0,"offset":0,"postType":"event","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-past-events"} -->
+<div class="wp-block-query tlharris-query-past-events">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"tlharris_event_date"}}}},"className":"tlharris-meta"} -->
+<p class="tlharris-meta"></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"tlharris_event_time"}}}},"className":"tlharris-meta"} -->
+<p class="tlharris-meta"></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"tlharris_event_location"}}}},"className":"tlharris-meta"} -->
+<p class="tlharris-meta"></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>Past meetings will be archived here.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+<!-- wp:query-pagination -->
+<div class="wp-block-query-pagination"><!-- wp:query-pagination-previous /--><!-- wp:query-pagination-numbers /--><!-- wp:query-pagination-next /--></div>
+<!-- /wp:query-pagination -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

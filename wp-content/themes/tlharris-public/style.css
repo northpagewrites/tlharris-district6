@@ -1,0 +1,114 @@
+/*
+Theme Name: T. L. Harris Public Service
+Theme URI: https://github.com/
+Author: T. L. Harris Digital Team
+Description: Lightweight, Git-friendly block theme for the T. L. Harris public-service platform.
+Version: 0.3.0
+Requires at least: 6.7
+Tested up to: 7.1
+Requires PHP: 8.1
+Text Domain: tlharris-public
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+:root { --tlharris-radius: 18px; }
+
+/* Editorial labels above a heading. */
+.tlharris-eyebrow { letter-spacing: .12em; text-transform: uppercase; font-size: .78rem; font-weight: 700; }
+
+.tlharris-card {
+  border: 1px solid var(--wp--preset--color--line);
+  border-radius: var(--tlharris-radius);
+  padding: clamp(1.25rem, 2vw, 2rem);
+  background: var(--wp--preset--color--white);
+  height: 100%;
+}
+.tlharris-card { transition: transform .2s ease, box-shadow .2s ease; }
+.tlharris-card:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(18, 32, 45, .08); }
+
+.tlharris-meta { font-size: .9rem; color: var(--wp--preset--color--muted); }
+
+/* Source line under a public-record entry. */
+.tlharris-source { font-size: .85rem; color: var(--wp--preset--color--muted); }
+
+/* One field on a record: its label, and either the value or the reason there
+   isn't one. The fallback is deliberately as visible as a real value. */
+/* Shortcode output is not a block, so blockGap does not separate it from the
+   heading above. Give it its own breathing room. */
+.tlharris-field { margin: 1.4rem 0 1.75rem; }
+.tlharris-field + .tlharris-field { margin-top: 1.1rem; }
+.tlharris-field__label {
+  font-size: .82rem; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 700; margin: 0 0 .4rem; color: var(--wp--preset--color--muted);
+}
+.tlharris-field p { margin: 0 0 .6rem; }
+
+/* Counts of tracked records. Never district performance figures. */
+.tlharris-stats {
+  display: flex; flex-wrap: wrap; gap: 1rem; margin: 0 0 1rem;
+}
+.tlharris-stat {
+  flex: 1 1 8rem; padding: 1.1rem 1.2rem;
+  border-top: 3px solid var(--wp--preset--color--accent);
+  background: var(--wp--preset--color--white);
+}
+.tlharris-stat__number { display: block; font-size: 2.2rem; font-weight: 700; line-height: 1.1; }
+.tlharris-stat__label {
+  display: block; font-size: .85rem; color: var(--wp--preset--color--muted);
+  letter-spacing: .04em;
+}
+
+/* Only rendered when a real baseline, current value and target all exist. */
+.tlharris-progress { margin: 0 0 1.5rem; }
+.tlharris-progress__label { font-weight: 600; margin: 0 0 .5rem; }
+.tlharris-progress__track {
+  height: 14px; border-radius: 999px;
+  background: var(--wp--preset--color--soft);
+  border: 1px solid var(--wp--preset--color--line);
+  overflow: hidden;
+}
+.tlharris-progress__fill {
+  height: 100%; background: var(--wp--preset--color--accent);
+}
+
+/* Campaign-era wording, kept as history and never as a current commitment. */
+.tlharris-historical {
+  border-left: 3px solid var(--wp--preset--color--line);
+  margin: 0 0 1.5rem; padding: .25rem 0 .25rem 1.1rem;
+}
+.tlharris-historical cite {
+  display: block; margin-top: .5rem; font-size: .85rem; font-style: normal;
+  color: var(--wp--preset--color--muted);
+}
+
+.tlharris-skip { position: absolute; left: -9999px; top: 0; z-index: 100; }
+.tlharris-skip:focus {
+  left: 1rem; top: 1rem; padding: .8rem 1rem;
+  background: #fff; color: #111; border: 2px solid #111; border-radius: 8px;
+}
+
+.screen-reader-text {
+  border: 0; clip-path: inset(50%); height: 1px; margin: -1px;
+  overflow: hidden; padding: 0; position: absolute; width: 1px; word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+  clip-path: none; height: auto; width: auto; margin: 0;
+  overflow: visible; position: fixed;
+}
+
+/* Gold at #946E2F clears 3:1 against paper, soft, white and ink. */
+:focus-visible { outline: 3px solid var(--wp--preset--color--accent); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .tlharris-card:hover { transform: none; }
+}
+
+@media (max-width: 781px) {
+  .tlharris-card:hover { transform: none; }
+}

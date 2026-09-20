@@ -1,0 +1,12 @@
+# Tooling
+node_modules/
+
+# Built artefacts — CI builds these and attaches them to the preview release
+dist/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

@@ -1,0 +1,126 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","anchor":"main-content","layout":{"type":"constrained"}} -->
+<main id="main-content" class="wp-block-group">
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"4rem","bottom":"2rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-top:4rem;padding-bottom:2rem">
+<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
+<p class="tlharris-eyebrow has-muted-color has-text-color">Accountability</p>
+<!-- /wp:paragraph -->
+<!-- wp:post-title {"level":1,"fontSize":"x-large"} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"3rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:3rem">
+<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Accountability at a glance</h2>
+<!-- /wp:heading -->
+<!-- wp:shortcode -->
+[tlharris_priority_stats]
+<!-- /wp:shortcode -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Current priorities</h2>
+<!-- /wp:heading -->
+<!-- wp:query {"query":{"perPage":12,"pages":0,"offset":0,"postType":"priority","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":2}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-terms {"term":"progress_status","className":"tlharris-eyebrow"} /-->
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:post-excerpt /-->
+<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
+<p class="tlharris-eyebrow has-muted-color has-text-color">Recorded</p>
+<!-- /wp:paragraph -->
+<!-- wp:post-date {"className":"tlharris-meta"} /-->
+<!-- wp:read-more {"content":"View details"} /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No priorities are published yet. Each one appears here once its status and sources have been checked.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+<!-- wp:query-pagination -->
+<div class="wp-block-query-pagination"><!-- wp:query-pagination-previous /--><!-- wp:query-pagination-numbers /--><!-- wp:query-pagination-next /--></div>
+<!-- /wp:query-pagination -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+<!-- wp:pattern {"slug":"tlharris-public/priorities-how-measured"} /-->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Recently updated</h2>
+<!-- /wp:heading -->
+<!-- wp:query {"query":{"perPage":4,"pages":0,"offset":0,"postType":"priority","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-priorities-recent"} -->
+<div class="wp-block-query tlharris-query-priorities-recent">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":2}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-terms {"term":"progress_status","className":"tlharris-eyebrow"} /-->
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:post-excerpt /-->
+<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
+<p class="tlharris-eyebrow has-muted-color has-text-color">Recorded</p>
+<!-- /wp:paragraph -->
+<!-- wp:post-date {"className":"tlharris-meta"} /-->
+<!-- wp:read-more {"content":"View details"} /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>Nothing has been updated yet.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:4rem">
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Updates due</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>Each priority carries a date for its next update. These are the ones due next.</p>
+<!-- /wp:paragraph -->
+<!-- wp:query {"query":{"perPage":4,"pages":0,"offset":0,"postType":"priority","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-priorities-upcoming"} -->
+<div class="wp-block-query tlharris-query-priorities-upcoming">
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":2}} -->
+<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-card">
+<!-- wp:post-terms {"term":"progress_status","className":"tlharris-eyebrow"} /-->
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+<!-- wp:post-excerpt /-->
+<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
+<p class="tlharris-eyebrow has-muted-color has-text-color">Recorded</p>
+<!-- /wp:paragraph -->
+<!-- wp:post-date {"className":"tlharris-meta"} /-->
+<!-- wp:read-more {"content":"View details"} /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No update dates are set yet.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

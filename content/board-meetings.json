@@ -1,0 +1,28 @@
+{
+  "_comment": "Upcoming Board events as listed by MSCS on the date accessed. These go stale: re-check the source before each publish, and prefer adding new meetings in the CMS rather than editing this file. Location is only set where the source states it. Imported as DRAFTS.",
+  "_source": "https://www.scsk12.org/board/",
+  "_accessed": "2026-09-20",
+  "meetings": [
+    {
+      "title": "Board Business Meeting",
+      "date": "2026-09-29",
+      "time": "5:30 PM",
+      "location": "Frances E. Coe Administration Building, 160 S. Hollywood Street, Memphis",
+      "public_comment": true
+    },
+    {
+      "title": "Business System Review",
+      "date": "2026-10-13",
+      "time": "3:00 PM",
+      "location": "",
+      "public_comment": false
+    },
+    {
+      "title": "Board Committee Meeting",
+      "date": "2026-10-20",
+      "time": "3:00 PM",
+      "location": "",
+      "public_comment": false
+    }
+  ]
+}

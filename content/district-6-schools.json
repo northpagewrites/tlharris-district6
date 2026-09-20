@@ -1,0 +1,33 @@
+{
+  "_comment": "Transcribed from the official MSCS District 6 Board Member profile, 'Schools in This District'. Accessed 2026-09-20. The importer creates these as DRAFTS: a human must check each name and URL against the live page before publishing. Do not add principals, addresses, enrolment or performance data here unless each one is separately verified.",
+  "_source": "https://www.scsk12.org/board/?M=6&MID=27&PN=44",
+  "_accessed": "2026-09-20",
+  "schools": [
+    { "name": "Circles of Success Learning Academy", "levels": ["Elementary"], "url": "http://www.circlesofsuccess.org/" },
+    { "name": "Double Tree Elementary", "levels": ["Elementary"], "url": "https://doubletree-es.scsk12.org/" },
+    { "name": "Ford Road Elementary", "levels": ["Elementary"], "url": "https://fordroad-es.scsk12.org/" },
+    { "name": "Freedom Preparatory Academy Whitehaven Elementary (Millbranch)", "levels": ["Elementary"], "url": "http://www.freedomprep.org/" },
+    { "name": "Geeter K-8 School", "levels": ["Elementary", "Middle"], "url": "https://geeter-k8.scsk12.org/" },
+    { "name": "Holmes Road Elementary", "levels": ["Elementary"], "url": "https://holmesroad-es.scsk12.org/" },
+    { "name": "J. P. Freeman K-8", "levels": ["Elementary", "Middle"], "url": "https://johnpfreeman-k8.scsk12.org/" },
+    { "name": "Levi Elementary", "levels": ["Elementary"], "url": "https://levi-es.scsk12.org/" },
+    { "name": "Oakshire Elementary", "levels": ["Elementary"], "url": "https://oakshire-es.scsk12.org/" },
+    { "name": "Riverview K-8", "levels": ["Elementary", "Middle"], "url": "https://riverview-k8.scsk12.org/" },
+    { "name": "Robert R. Church Elementary", "levels": ["Elementary"], "url": "https://robertrchurch-es.scsk12.org/" },
+    { "name": "Vision Preparatory Charter School", "levels": ["Elementary"], "url": "http://www.visionprep.org" },
+    { "name": "Westhaven Elementary", "levels": ["Elementary"], "url": "https://westhaven-es.scsk12.org/" },
+    { "name": "Whitehaven Elementary", "levels": ["Elementary"], "url": "https://whitehaven-es.scsk12.org/" },
+    { "name": "Freedom Preparatory Academy Whitehaven Middle (Brownlee)", "levels": ["Middle"], "url": "http://www.freedomprep.org/" },
+    { "name": "Havenview Middle", "levels": ["Middle"], "url": "https://havenview-ms.scsk12.org/" },
+    { "name": "City University School Girls Preparatory", "levels": ["High"], "url": "http://cityuniversityschool.org" },
+    { "name": "City University School of Independence", "levels": ["High"], "url": "http://cityuniversityschool.org" },
+    { "name": "City University School of Liberal Arts", "levels": ["High"], "url": "http://cityuniversityschool.org" },
+    { "name": "Fairley High", "levels": ["High"], "url": "https://fairley-hs.scsk12.org/" },
+    { "name": "Freedom Preparatory Academy High (Flagship)", "levels": ["High"], "url": "http://www.freedomprep.org/" },
+    { "name": "G.W.Carver College and Career Academy", "levels": ["High"], "url": "https://gwcarveracademy.scsk12.org/" },
+    { "name": "Mitchell High", "levels": ["High"], "url": "https://mitchell-hs.scsk12.org/" },
+    { "name": "Southwest Career & Technology Center", "levels": ["High"], "url": "https://southwest-ctc.scsk12.org/" },
+    { "name": "Westwood High", "levels": ["High"], "url": "https://westwood-hs.scsk12.org/" },
+    { "name": "Whitehaven High", "levels": ["High"], "url": "https://whitehaven-hs.scsk12.org/" }
+  ]
+}

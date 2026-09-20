@@ -1,0 +1,43 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "T. L. Harris — District 6",
+    "description": "The District 6 officeholder site, running as a full WordPress install in your browser. No server, nothing to install."
+  },
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "latest"
+  },
+  "landingPage": "/",
+  "login": true,
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://github.com/northpagewrites/tlharris-district6/releases/download/preview/tlharris-core.zip"
+      },
+      "options": { "activate": true }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "url",
+        "url": "https://github.com/northpagewrites/tlharris-district6/releases/download/preview/tlharris-public.zip"
+      },
+      "options": { "activate": true }
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "T. L. Harris",
+        "blogdescription": "Board Member · District 6",
+        "permalink_structure": "/%postname%/"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; require_once ABSPATH . 'wp-admin/includes/plugin.php';\n\n$patterns = get_stylesheet_directory() . '/patterns/';\n$pages = array(\n  'T. L. Harris' => array('home','page-home'),\n  'About' => array('about','page-about'),\n  'District 6' => array('district-6','page-district-6'),\n  'Board Work' => array('board-work','page-board-work'),\n  'Priorities & Progress' => array('priorities-progress','page-priorities-progress'),\n  'News & Updates' => array('news','page-news'),\n  'Events' => array('events','page-events'),\n  'Get Help' => array('get-help','page-get-help'),\n  'Press & Media' => array('press','page-press'),\n  'Contact' => array('contact','page-contact'),\n  'Get Involved' => array('get-involved','page-get-involved'),\n  'Support' => array('support','page-support'),\n  'Privacy' => array('privacy',''),\n  'Terms' => array('terms',''),\n  'Accessibility' => array('accessibility',''),\n);\nforeach ($pages as $title => $cfg) {\n  list($slug, $pat) = $cfg;\n  $content = '';\n  if ($pat && file_exists($patterns . $pat . '.php')) {\n    $content = preg_replace('/^<\\?php[\\s\\S]*?\\?>\\s*/', '', file_get_contents($patterns . $pat . '.php'));\n  }\n  $existing = get_page_by_path($slug);\n  $data = array('post_type'=>'page','post_title'=>$title,'post_name'=>$slug,'post_status'=>'publish','post_content'=>$content);\n  if ($existing) { $data['ID'] = $existing->ID; wp_update_post($data); } else { wp_insert_post($data); }\n}\n$home = get_page_by_path('home');\nupdate_option('show_on_front','page');\nupdate_option('page_on_front',$home->ID);\n\nif (function_exists('tlharris_import_schools')) {\n  tlharris_import_schools(); tlharris_import_meetings(); tlharris_import_priorities();\n  foreach (array('district_school','event','priority') as $pt) {\n    foreach (get_posts(array('post_type'=>$pt,'post_status'=>'draft','posts_per_page'=>-1,'fields'=>'ids')) as $id) {\n      wp_update_post(array('ID'=>$id,'post_status'=>'publish'));\n    }\n  }\n}\nflush_rewrite_rules(true);\n"
+    }
+  ]
+}
