@@ -88,6 +88,7 @@ Read this file plus `docs/` before changing architecture. Strategy, the full dec
 - `blueprint.json` builds the preview from **one** checkout of this repository, with WordPress and PHP pinned. Never `latest`, never a second fetch, never a release zip. There is no build step to go stale.
 - Preview-only seeding lives in `preview/`, outside `wp-content/`. It runs only inside Playground and is the only place drafts are published. The plugin's importers create drafts and never publish; the production import workflow does not change for the preview's sake. `scripts/validate.sh` fails if either rule breaks.
 - Before visual QA, prove the preview is the commit under test, and put the short SHA in the QA notes. The procedure is in `docs/preview-workflow.md`: `node scripts/preview.mjs url <sha>`, read the stamp, `node scripts/preview.mjs verify stamp.json <sha>`.
+- A commit that is not pushed cannot be loaded by the hosted Playground. `docs/preview-workflow.md` ("Before a push") shows how to run the same runtime locally with the checkout mounted and verify the stamp the same way. It does not replace the pinned-link check after the push.
 
 ## Content types
 `board_update`, `board_action`, `board_document`, `committee`, `priority`, `event`, `district_school`, `press_item`.

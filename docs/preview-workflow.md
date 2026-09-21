@@ -166,6 +166,47 @@ is written once, when the preview is built. Edit a page in that session's
 `wp-admin` and the stamp will not notice. Previews are disposable: nothing done
 in one is saved to Git, and closing the tab discards it.
 
+## Before a push: the same runtime, on local files
+
+The hosted Playground can only load what is on GitHub. To check a commit that has
+not been pushed, run the same PHP-in-WebAssembly runtime locally, with this
+checkout mounted where the `git:directory` step would have written it. Use a
+clean working tree: the stamp fingerprints the files that are actually mounted,
+so uncommitted edits make `verify` fail, which is the point.
+
+```bash
+# 1. The blueprint, minus the git checkout (the files are mounted instead).
+node -e '
+const fs = require("fs");
+const bp = JSON.parse(fs.readFileSync("blueprint.json", "utf8"));
+bp.steps = bp.steps.filter((s) => s.step !== "writeFiles");
+fs.writeFileSync("/tmp/blueprint-local.json", JSON.stringify(bp));
+'
+
+# 2. Serve it. Take --php and --wp from preferredVersions in blueprint.json.
+npx @wp-playground/cli@3.1.54 server --php=8.2 --wp=7.1.1 --port=9410 \
+  --blueprint=/tmp/blueprint-local.json \
+  --mount="$PWD/wp-content/themes/tlharris-public:/wordpress/wp-content/themes/tlharris-public" \
+  --mount="$PWD/wp-content/plugins/tlharris-core:/wordpress/wp-content/plugins/tlharris-core" \
+  --mount="$PWD/content:/wordpress/content" \
+  --mount="$PWD/preview:/wordpress/preview"
+
+# 3. In a second terminal. "Ready" is printed before the bootstrap has finished,
+#    so wait for the stamp rather than for that line.
+until curl -sf http://127.0.0.1:9410/tlharris-preview-stamp.json -o stamp.json && [ -s stamp.json ]; do sleep 3; done
+node scripts/preview.mjs verify stamp.json HEAD
+```
+
+The stamp is a static file, so it needs no login. To fetch a page as an
+anonymous visitor, send `-H 'Cookie: playground_auto_login_already_happened=1'`;
+without it the first request is a redirect that logs in as `admin`.
+
+This proves the runtime, the bootstrap and the tree, and it is the only way to
+check a commit before it is pushed. It does **not** prove that Playground can
+fetch the repository from GitHub, or how the hosted app behaves. That remains the
+job of a pinned link after the push, and it is still the check to run before
+visual QA is signed off.
+
 ## Reference run
 
 Recorded on 2026-09-20 with a pinned link to `c3a4d68`
@@ -183,6 +224,20 @@ Git alone. A browser running PHP compiled to WebAssembly, and Node reading Git
 objects, arrived at the same hash: that agreement is the evidence the method
 works. (`c3a4d68` predates `preview/`, so this run was made with an inline probe
 in place of the bootstrap, computing the same fingerprint.)
+
+Recorded the same day for `75d0664` (`75d066456241ea9fef80861437425400d3fdd788`)
+with `@wp-playground/cli` 3.1.54 and the checkout mounted, as described above. This
+was **not** the hosted app; `75d0664` had not been pushed.
+
+| | Reported by the preview |
+|---|---|
+| WordPress | `7.1.1` |
+| PHP | `8.2.33` |
+| `SERVER_SOFTWARE` | `PHP.wasm` |
+| Fingerprint | `269f958fb0b9eab41169521875508838b00a89dd977a2e5e1048148ddf38733a` over 51 files |
+
+`node scripts/preview.mjs verify` printed five PASS lines for it, and
+`node scripts/preview.mjs fingerprint 75d0664` gives the same fingerprint from Git.
 
 ## Changing a pin
 
