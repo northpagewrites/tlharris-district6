@@ -1,0 +1,43 @@
+# Continuous validation for this repository. NOT YET ACTIVE.
+#
+# GitHub only runs workflows from .github/workflows/. This copy sits under docs/
+# because the tool that wrote it is not permitted to create files in that folder.
+#
+# To turn it on: in the GitHub web UI, open this file, choose "Edit", change the
+# file path at the top to  .github/workflows/validate.yml  and commit. (A token
+# used from the command line needs the "workflow" scope to push that path.)
+# Then delete this copy and the README sentence that says there is no CI.
+#
+# It runs the same script a contributor runs locally. Broken block markup still
+# renders on the front end, so it is invisible until something checks for it.
+# The blueprint check needs network access to fetch Playground's schema, which a
+# GitHub runner has.
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          # Matches the PHP minor version pinned for the preview in blueprint.json.
+          php-version: '8.2'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install validation tooling
+        run: npm ci --no-audit --no-fund
+
+      - name: Run the validator
+        run: bash scripts/validate.sh

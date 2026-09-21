@@ -22,10 +22,15 @@ required=(
   "$ROOT/docs/staging-setup.md"
   "$ROOT/docs/content-sources.md"
   "$ROOT/docs/site-fields.md"
+  "$ROOT/docs/preview-workflow.md"
   "$ROOT/content/district-6-schools.json"
   "$ROOT/content/board-meetings.json"
   "$ROOT/content/priorities.json"
+  "$ROOT/preview/bootstrap.php"
+  "$ROOT/preview/fingerprint.php"
   "$ROOT/scripts/build-zips.sh"
+  "$ROOT/scripts/preview.mjs"
+  "$ROOT/tools/validate-blueprint.mjs"
   "$ROOT/wp-content/themes/tlharris-public/style.css"
   "$ROOT/wp-content/themes/tlharris-public/theme.json"
   "$ROOT/wp-content/themes/tlharris-public/functions.php"
@@ -45,8 +50,8 @@ pass "required files"
 if command -v php >/dev/null 2>&1; then
   while IFS= read -r -d '' f; do
     php -l "$f" >/dev/null || fail "PHP syntax error in ${f#"$ROOT"/}"
-  done < <(find "$ROOT/wp-content" -name '*.php' -print0)
-  pass "PHP syntax"
+  done < <(find "$ROOT/wp-content" "$ROOT/preview" -name '*.php' -print0)
+  pass "PHP syntax (wp-content and preview)"
 elif [ "${VALIDATE_ALLOW_NO_PHP:-0}" = "1" ]; then
   echo "warn: PHP not installed, syntax check skipped (VALIDATE_ALLOW_NO_PHP=1)"
 else
@@ -169,6 +174,156 @@ if [ -d "$ROOT/node_modules/@wordpress/blocks" ] && command -v node >/dev/null 2
   node "$ROOT/tools/validate-blocks.mjs" || fail "block validation"
 else
   echo "warn: block validation skipped. Run 'npm install' in the repo root to enable it."
+fi
+
+# ---------------------------------------------------------------------------
+# 5. Playground blueprint
+#
+# The one-click preview fails outright if blueprint.json does not match the
+# Playground schema. Needs network to fetch the schema and skips with a warning
+# if it cannot.
+# ---------------------------------------------------------------------------
+if [ -d "$ROOT/node_modules/ajv" ] && command -v node >/dev/null 2>&1; then
+  node "$ROOT/tools/validate-blueprint.mjs" || fail "blueprint validation"
+else
+  echo "warn: blueprint validation skipped. Run 'npm install' in the repo root to enable it."
+fi
+
+# ---------------------------------------------------------------------------
+# 6. Preview build: pinned, from one commit, and isolated
+#
+# docs/preview-workflow.md explains each rule. In short: a preview that floats
+# on "latest", or stitches theme, plugin and content together from separate
+# fetches, cannot be tied to a Git commit, and preview-only seeding must never
+# leak into the theme, the plugin or the real import workflow.
+# ---------------------------------------------------------------------------
+python3 - "$ROOT" <<'PY' || FAILED=1
+import json, pathlib, re, sys
+
+root = pathlib.Path(sys.argv[1])
+failures = 0
+
+def fail(msg):
+    global failures
+    print(f'FAIL: {msg}')
+    failures += 1
+
+bp = json.loads((root / 'blueprint.json').read_text())
+steps = bp.get('steps', [])
+
+# 6a. Versions are pinned. "latest" and "beta" move under you.
+mark = failures
+pins = bp.get('preferredVersions', {})
+for key in ('wp', 'php'):
+    value = pins.get(key)
+    if not isinstance(value, str) or not re.fullmatch(r'\d+\.\d+(\.\d+)?', value):
+        fail(f'blueprint.json: preferredVersions.{key} must be a pinned version such as "8.2", got {value!r}')
+# The pins are quoted in the workflow doc. A stale doc is worse than none.
+doc = (root / 'docs/preview-workflow.md').read_text()
+for key in ('wp', 'php'):
+    value = pins.get(key)
+    if isinstance(value, str) and f'`{value}`' not in doc:
+        fail(f'docs/preview-workflow.md does not mention the pinned {key} version `{value}`. Update its table')
+if failures == mark:
+    print('ok:   WordPress and PHP versions are pinned and documented')
+
+# 6b. One checkout of the whole repository, so theme, plugin, content and the
+# bootstrap all come from a single ref.
+mark = failures
+checkouts = [s for s in steps if isinstance(s.get('filesTree'), dict) and s['filesTree'].get('resource') == 'git:directory']
+if len(checkouts) != 1:
+    fail(f'blueprint.json: expected exactly one git:directory checkout, found {len(checkouts)}')
+else:
+    tree = checkouts[0]['filesTree']
+    if checkouts[0].get('step') != 'writeFiles' or checkouts[0].get('writeToPath') != '/wordpress':
+        fail('blueprint.json: the checkout must be a writeFiles step to /wordpress')
+    if 'path' in tree:
+        fail('blueprint.json: the checkout must take the whole repository (no "path"), or parts could come from different refs')
+    if tree.get('refType') not in ('branch', 'commit'):
+        fail('blueprint.json: the checkout needs an explicit refType of "branch" or "commit"')
+    for step in steps:
+        if step is not checkouts[0] and '"resource"' in json.dumps(step):
+            fail(f'blueprint.json: step "{step.get("step")}" fetches a second resource; everything must come from the one checkout')
+    if failures == mark:
+        print('ok:   blueprint has a single checkout of the repository')
+
+# 6c. The only inline PHP is the switch and the require. Seeding lives in preview/.
+mark = failures
+runs = [s for s in steps if s.get('step') == 'runPHP']
+if len(runs) != 1:
+    fail(f'blueprint.json: expected exactly one runPHP step, found {len(runs)}')
+else:
+    code = runs[0].get('code', '')
+    if 'TLHARRIS_PLAYGROUND_PREVIEW' not in code or '/wordpress/preview/bootstrap.php' not in code:
+        fail('blueprint.json: the runPHP step must define TLHARRIS_PLAYGROUND_PREVIEW and require preview/bootstrap.php')
+    if re.search(r'wp_insert_post|wp_update_post|post_status|update_option|wp_delete', code):
+        fail('blueprint.json: seeding belongs in preview/bootstrap.php, not inline in the blueprint')
+if failures == mark:
+    print('ok:   blueprint runs only the preview bootstrap')
+
+# 6d. The bootstrap refuses to run anywhere but Playground, and publishes only
+# records the importers created.
+mark = failures
+bootstrap = (root / 'preview/bootstrap.php').read_text()
+for needle, why in (
+    ('TLHARRIS_PLAYGROUND_PREVIEW', 'the opt-in constant'),
+    ("'PHP.wasm'", 'the Playground runtime check'),
+    ('tlharris_import_key', 'the restriction to importer-created records'),
+):
+    if needle not in bootstrap:
+        fail(f'preview/bootstrap.php: missing {why} ({needle})')
+if failures == mark:
+    print('ok:   bootstrap guard and publish restriction present')
+
+# 6e. Nothing that ships knows Playground exists.
+mark = failures
+for p in sorted((root / 'wp-content').rglob('*')):
+    if p.is_file() and re.search(r'playground|TLHARRIS_PLAYGROUND_PREVIEW|PHP\.wasm', p.read_text(errors='ignore'), re.I):
+        fail(f'{p.relative_to(root)}: mentions Playground. Preview-only code belongs in preview/, outside wp-content')
+if failures == mark:
+    print('ok:   theme and plugin are free of preview-only code')
+
+# 6f. The real importers only ever create drafts. Publishing is a human step.
+mark = failures
+plugin = (root / 'wp-content/plugins/tlharris-core/tlharris-core.php').read_text()
+for fn in ('tlharris_import_schools', 'tlharris_import_meetings', 'tlharris_import_priorities'):
+    m = re.search(r'\nfunction\s+' + fn + r'\s*\(.*?(?=\nfunction\s|\Z)', plugin, re.S)
+    if not m:
+        fail(f'plugin: {fn}() not found')
+        continue
+    body = m.group(0)
+    if re.search(r"""['"]publish['"]|wp_publish_post""", body):
+        fail(f'plugin: {fn}() must never publish. Imported records stay drafts until a person reviews them')
+    if "'draft'" not in body:
+        fail(f'plugin: {fn}() does not set post_status to draft')
+if failures == mark:
+    print('ok:   importers create drafts only')
+
+sys.exit(1 if failures else 0)
+PY
+
+# ---------------------------------------------------------------------------
+# 7. The two fingerprint implementations agree
+#
+# preview/fingerprint.php runs inside the preview; scripts/preview.mjs runs on
+# a developer's machine or straight against Git. If they ever disagree, a
+# correct preview would fail verification, or worse, a wrong one would pass.
+# ---------------------------------------------------------------------------
+if command -v php >/dev/null 2>&1 && command -v node >/dev/null 2>&1; then
+  php_fp="$(php -r 'require $argv[1] . "/preview/fingerprint.php"; echo json_encode( tlharris_preview_fingerprint( $argv[1] ) );' "$ROOT")"
+  node_fp="$(node "$ROOT/scripts/preview.mjs" fingerprint --worktree)"
+  if python3 - "$php_fp" "$node_fp" <<'PY'
+import json, sys
+php, node = json.loads(sys.argv[1]), json.loads(sys.argv[2])
+sys.exit(0 if (php['fingerprint'], php['files']) == (node['fingerprint'], node['files']) else 1)
+PY
+  then
+    pass "PHP and Node fingerprints agree ($(echo "$node_fp" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["files"], "files")'))"
+  else
+    fail "preview/fingerprint.php and scripts/preview.mjs disagree: php=$php_fp node=$node_fp"
+  fi
+else
+  echo "warn: fingerprint parity check skipped (needs both php and node)."
 fi
 
 # ---------------------------------------------------------------------------

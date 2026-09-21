@@ -1,7 +1,7 @@
 # Tooling
 node_modules/
 
-# Built artefacts — CI builds these and attaches them to the preview release
+# Built artefacts — scripts/build-zips.sh writes installable zips here
 dist/
 
 # OS and editor noise

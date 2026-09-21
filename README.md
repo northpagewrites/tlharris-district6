@@ -10,8 +10,21 @@ browser using WebAssembly. Nothing is installed and nothing is uploaded.
 
 **[Open the preview](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/northpagewrites/tlharris-district6/main/blueprint.json)**
 
-It rebuilds from `main` automatically, so the link always shows the current
-state of this repository.
+That link builds from the tip of `main` every time it is opened, on the WordPress
+and PHP versions pinned in `blueprint.json`. There is no build step and nothing
+to wait for.
+
+To review one specific commit, and to prove the preview really is that commit,
+use the pinned workflow in [`docs/preview-workflow.md`](docs/preview-workflow.md):
+
+```bash
+node scripts/preview.mjs url <commit>              # a link pinned to that commit
+node scripts/preview.mjs verify stamp.json <commit>  # check a running preview against it
+```
+
+The preview seeds demo content and publishes it so the pages are not empty. That
+seeding lives in `preview/` and cannot run anywhere but Playground; a real site's
+imported records stay drafts until a person has checked them.
 
 ## What is in here
 
@@ -23,7 +36,10 @@ state of this repository.
 | `wp-content/themes/tlharris-public/patterns/` | Page copy. The words live here, not in templates. |
 | `wp-content/plugins/tlharris-core/` | Content types, structured fields, identity settings. Portable across themes. |
 | `content/*.json` | Verified facts, transcribed from official sources and imported into the CMS. |
+| `blueprint.json` | The Playground preview: one checkout of this repository, pinned WordPress and PHP. |
+| `preview/` | Preview-only seeding and the fingerprint. Never deployed; refuses to run outside Playground. |
 | `scripts/validate.sh` | The validator. Run it before every push. |
+| `scripts/preview.mjs` | Pinned preview links, commit fingerprints, and preview verification. |
 
 ## Working on the design
 
@@ -48,9 +64,13 @@ bash scripts/validate.sh
 ```
 
 It checks required files, PHP syntax, block validity against the real Gutenberg
-definitions, skip-link targets, hardcoded role text, placeholder copy left in
-public pages, and colour contrast. The same checks run in CI on every push and
-pull request.
+definitions, the preview blueprint against Playground's own schema, that the
+preview is pinned and built from one checkout and that preview-only code has not
+leaked into the theme or plugin, skip-link targets, hardcoded role text,
+placeholder copy left in public pages, and colour contrast.
+
+There is no CI in this repository yet, so the validator you run is the only gate.
+`docs/ci/validate.yml` is a ready workflow; its header says how to enable it.
 
 ## The rules this project works to
 

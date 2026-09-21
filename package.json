@@ -5,11 +5,13 @@
   "description": "Build-time validation tooling for the T. L. Harris public-service site. The site itself ships no JavaScript.",
   "scripts": {
     "validate": "bash scripts/validate.sh",
-    "validate:blocks": "node tools/validate-blocks.mjs"
+    "validate:blocks": "node tools/validate-blocks.mjs",
+    "validate:blueprint": "node tools/validate-blueprint.mjs"
   },
   "devDependencies": {
     "@wordpress/block-library": "^11.0.0",
     "@wordpress/blocks": "^16.0.0",
+    "ajv": "^8.17.0",
     "jsdom": "^24.0.0"
   }
 }

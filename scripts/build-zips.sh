@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# Build the theme and plugin zips that WordPress Playground installs.
+# Build installable theme and plugin zips, for a normal WordPress install or a
+# staging host.
+#
+# The one-click Playground preview does not use these: blueprint.json loads the
+# theme, plugin and content straight from the main branch.
 #
 # The zips must contain a single top-level folder named after the theme or
 # plugin, which is what WordPress expects from an uploaded archive.
@@ -17,7 +21,7 @@ cp -R "$ROOT/wp-content/themes/tlharris-public" "$STAGE/"
 cp -R "$ROOT/wp-content/plugins/tlharris-core" "$STAGE/"
 
 # The plugin reads content/*.json from three levels above itself, which is the
-# repository root in a checkout. Inside a Playground install there is no such
+# repository root in a checkout. Inside a packaged install there is no such
 # folder, so the data travels with the plugin and a filter points at it.
 mkdir -p "$STAGE/tlharris-core/content"
 cp "$ROOT"/content/*.json "$STAGE/tlharris-core/content/"

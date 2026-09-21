@@ -82,6 +82,11 @@ Read this file plus `docs/` before changing architecture. Strategy, the full dec
 - `theme.json` is the design-system source of truth.
 - Elementor is not a dependency. If the office chooses Elementor later for staff workflow reasons, record the decision before changing architecture.
 
+## Preview (WordPress Playground)
+- `blueprint.json` builds the preview from **one** checkout of this repository, with WordPress and PHP pinned. Never `latest`, never a second fetch, never a release zip. There is no build step to go stale.
+- Preview-only seeding lives in `preview/`, outside `wp-content/`. It runs only inside Playground and is the only place drafts are published. The plugin's importers create drafts and never publish; the production import workflow does not change for the preview's sake. `scripts/validate.sh` fails if either rule breaks.
+- Before visual QA, prove the preview is the commit under test, and put the short SHA in the QA notes. The procedure is in `docs/preview-workflow.md`: `node scripts/preview.mjs url <sha>`, read the stamp, `node scripts/preview.mjs verify stamp.json <sha>`.
+
 ## Content types
 `board_update`, `board_action`, `board_document`, `committee`, `priority`, `event`, `district_school`, `press_item`.
 
@@ -105,7 +110,7 @@ Verified facts are transcribed into `content/*.json` and imported into the CMS b
 
 ## Before editing
 1. Read this file.
-2. Read `docs/content-sources.md` and `docs/staging-setup.md`.
+2. Read `docs/content-sources.md` and `docs/staging-setup.md`. If the change is to be reviewed in the preview, read `docs/preview-workflow.md` too.
 4. Inspect affected files.
 5. Prefer small changes with clear diffs.
 
@@ -115,7 +120,7 @@ npm install            # once; enables block validation
 bash scripts/validate.sh
 ```
 
-Then work `docs/deployment-checklist.md` by hand. The validator covers required files, PHP syntax, block validity, skip-link targets, hardcoded role text, build notes in public copy, synthetic image references, and colour contrast. It does not cover anything that needs a running site or a human.
+Then work `docs/deployment-checklist.md` by hand. The validator covers required files, PHP syntax, block validity, the preview blueprint (schema, pinned versions, one checkout, isolation of preview-only code, drafts-only importers, PHP and Node fingerprints agreeing), skip-link targets, hardcoded role text, build notes in public copy, synthetic image references, and colour contrast. It does not cover anything that needs a running site or a human.
 
 A validator that passes is not a site that is ready. v2's validator passed while the theme carried 43 invalid blocks.
 
