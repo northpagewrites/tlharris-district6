@@ -115,7 +115,22 @@ Two things are needed before any figure appears on a priority:
    and no progress figure is drawn.
 
 The only statement about Board composition used on these pages — that the Board
-comprises nine elected members — comes from S1.
+comprises nine elected members — comes from S1. It lives in each record's `role`
+field, where it can carry a source and a verification date, and not in a template.
+
+Two more things the seed does not settle:
+
+- **The campaign-origin flag is unverified.** All eight records are flagged as
+  originally 2026 campaign subjects, on the strength of the description above.
+  The campaign platform itself is not in this repository, so each flag needs
+  confirming against the archived campaign site before the priorities are
+  published. Turn the flag off for any subject that was not in the platform: it
+  puts "Originally identified during the 2026 campaign" on the public page.
+- **`why_it_matters` was removed from four records** (the two Early Literacy
+  subjects, Early Intervention, and Safe and Supportive Learning Environments).
+  Each removed sentence asserted an education outcome with no cited source. The
+  four that remain say why public reporting and public access matter, which is
+  not a claim about outcomes. All eight need office review either way.
 
 ## Still needed
 

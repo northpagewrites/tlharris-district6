@@ -78,6 +78,8 @@ Read this file plus `docs/` before changing architecture. Strategy, the full dec
 - **Post meta keys are never underscore-prefixed.** Core's post-meta block binding calls `is_protected_meta()` and returns null for `_`-prefixed keys, so protected meta can never be displayed. Use `tlharris_*`.
 - Every public-record entry carries `tlharris_source_url` and `tlharris_last_verified`.
 - Query loops that need date or taxonomy logic opt in with a `className` handled by `query_loop_block_query_vars` in the plugin. Never filter by term ID: IDs are not portable between environments.
+- The `className` goes on the **Query block**, and `tlharris_pass_query_class()` copies it down as block context, because core hands `query_loop_block_query_vars` the Post Template or pagination block, never the Query block. Without that, every filtered list silently shows the unfiltered query. Test a list by rendering the page, not by calling the filter with a fake block: the fake block is what hid this.
+- Inside a query loop, per-item data comes from a **block binding** (`tlharris/date`), never a shortcode. Core expands shortcodes in the raw template before any block renders, so a shortcode in a card sees the page, not the card's record. A shortcode whose output spans several lines goes in a **Custom HTML** block (`wp:html`), not a Shortcode block: core runs `wpautop()` on Shortcode block content and leaves stray `</p>` tags. `scripts/validate.sh` enforces both.
 - JavaScript must remain minimal. The site ships none; the Node packages are build-time validation only.
 - `theme.json` is the design-system source of truth.
 - Elementor is not a dependency. If the office chooses Elementor later for staff workflow reasons, record the decision before changing architecture.
@@ -90,7 +92,7 @@ Read this file plus `docs/` before changing architecture. Strategy, the full dec
 ## Content types
 `board_update`, `board_action`, `board_document`, `committee`, `priority`, `event`, `district_school`, `press_item`.
 
-Taxonomies: `progress_status` (seeded: Not started, Monitoring, In progress, Completed), `update_type` (seeded: Board Update, Report to District 6, Statement, Community, Education), `board_topic`.
+Taxonomies: `progress_status` (seeded: Not Started, Monitoring, In Progress, Completed, On Hold), `update_type` (seeded: Board Update, Report to District 6, Statement, Community, Education), `board_topic`.
 
 ## Site identity settings
 See `docs/site-fields.md`.

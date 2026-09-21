@@ -21,7 +21,7 @@
 <h3 class="wp-block-heading">Status</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Every priority carries one of five values: Not Started, Monitoring, In Progress, Completed, or On Hold. There is no status that means <em>going well</em>.</p>
+<p>Every priority carries one of five values: Not Started, Monitoring, In Progress, Completed, or On Hold. There is no status that means <em>going well</em>. Not Started means that nothing has been recorded here yet. It does not say that no work has happened.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -47,7 +47,7 @@
 <h3 class="wp-block-heading">Evidence</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Each entry links to the document, dataset or official record behind it, with the date it was last checked.</p>
+<p>Where a document, dataset or official record supports an entry, the entry links to it and shows the date it was last checked. Where none is recorded, the entry says so.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -63,7 +63,7 @@
 <h3 class="wp-block-heading">Control</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Each priority separates what a Board member directly controls from what he can influence and what depends on the district. One member is one of nine votes.</p>
+<p>Each priority separates what a Board member directly controls from what he can influence and what depends on the district. One member is one vote on a body that acts together.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -76,7 +76,7 @@
 <h3 class="wp-block-heading">Next update</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Each priority carries a date for its next review, so a reader can tell the difference between steady work and a page nobody has touched.</p>
+<p>Where the office has set a date for the next review, the entry shows it, so a reader can tell the difference between steady work and a page nobody has touched. Where none is set, the entry says so.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -86,10 +86,10 @@
 <!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
 <div class="wp-block-group tlharris-card">
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">No progress bar without numbers</h3>
+<h3 class="wp-block-heading">No progress bar without a source</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>A progress figure is shown only where a real baseline, a current value and a target all exist. Otherwise there is nothing to draw.</p>
+<p>A progress figure is shown only where a real baseline, a current value and a target all exist and the source of those figures is linked. Otherwise there is nothing to draw.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

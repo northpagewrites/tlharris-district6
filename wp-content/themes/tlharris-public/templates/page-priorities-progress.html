@@ -19,9 +19,9 @@
 <!-- wp:heading -->
 <h2 class="wp-block-heading">Accountability at a glance</h2>
 <!-- /wp:heading -->
-<!-- wp:shortcode -->
+<!-- wp:html -->
 [tlharris_priority_stats]
-<!-- /wp:shortcode -->
+<!-- /wp:html -->
 </div>
 <!-- /wp:group -->
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
@@ -38,7 +38,7 @@
 <!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
 <!-- wp:post-excerpt /-->
 <!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Recorded</p>
+<p class="tlharris-eyebrow has-muted-color has-text-color">Published</p>
 <!-- /wp:paragraph -->
 <!-- wp:post-date {"className":"tlharris-meta"} /-->
 <!-- wp:read-more {"content":"View details"} /-->
@@ -72,9 +72,11 @@
 <!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
 <!-- wp:post-excerpt /-->
 <!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Recorded</p>
+<p class="tlharris-eyebrow has-muted-color has-text-color">Last verified</p>
 <!-- /wp:paragraph -->
-<!-- wp:post-date {"className":"tlharris-meta"} /-->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/date","args":{"key":"last_verified"}}}},"className":"tlharris-meta"} -->
+<p class="tlharris-meta"></p>
+<!-- /wp:paragraph -->
 <!-- wp:read-more {"content":"View details"} /-->
 </div>
 <!-- /wp:group -->
@@ -94,7 +96,7 @@
 <h2 class="wp-block-heading">Updates due</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Each priority carries a date for its next update. These are the ones due next.</p>
+<p>Priorities with an update date are listed here, soonest first. A date that has passed stays in the list, at the top.</p>
 <!-- /wp:paragraph -->
 <!-- wp:query {"query":{"perPage":4,"pages":0,"offset":0,"postType":"priority","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-priorities-upcoming"} -->
 <div class="wp-block-query tlharris-query-priorities-upcoming">
@@ -105,9 +107,11 @@
 <!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
 <!-- wp:post-excerpt /-->
 <!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Recorded</p>
+<p class="tlharris-eyebrow has-muted-color has-text-color">Next update</p>
 <!-- /wp:paragraph -->
-<!-- wp:post-date {"className":"tlharris-meta"} /-->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/date","args":{"key":"next_update"}}}},"className":"tlharris-meta"} -->
+<p class="tlharris-meta"></p>
+<!-- /wp:paragraph -->
 <!-- wp:read-more {"content":"View details"} /-->
 </div>
 <!-- /wp:group -->

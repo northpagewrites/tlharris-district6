@@ -671,8 +671,9 @@ function tlharris_meta_fields() {
 				'type'  => 'textarea',
 			),
 			// Numeric fields drive the only progress visualisation on the site.
-			// All three must be present and numeric or nothing is drawn: a
-			// progress bar with no real baseline is an invented claim.
+			// All three must be present and numeric, and the evidence URL above
+			// must be set, or nothing is drawn: a progress bar with no real
+			// baseline, or no source for it, is an invented claim.
 			'tlharris_measure_unit'      => array( 'label' => 'Measure (what the numbers count)', 'type' => 'text' ),
 			'tlharris_baseline_value'    => array( 'label' => 'Baseline value (number)', 'type' => 'text' ),
 			'tlharris_current_value'     => array( 'label' => 'Current value (number)', 'type' => 'text' ),
@@ -896,15 +897,61 @@ add_action( 'save_post', 'tlharris_save_meta', 10, 2 );
  * ---------------------------------------------------------------------- */
 
 /**
+ * Carry a Query block's className down to the blocks that build its query.
+ *
+ * Templates opt a Query block in to custom behaviour by giving it a className.
+ * But core does not hand the query_loop_block_query_vars filter the Query block.
+ * It hands it whichever block is asking: the Post Template, the pagination
+ * blocks, the "no results" block. Those never see the Query block's className,
+ * so a filter that reads only $block->attributes never matches, and every list
+ * silently shows the unfiltered query.
+ *
+ * Copying the class into block context fixes that for the whole subtree. It is
+ * passed down one level at a time because a grandchild (pagination numbers sit
+ * inside the pagination block) only receives the keys its own block type asks
+ * for.
+ *
+ * @param array         $context      Block context of the block about to render.
+ * @param array         $parsed_block The block about to render.
+ * @param WP_Block|null $parent_block Its parent.
+ * @return array
+ */
+function tlharris_pass_query_class( $context, $parsed_block, $parent_block ) {
+	if ( ! $parent_block instanceof WP_Block ) {
+		return $context;
+	}
+
+	if ( 'core/query' === $parent_block->name ) {
+		$class = $parent_block->attributes['className'] ?? '';
+
+		if ( is_string( $class ) && '' !== $class ) {
+			$context['tlharris/queryClass'] = $class;
+		} else {
+			unset( $context['tlharris/queryClass'] );
+		}
+	} elseif ( isset( $parent_block->context['tlharris/queryClass'] ) && ! isset( $context['tlharris/queryClass'] ) ) {
+		$context['tlharris/queryClass'] = $parent_block->context['tlharris/queryClass'];
+	}
+
+	return $context;
+}
+add_filter( 'render_block_context', 'tlharris_pass_query_class', 10, 3 );
+
+/**
  * Events sort by the date the event happens, not the date the post was
- * published. Query blocks opt in with a className.
+ * published. Query blocks opt in with a className, which
+ * tlharris_pass_query_class() makes visible here.
  *
  * @param array    $query Query vars.
- * @param WP_Block $block Block instance.
+ * @param WP_Block $block Block instance asking for the query.
  * @return array
  */
 function tlharris_filter_query_loop( $query, $block ) {
-	$class = $block->attributes['className'] ?? '';
+	$class = trim(
+		( is_string( $block->attributes['className'] ?? null ) ? $block->attributes['className'] : '' )
+		. ' '
+		. ( is_string( $block->context['tlharris/queryClass'] ?? null ) ? $block->context['tlharris/queryClass'] : '' )
+	);
 
 	if ( str_contains( $class, 'tlharris-query-upcoming-events' ) ) {
 		$query['meta_key'] = 'tlharris_event_date';
@@ -948,14 +995,25 @@ function tlharris_filter_query_loop( $query, $block ) {
 		}
 	}
 
-	// Priorities most recently updated first.
+	// Priorities most recently verified against a source first. A record with no
+	// verification date is left out: listing it here would imply it had been
+	// checked.
 	if ( str_contains( $class, 'tlharris-query-priorities-recent' ) ) {
-		$query['meta_key'] = 'tlharris_last_verified';
-		$query['orderby']  = 'meta_value';
-		$query['order']    = 'DESC';
+		$query['meta_key']   = 'tlharris_last_verified';
+		$query['orderby']    = 'meta_value';
+		$query['order']      = 'DESC';
+		$query['meta_query'] = array(
+			array(
+				'key'     => 'tlharris_last_verified',
+				'value'   => '',
+				'compare' => '!=',
+			),
+		);
 	}
 
-	// Priorities with an update due, soonest first.
+	// Priorities with an update date, oldest date first. A date that has passed
+	// stays in the list, and sorts to the top: an overdue update is the one a
+	// reader most needs to see, so it must not drop out the day it becomes late.
 	if ( str_contains( $class, 'tlharris-query-priorities-upcoming' ) ) {
 		$query['meta_key']   = 'tlharris_next_update';
 		$query['orderby']    = 'meta_value';
@@ -963,9 +1021,8 @@ function tlharris_filter_query_loop( $query, $block ) {
 		$query['meta_query'] = array(
 			array(
 				'key'     => 'tlharris_next_update',
-				'value'   => current_time( 'Y-m-d' ),
-				'compare' => '>=',
-				'type'    => 'DATE',
+				'value'   => '',
+				'compare' => '!=',
 			),
 		);
 	}
@@ -1026,11 +1083,49 @@ add_filter( 'query_loop_block_query_vars', 'tlharris_filter_query_loop', 10, 2 )
  * ---------------------------------------------------------------------- */
 
 /**
+ * Whether a string is a usable public web link: http or https, a dotted host,
+ * no embedded credentials, no whitespace.
+ *
+ * Deliberately not wp_http_validate_url(). That function is built to vet a URL
+ * before the server fetches it, so it resolves the host over DNS on every call
+ * and rejects any host that does not resolve at that moment. Run on each page
+ * view it adds a network lookup to a page render, and it rejects perfectly good
+ * links wherever the server cannot resolve names, such as a sandboxed
+ * browser-based environment. A link that is only displayed needs a syntax
+ * check, not a network one.
+ *
+ * @param mixed $url Candidate URL.
+ */
+function tlharris_is_public_url( $url ) {
+	$url = trim( (string) $url );
+
+	if ( '' === $url || preg_match( '/\s/', $url ) ) {
+		return false;
+	}
+
+	$parts = wp_parse_url( $url );
+
+	return is_array( $parts )
+		&& isset( $parts['scheme'], $parts['host'] )
+		&& in_array( strtolower( $parts['scheme'] ), array( 'http', 'https' ), true )
+		&& str_contains( $parts['host'], '.' )
+		&& ! isset( $parts['user'] )
+		&& ! isset( $parts['pass'] );
+}
+
+/**
  * A progress visualisation, and only when the numbers behind it are real.
  *
- * Requires a numeric baseline, current value and target. Missing any one of
- * them, this renders the reason instead of a bar. An invented progress bar is
- * the single most dishonest thing an accountability tracker can do.
+ * Place it in a Custom HTML block, not a Shortcode block. Core expands
+ * shortcodes in a template before the blocks render, then runs wpautop() over
+ * the Shortcode block's content, and wpautop() leaves stray closing </p> tags in
+ * markup that spans several lines. A Custom HTML block is not autop'd.
+ *
+ * Requires a numeric baseline, current value and target, and an evidence link
+ * to the source of those figures. Missing any one of them, this renders the
+ * reason instead of a bar. An invented progress bar is the single most
+ * dishonest thing an accountability tracker can do, and a bar with numbers but
+ * no source is the same thing with better manners.
  */
 function tlharris_progress_shortcode( $atts ) {
 	$post_id = get_the_ID();
@@ -1043,12 +1138,19 @@ function tlharris_progress_shortcode( $atts ) {
 	$current  = get_post_meta( $post_id, 'tlharris_current_value', true );
 	$target   = get_post_meta( $post_id, 'tlharris_target_value', true );
 	$unit     = (string) get_post_meta( $post_id, 'tlharris_measure_unit', true );
+	$evidence = trim( (string) get_post_meta( $post_id, 'tlharris_evidence_url', true ) );
 
 	$have_numbers = is_numeric( $baseline ) && is_numeric( $current ) && is_numeric( $target );
 
 	if ( ! $have_numbers ) {
 		return '<p class="tlharris-source">'
 			. esc_html__( 'Baseline not yet established from a verified public source. No progress figure is shown.', 'tlharris-core' )
+			. '</p>';
+	}
+
+	if ( ! tlharris_is_public_url( $evidence ) ) {
+		return '<p class="tlharris-source">'
+			. esc_html__( 'Figures have been entered, but no evidence link is recorded for them. No progress figure is shown until the source is linked.', 'tlharris-core' )
 			. '</p>';
 	}
 
@@ -1099,11 +1201,107 @@ function tlharris_progress_shortcode( $atts ) {
 			);
 			?>
 		</p>
+		<p class="tlharris-source">
+			<?php esc_html_e( 'Figures from:', 'tlharris-core' ); ?>
+			<a href="<?php echo esc_url( $evidence ); ?>"><?php echo esc_html( $evidence ); ?></a>
+		</p>
 	</div>
 	<?php
 	return (string) ob_get_clean();
 }
 add_shortcode( 'tlharris_progress', 'tlharris_progress_shortcode' );
+
+/**
+ * A stored Y-m-d date as a readable date, or null when the value is not one.
+ *
+ * Runs the value through tlharris_sanitize_date(), so the check that guards what
+ * is saved is the check that guards what is shown. Anything else is left for the
+ * caller to print as it was entered.
+ *
+ * @param mixed $value Stored meta value.
+ * @return array{text:string,iso:string}|null
+ */
+function tlharris_readable_date( $value ) {
+	$iso = tlharris_sanitize_date( $value );
+
+	if ( '' === $iso ) {
+		return null;
+	}
+
+	$date = DateTimeImmutable::createFromFormat( '!Y-m-d', $iso, wp_timezone() );
+
+	if ( ! $date ) {
+		return null;
+	}
+
+	return array(
+		'text' => wp_date( get_option( 'date_format' ), $date->getTimestamp() ),
+		'iso'  => $iso,
+	);
+}
+
+/**
+ * The record fields that hold a date and are shown as one.
+ *
+ * @return string[]
+ */
+function tlharris_date_field_keys() {
+	return array( 'last_verified', 'next_update', 'target_date' );
+}
+
+/**
+ * Block binding that reads one of a record's date fields, formatted for the
+ * site, so a card inside a query loop can show the date the record actually has.
+ *
+ * Shortcodes cannot do this job. Core evaluates them after the whole template
+ * has rendered, when the current post is the page and not the loop item, so a
+ * shortcode in a card sees the wrong record. A binding is resolved as its block
+ * renders, against that item's own post ID.
+ *
+ * Returns null, which leaves the block empty, when the field is unset or is not
+ * a real date. The queries that feed these cards leave such records out.
+ *
+ * Usage in a template:
+ * <!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/date","args":{"key":"next_update"}}}}} -->
+ */
+function tlharris_register_date_binding() {
+	if ( ! function_exists( 'register_block_bindings_source' ) ) {
+		return;
+	}
+
+	register_block_bindings_source(
+		'tlharris/date',
+		array(
+			'label'              => 'T. L. Harris record date',
+			'get_value_callback' => 'tlharris_date_binding_value',
+			'uses_context'       => array( 'postId' ),
+		)
+	);
+}
+add_action( 'init', 'tlharris_register_date_binding' );
+
+/**
+ * @param array    $source_args    Expects a `key` from tlharris_date_field_keys().
+ * @param WP_Block $block_instance The block being bound.
+ * @return string|null
+ */
+function tlharris_date_binding_value( $source_args, $block_instance ) {
+	$key = is_array( $source_args ) && isset( $source_args['key'] ) ? (string) $source_args['key'] : '';
+
+	if ( ! in_array( $key, tlharris_date_field_keys(), true ) ) {
+		return null;
+	}
+
+	$post_id = isset( $block_instance->context['postId'] ) ? (int) $block_instance->context['postId'] : (int) get_the_ID();
+
+	if ( ! $post_id ) {
+		return null;
+	}
+
+	$date = tlharris_readable_date( get_post_meta( $post_id, 'tlharris_' . $key, true ) );
+
+	return $date ? $date['text'] : null;
+}
 
 /**
  * Render one record field, with an honest fallback when it is empty.
@@ -1151,10 +1349,16 @@ function tlharris_field_shortcode( $atts ) {
 		);
 	}
 
+	$date = in_array( $key, tlharris_date_field_keys(), true )
+		? tlharris_readable_date( $value )
+		: null;
+
 	if ( '' === $value ) {
 		$out .= '<p class="tlharris-source">' . esc_html( $fallback ) . '</p>';
 	} elseif ( in_array( $key, array( 'evidence_url', 'source_url' ), true ) ) {
 		$out .= '<p><a href="' . esc_url( $value ) . '">' . esc_html( $value ) . '</a></p>';
+	} elseif ( $date ) {
+		$out .= '<p><time datetime="' . esc_attr( $date['iso'] ) . '">' . esc_html( $date['text'] ) . '</time></p>';
 	} else {
 		$out .= wpautop( esc_html( $value ) );
 	}
@@ -1165,6 +1369,9 @@ add_shortcode( 'tlharris_field', 'tlharris_field_shortcode' );
 
 /**
  * Counts of tracked priorities by status.
+ *
+ * Place it in a Custom HTML block, not a Shortcode block: see
+ * tlharris_progress_shortcode() for why.
  *
  * These are counts of this site's own records, not claims about district
  * outcomes. Nothing here is a performance figure.
@@ -1594,9 +1801,17 @@ function tlharris_render_import_page() {
 			<div class="notice notice-info"><p><?php echo esc_html( $message ); ?></p></div>
 		<?php endforeach; ?>
 		<p>
-			Loads the District 6 school list and the Board meeting list from the
-			repository's <code>content/</code> folder into the CMS. Running it again
-			updates the existing entries instead of duplicating them.
+			Loads the District 6 school list, the Board meeting list and the eight
+			priority subjects from the repository's <code>content/</code> folder into
+			the CMS. Running it again updates the existing entries instead of
+			duplicating them.
+		</p>
+		<p>
+			<strong>For priorities, running it again overwrites your edits.</strong>
+			Each priority's title, excerpt and governance text (role, direct control,
+			influence, district context) go back to the file's version, and its status
+			goes back to Not Started. Do not run it again once the office has edited
+			or updated the priorities.
 		</p>
 		<p>
 			<strong>Everything imports as a draft.</strong> A transcription is not a

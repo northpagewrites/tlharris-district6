@@ -76,9 +76,39 @@ later meetings directly in the CMS rather than editing the JSON.
 
 The eight priorities import the same way. Each one opens as **Not Started** with
 no baseline, target, date, action or evidence, and the detail page says so in
-plain words wherever a field is empty. Fill them in as real figures and real
-actions arrive, each with its own source URL and verification date. A progress
-bar appears only once a numeric baseline, current value and target all exist.
+plain words wherever a field is empty. **Not Started** here means that nothing
+has been recorded yet; it does not say that no work has happened. Fill the
+priorities in as real figures and real actions arrive, each with its own source
+URL and verification date. A progress bar appears only once a numeric baseline,
+current value and target all exist **and** an evidence link to their source is
+recorded; with numbers but no link, the page says the source is missing.
+
+Two lists on the Priorities & Progress page depend on dates you enter. A
+priority appears under **Recently updated** (and in the homepage's priorities
+section) only once it has a *Last verified* date, and under **Updates due** only
+once it has a *Next update due* date. An update date that has passed stays in
+the list, at the top. Until dates are entered, those lists correctly show that
+nothing is recorded.
+
+Four of the eight priorities have no "Why it matters" text and show "Not yet
+documented." Each of the removed sentences asserted an education outcome without
+a cited source. Write your own, and cite it. `content/priorities.json` explains
+this in `_why_it_matters_note`. If you imported the priorities before this
+change, those four sentences are still stored on the records: re-importing does
+not clear a field the file no longer contains, so delete them by hand.
+
+**Import the priorities once.** For priorities, running the import again
+overwrites the title, excerpt and governance text with the file's version and
+sets the status back to Not Started. That is right for a first import and wrong
+once the office has edited or updated anything. After that, add or change
+priorities in the CMS.
+
+Every priority is flagged as an originally-2026-campaign subject, and that flag
+is unverified: it was set from the campaign platform as described in
+`docs/content-sources.md`, which is not in the repository. Check each flag
+against the archived campaign site. Nothing from the campaign is displayed as
+text yet, because the original wording (`historical_target`) is empty on all
+eight.
 
 If you are upgrading an install created before this version, the status
 vocabulary changed: "Not started" and "In progress" were renamed to "Not Started"

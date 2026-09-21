@@ -32,6 +32,10 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 /* Source line under a public-record entry. */
 .tlharris-source { font-size: .85rem; color: var(--wp--preset--color--muted); }
 
+/* A long URL (a school site, an evidence link) has no break points. Let it wrap
+   inside its card, or it pushes the whole page wider than the screen. */
+.tlharris-card, .tlharris-source, .tlharris-field, .tlharris-progress { overflow-wrap: anywhere; }
+
 /* One field on a record: its label, and either the value or the reason there
    isn't one. The fallback is deliberately as visible as a real value. */
 /* Shortcode output is not a block, so blockGap does not separate it from the
@@ -59,7 +63,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
   letter-spacing: .04em;
 }
 
-/* Only rendered when a real baseline, current value and target all exist. */
+/* Only rendered when a real baseline, current value and target all exist and
+   the evidence link for them is recorded. */
 .tlharris-progress { margin: 0 0 1.5rem; }
 .tlharris-progress__label { font-weight: 600; margin: 0 0 .5rem; }
 .tlharris-progress__track {

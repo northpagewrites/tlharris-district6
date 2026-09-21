@@ -128,6 +128,37 @@ for p in templates + parts:
         fail(f'{p.name}: synthetic image reference')
 print('ok:   no synthetic image references')
 
+# 3f. Shortcodes in templates. Core expands them in the raw template BEFORE any
+# block renders, and then runs wpautop() over each Shortcode block's content.
+# Two consequences, both of which shipped:
+#   - a shortcode whose output spans several lines came back with stray </p>
+#     tags and <br>s, so multi-line ones must sit in a Custom HTML block;
+#   - a shortcode inside a query loop is expanded once, against the page and not
+#     against each item, so per-item data must come from a block binding.
+single_line_shortcodes = {'tlharris_field', 'tlharris_campaign_origin', 'tlharris_identity'}
+for p in templates + parts + sorted(theme.glob('patterns/*.php')):
+    s = p.read_text()
+    for m in re.finditer(r'<!-- wp:shortcode -->(.*?)<!-- /wp:shortcode -->', s, re.S):
+        for name in re.findall(r'\[([a-z_][a-z0-9_]*)', m.group(1)):
+            if name not in single_line_shortcodes:
+                fail(f'{p.name}: [{name}] is in a Shortcode block. Multi-line output needs a Custom HTML block (wp:html).')
+    for m in re.finditer(r'<!-- wp:post-template.*?<!-- /wp:post-template -->', s, re.S):
+        for name in re.findall(r'\[(tlharris_[a-z0-9_]+)', m.group(0)):
+            fail(f'{p.name}: [{name}] inside a query loop. Shortcodes cannot see the loop item; use a block binding.')
+print('ok:   shortcode placement')
+
+# 3g. The className on a Query block only reaches the query filter if the plugin
+# copies it down as block context. Without this, every filtered list silently
+# shows the unfiltered query: schools under the wrong level, upcoming events in
+# "past events", every priority under "updates due".
+plugin_src = (root / 'wp-content/plugins/tlharris-core/tlharris-core.php').read_text()
+if not re.search(r"add_filter\(\s*'render_block_context'\s*,\s*'tlharris_pass_query_class'", plugin_src):
+    fail("plugin: tlharris_pass_query_class is not hooked to render_block_context")
+m = re.search(r'function tlharris_filter_query_loop\(.*?\n}\n', plugin_src, re.S)
+if not m or 'tlharris/queryClass' not in m.group(0):
+    fail('plugin: tlharris_filter_query_loop does not read tlharris/queryClass')
+print('ok:   query className is passed to the filter')
+
 # 3e. Contrast. These exact pairs failed WCAG AA in v2.
 def relative_luminance(hex_color):
     hex_color = hex_color.lstrip('#')
