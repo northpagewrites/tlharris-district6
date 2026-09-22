@@ -598,13 +598,25 @@ function tlharris_register_taxonomies() {
 add_action( 'init', 'tlharris_register_taxonomies' );
 
 /**
+ * The only permitted status values, in the order a record actually moves
+ * through them. No "Success", "Win" or "On Track": a tracker that grades
+ * itself in celebratory language is a campaign page, not a public record.
+ * Reused wherever statuses are seeded, listed or counted, so the tracker
+ * never presents them in an arbitrary (e.g. alphabetical) order that reads
+ * like a ranking.
+ *
+ * @return string[]
+ */
+function tlharris_progress_status_labels() {
+	return array( 'Not Started', 'Monitoring', 'In Progress', 'Completed', 'On Hold' );
+}
+
+/**
  * Fixed vocabularies. A free-form status column is not an accountability system.
  */
 function tlharris_seed_terms() {
 	$terms = array(
-		// The only permitted status values. No "Success", "Win" or "On Track":
-		// a tracker that grades itself in celebratory language is a campaign page.
-		'progress_status'   => array( 'Not Started', 'Monitoring', 'In Progress', 'Completed', 'On Hold' ),
+		'progress_status'   => tlharris_progress_status_labels(),
 		'update_type'       => array( 'Board Update', 'Report to District 6', 'Statement', 'Community', 'Education' ),
 		'school_level'      => array( 'Elementary', 'Middle', 'High' ),
 		'priority_category' => array(
@@ -1396,8 +1408,21 @@ function tlharris_priority_stats_shortcode( $atts ) {
 			. '</p>';
 	}
 
-	$rows = array();
+	$by_name = array();
 	foreach ( $statuses as $status ) {
+		$by_name[ $status->name ] = $status;
+	}
+
+	// Walk the fixed lifecycle order (Not Started ... On Hold), never the
+	// alphabetical order get_terms() returns. Alphabetical happens to put
+	// "Completed" first and "Not Started" fourth, which reads as a ranking
+	// of how well things are going. This tracker does not rank itself.
+	$rows = array();
+	foreach ( tlharris_progress_status_labels() as $name ) {
+		if ( ! isset( $by_name[ $name ] ) ) {
+			continue;
+		}
+
 		$ids = get_posts(
 			array(
 				'post_type'      => 'priority',
@@ -1409,14 +1434,14 @@ function tlharris_priority_stats_shortcode( $atts ) {
 					array(
 						'taxonomy' => 'progress_status',
 						'field'    => 'term_id',
-						'terms'    => $status->term_id,
+						'terms'    => $by_name[ $name ]->term_id,
 					),
 				),
 			)
 		);
 
 		if ( $ids ) {
-			$rows[ $status->name ] = count( $ids );
+			$rows[ $name ] = count( $ids );
 		}
 	}
 
@@ -1435,7 +1460,7 @@ function tlharris_priority_stats_shortcode( $atts ) {
 		<?php endforeach; ?>
 	</div>
 	<p class="tlharris-source">
-		<?php esc_html_e( 'These are counts of the priorities tracked on this site. They are not district performance figures.', 'tlharris-core' ); ?>
+		<?php esc_html_e( 'These are counts of the priorities tracked on this site, listed in the order a record moves through them, not a ranking of how well things are going. They are not district performance figures.', 'tlharris-core' ); ?>
 	</p>
 	<?php
 	return (string) ob_get_clean();
@@ -1678,10 +1703,19 @@ function tlharris_import_meetings() {
  * accountability tracker that starts with invented numbers is worse than one
  * that starts empty.
  *
- * @return array{created:int,updated:int,errors:string[]}
+ * Create-only, by office decision (2026-09-21): a normal re-import creates
+ * any priority missing from the CMS but never touches one that already
+ * exists, so office edits to a published or in-review record are never
+ * silently overwritten by the seed file. A skipped record is reported by
+ * title so an editor can see what the import left alone. A genuine,
+ * intentional change to the source data (fixing a typo in the seed, adding
+ * a new field to every record) is a separate, explicit migration, not a
+ * re-run of this import — see docs/content-sources.md.
+ *
+ * @return array{created:int,skipped:int,skipped_titles:string[],errors:string[]}
  */
 function tlharris_import_priorities() {
-	$result = array( 'created' => 0, 'updated' => 0, 'errors' => array() );
+	$result = array( 'created' => 0, 'skipped' => 0, 'skipped_titles' => array(), 'errors' => array() );
 	$data   = tlharris_read_json( 'priorities.json' );
 
 	if ( is_wp_error( $data ) ) {
@@ -1702,22 +1736,27 @@ function tlharris_import_priorities() {
 			continue;
 		}
 
-		$key       = 'priority:' . sanitize_title( $title );
-		$existing  = tlharris_find_by_import_key( 'priority', $key );
+		$key      = 'priority:' . sanitize_title( $title );
+		$existing = tlharris_find_by_import_key( 'priority', $key );
+
+		if ( $existing ) {
+			// Already in the CMS. Leave title, excerpt, governance text,
+			// status and every other field exactly as an editor left them.
+			$result['skipped']++;
+			$result['skipped_titles'][] = $title;
+			continue;
+		}
+
 		$post_data = array(
 			'post_type'    => 'priority',
 			'post_title'   => $title,
 			'post_name'    => sanitize_title( $title ),
 			'post_excerpt' => sanitize_textarea_field( (string) ( $priority['description'] ?? '' ) ),
+			// Draft: nothing published until a human has checked it.
+			'post_status'  => 'draft',
 		);
 
-		if ( $existing ) {
-			$post_data['ID'] = $existing;
-			$post_id         = wp_update_post( $post_data, true );
-		} else {
-			$post_data['post_status'] = 'draft';
-			$post_id                  = wp_insert_post( $post_data, true );
-		}
+		$post_id = wp_insert_post( $post_data, true );
 
 		if ( is_wp_error( $post_id ) ) {
 			$result['errors'][] = sprintf( '%s: %s', $title, $post_id->get_error_message() );
@@ -1748,7 +1787,7 @@ function tlharris_import_priorities() {
 			wp_set_object_terms( $post_id, array_map( 'strval', (array) $priority['topics'] ), 'board_topic', false );
 		}
 
-		$existing ? $result['updated']++ : $result['created']++;
+		$result['created']++;
 	}
 
 	return $result;
@@ -1781,14 +1820,18 @@ function tlharris_render_import_page() {
 		$priorities = tlharris_import_priorities();
 
 		$messages[] = sprintf(
-			'Schools: %d created, %d updated. Meetings: %d created, %d updated. Priorities: %d created, %d updated.',
+			'Schools: %d created, %d updated. Meetings: %d created, %d updated. Priorities: %d created, %d already in the CMS (left alone).',
 			$schools['created'],
 			$schools['updated'],
 			$meetings['created'],
 			$meetings['updated'],
 			$priorities['created'],
-			$priorities['updated']
+			$priorities['skipped']
 		);
+
+		if ( ! empty( $priorities['skipped_titles'] ) ) {
+			$messages[] = 'Priorities left alone: ' . implode( '; ', $priorities['skipped_titles'] );
+		}
 
 		foreach ( array_merge( $schools['errors'], $meetings['errors'], $priorities['errors'] ) as $error ) {
 			$messages[] = 'Error: ' . $error;
@@ -1803,15 +1846,22 @@ function tlharris_render_import_page() {
 		<p>
 			Loads the District 6 school list, the Board meeting list and the eight
 			priority subjects from the repository's <code>content/</code> folder into
-			the CMS. Running it again updates the existing entries instead of
-			duplicating them.
+			the CMS.
 		</p>
 		<p>
-			<strong>For priorities, running it again overwrites your edits.</strong>
-			Each priority's title, excerpt and governance text (role, direct control,
-			influence, district context) go back to the file's version, and its status
-			goes back to Not Started. Do not run it again once the office has edited
-			or updated the priorities.
+			For schools and meetings, running it again updates the existing entries
+			from the file instead of duplicating them.
+		</p>
+		<p>
+			<strong>For priorities, running it again never overwrites your edits.</strong>
+			A priority already in the CMS — by title — is left exactly as an editor
+			left it: title, excerpt, governance text, status, everything. Only a
+			priority missing from the CMS is created. The notice above lists what was
+			skipped, so you can see what the import left alone. To make an
+			intentional change to the source data itself (fixing a seed file typo,
+			adding a field to every record), edit the record directly in the CMS, or
+			see the update/migration process in <code>docs/content-sources.md</code> —
+			re-running this import is not that process.
 		</p>
 		<p>
 			<strong>Everything imports as a draft.</strong> A transcription is not a
@@ -1838,15 +1888,19 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				WP_CLI::warning( $error );
 			}
 
+			if ( ! empty( $priorities['skipped_titles'] ) ) {
+				WP_CLI::log( 'Priorities already in the CMS, left alone: ' . implode( '; ', $priorities['skipped_titles'] ) );
+			}
+
 			WP_CLI::success(
 				sprintf(
-					'Schools: %d created, %d updated. Meetings: %d created, %d updated. Priorities: %d created, %d updated. All drafts.',
+					'Schools: %d created, %d updated. Meetings: %d created, %d updated. Priorities: %d created, %d already in the CMS (left alone). All drafts.',
 					$schools['created'],
 					$schools['updated'],
 					$meetings['created'],
 					$meetings['updated'],
 					$priorities['created'],
-					$priorities['updated']
+					$priorities['skipped']
 				)
 			);
 		}

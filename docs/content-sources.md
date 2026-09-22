@@ -132,6 +132,48 @@ Two more things the seed does not settle:
   four that remain say why public reporting and public access matter, which is
   not a claim about outcomes. All eight need office review either way.
 
+## Decisions, 2026-09-21
+
+The office decided the five open questions from the preview and Priorities &
+Progress review. None of these required inventing content; they set policy for
+content that is already in the CMS or still needs sourcing.
+
+1. **Campaign wording.** Keep the original campaign wording, once supplied, as
+   historical/source material only, under `historical_target`. Mark
+   `campaign_origin: true` only where a priority genuinely originated from the
+   campaign platform. Never present historical campaign targets as current
+   commitments or accomplishments. The current public-facing `description`
+   stays framed around the present public-service issue — it already is, and
+   this decision does not change it. Unchanged: the flag is still unverified
+   against the archived campaign site (see "Still needed" below).
+2. **Homepage.** The homepage's "Current Work" section now pulls from the
+   `priority` post type instead of four hardcoded cards. Its heading stays
+   "The Work in Progress." Its copy was rewritten so the section reads as a
+   public view of issues being monitored and developed through District 6 and
+   Board work, not as a claim that all eight are being actively executed.
+3. **Status.** The seeded "Not Started" status is kept, not left blank. The
+   plugin now lists statuses everywhere in a fixed lifecycle order (Not
+   Started, Monitoring, In Progress, Completed, On Hold) instead of
+   alphabetical, so the count of "0 completed" next to "8 not started" cannot
+   read as a ranking. The status term itself is never colour-coded, and the
+   "How progress is measured" pattern already states plainly that no status
+   here means "going well" and that Not Started is not a judgement of effort.
+4. **Importer.** `tlharris_import_priorities()` is now create-only. A priority
+   already in the CMS, matched by title, is left exactly as an editor left it
+   — title, excerpt, governance text, status, everything — and the import
+   notice reports what it skipped. Only a priority missing from the CMS is
+   created, as a draft. The schools and meetings importers are unchanged; the
+   decision was scoped to priorities. A genuine, intentional change to the
+   seed data itself is a separate update/migration, made directly in the CMS
+   or as a deliberate edit to `content/priorities.json` followed by a review
+   of what changed — not a blind re-import.
+5. **Governance framing and `why_it_matters`.** These remain pending office
+   review and are not final public copy. Every priority record stays a
+   WordPress draft until that review happens; drafts are never public, which
+   is what keeps this text out of public view until it is reviewed.
+   Reviewing and publishing a record is a manual, per-record action in the
+   CMS.
+
 ## Still needed
 
 - Official URLs for enrolment, transportation, the parent portal and student
