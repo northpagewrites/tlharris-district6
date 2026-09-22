@@ -28,6 +28,9 @@ resource links (S1, S3, S5, S6, S7).
 **District 6** — role (S4), school list (S4), locator and directory (S1, S6, S7),
 district map (S8).
 
+**Press & Media** — media contact (S2), pending the office naming a dedicated
+contact of its own.
+
 ## Verified statements
 
 From S1:
@@ -173,6 +176,53 @@ content that is already in the CMS or still needs sourcing.
    is what keeps this text out of public view until it is reviewed.
    Reviewing and publishing a record is a manual, per-record action in the
    CMS.
+
+## Content architecture audit, 2026-09-21
+
+Reviewed every template and pattern for About, District 6, Board Work,
+Priorities & Progress, News & Updates, Events, Get Help, Press & Media and
+Contact against the verified-source rules, before starting any new build.
+Finding: the content-build-1 and P0 fix passes (see the completed-work notes
+in the project) already carried this architecture over into this repository.
+Every `page-*.html` template is a layout shell (`post-title` + `post-content`);
+every list is a live query against a CPT, not hardcoded cards; every pattern
+that states a fact carries a `tlharris-source` line naming the source and a
+verification date; no campaign language, "Vote" wording, invented Harris
+votes, attendance, credentials or accomplishments appear anywhere in a
+template or pattern.
+
+Two gaps found and fixed, both wiring only — no new facts:
+
+1. **Four public-record types had no dedicated single template**
+   (`committee`, `board_document`, `press_item`, `board_update`), so their
+   structured fields (committee role and term dates; document type, date and
+   URL; outlet and publication date; source and last-verified) were captured
+   in the CMS but never displayed. Added `single-committee.html`,
+   `single-board_document.html`, `single-press_item.html` and
+   `single-board_update.html`, matching the existing `single-board_action.html`
+   / `single-event.html` / `single-district_school.html` pattern: a Details
+   card bound to that type's own meta fields, plus the Source / Last verified
+   footer already used everywhere else. `board_update` had no Details card
+   added, since its only fields are source and verification date; the
+   featured-image support already declared for every CPT is left to the
+   generic `single.html` template for any type that does not need one.
+2. **The Press & Media page did not carry a media contact**, even though the
+   Contact page tells media inquiries to go there. Added a "Media contact"
+   section citing the MSCS Board Office (S2), the same verified channel
+   already used on Contact and Get Help, with a note that this office has not
+   yet named a dedicated media contact of its own. No headshots, downloadable
+   photography, short or long biography were added: none of that exists from
+   the office yet, and the page says so plainly rather than leaving the
+   absence unexplained.
+
+Confirmed still blocked, not attempted: any Harris-specific vote, committee
+assignment, meeting attendance or constituent outcome (none verified exists);
+a written biography beyond the one paragraph already sourced to S4 (needs
+office-approved copy); enrolment, transportation, parent-portal and
+student-services URLs (unverified); a newsletter or social-media presence in
+the footer (no provider or handles decided); a constituent intake form on Get
+Help (workflow, categories, storage and response-time commitment are still
+open office decisions, not something to build ahead of them).
 
 ## Still needed
 
