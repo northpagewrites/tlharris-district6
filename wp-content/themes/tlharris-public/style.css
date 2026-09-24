@@ -105,15 +105,95 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 /* Gold at #946E2F clears 3:1 against paper, soft, white and ink. */
 :focus-visible { outline: 3px solid var(--wp--preset--color--accent); outline-offset: 3px; }
 
+/* --- Official, editorial "pop": depth, rhythm and motion (Sept 2026) ---
+   Every effect here is CSS-only (no JS), stays inside the existing ink /
+   paper / gold palette, and is inert for anyone who has asked for reduced
+   motion or is on a browser that doesn't support it yet. */
+
+/* A slim gold-ink-gold rule across the very top of every page: a formal,
+   ribbon-like mark rather than a campaign banner. */
+header { position: relative; }
+header::before {
+  content: "";
+  position: absolute; top: -1px; left: 0; right: 0; height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--wp--preset--color--accent) 0%,
+    var(--wp--preset--color--ink) 50%,
+    var(--wp--preset--color--accent) 100%
+  );
+}
+
+/* Subtle depth inside dark (ink) bands: a soft gold glow and a faint
+   highlight, not a photo substitute. Opacity is low enough that white
+   text keeps its full contrast against the ink base. */
+.has-ink-background-color.has-background {
+  background-image:
+    radial-gradient(ellipse 60% 80% at 100% 0%, rgba(148, 110, 47, .18), transparent 60%),
+    radial-gradient(ellipse 55% 65% at 0% 100%, rgba(255, 255, 255, .05), transparent 55%);
+}
+
+/* Nav links: a gold underline that draws in on hover/focus instead of a
+   color-only change. */
+.wp-block-navigation .wp-block-navigation-item__content {
+  position: relative;
+}
+.wp-block-navigation .wp-block-navigation-item__content::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -3px; height: 2px;
+  background: var(--wp--preset--color--accent);
+  transform: scaleX(0); transform-origin: center;
+  transition: transform .2s ease;
+}
+.wp-block-navigation .wp-block-navigation-item__content:hover::after,
+.wp-block-navigation .wp-block-navigation-item__content:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Buttons: a small lift on hover/focus, matching the existing card
+   treatment. */
+.wp-block-button__link {
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.wp-block-button__link:hover,
+.wp-block-button__link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(18, 32, 45, .18);
+}
+
+/* Section entrances: headings, cards and stat tiles fade and rise into
+   place as the page scrolls, using the browser's native scroll-driven
+   animation timeline. No JavaScript. Browsers that don't support this
+   yet just show the content normally, already visible. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    main .wp-block-heading,
+    .tlharris-card,
+    .tlharris-stat {
+      animation: tlharris-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    @keyframes tlharris-reveal {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     scroll-behavior: auto !important;
     transition: none !important;
     animation: none !important;
   }
-  .tlharris-card:hover { transform: none; }
+  .tlharris-card:hover,
+  .wp-block-button__link:hover,
+  .wp-block-button__link:focus-visible { transform: none; }
 }
 
 @media (max-width: 781px) {
-  .tlharris-card:hover { transform: none; }
+  .tlharris-card:hover,
+  .wp-block-button__link:hover,
+  .wp-block-button__link:focus-visible { transform: none; }
 }
