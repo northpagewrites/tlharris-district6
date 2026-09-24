@@ -197,3 +197,45 @@ header::before {
   .wp-block-button__link:hover,
   .wp-block-button__link:focus-visible { transform: none; }
 }
+
+/* --- Rotating hero photos + video section (homepage), pure CSS, no JS ---
+   Drop 5 photos into assets/images/hero/ named hero-1.jpg ... hero-5.jpg
+   and a video into assets/video/report-to-district-6.mp4 and this is done;
+   no further code changes needed. */
+.tlharris-hero { position: relative; overflow: hidden; border-radius: var(--tlharris-radius); }
+.tlharris-hero-media {
+  position: absolute; inset: 0; z-index: 0; margin: 0;
+  background: var(--wp--preset--color--ink);
+}
+.tlharris-hero-media .tlharris-hero-slide {
+  position: absolute; inset: 0; margin: 0; opacity: 0;
+}
+.tlharris-hero-media .tlharris-hero-slide img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.tlharris-hero-media .tlharris-hero-slide-1 { opacity: 1; }
+.tlharris-hero-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(22, 34, 44, .35), rgba(22, 34, 44, .72));
+}
+.tlharris-hero-content { position: relative; z-index: 1; padding: 1rem 0; }
+.tlharris-hero-content .tlharris-eyebrow { color: #fff !important; opacity: .85; }
+.tlharris-hero-content h1,
+.tlharris-hero-content p { color: #fff; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .tlharris-hero-media .tlharris-hero-slide-1 { animation: tlharris-hero-fade 25s ease-in-out infinite; }
+  .tlharris-hero-media .tlharris-hero-slide-2 { animation: tlharris-hero-fade 25s ease-in-out infinite; animation-delay: 5s; }
+  .tlharris-hero-media .tlharris-hero-slide-3 { animation: tlharris-hero-fade 25s ease-in-out infinite; animation-delay: 10s; }
+  .tlharris-hero-media .tlharris-hero-slide-4 { animation: tlharris-hero-fade 25s ease-in-out infinite; animation-delay: 15s; }
+  .tlharris-hero-media .tlharris-hero-slide-5 { animation: tlharris-hero-fade 25s ease-in-out infinite; animation-delay: 20s; }
+}
+@keyframes tlharris-hero-fade {
+  0%, 100% { opacity: 0; }
+  4% { opacity: 1; }
+  18% { opacity: 1; }
+  22% { opacity: 0; }
+}
+
+.tlharris-report-video { margin: 1.5rem 0; border-radius: var(--tlharris-radius); overflow: hidden; }
+.tlharris-report-video video { width: 100%; display: block; }

@@ -1,8 +1,29 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 <!-- wp:group {"tagName":"main","anchor":"main-content","layout":{"type":"constrained"}} -->
 <main id="main-content" class="wp-block-group">
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"clamp(3rem,7vw,6rem)","bottom":"clamp(3rem,6vw,5rem)"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="padding-top:clamp(3rem,7vw,6rem);padding-bottom:clamp(3rem,6vw,5rem)">
+<!-- wp:group {"align":"wide","className":"tlharris-hero","style":{"spacing":{"padding":{"top":"clamp(3rem,7vw,6rem)","bottom":"clamp(3rem,6vw,5rem)"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide tlharris-hero" style="padding-top:clamp(3rem,7vw,6rem);padding-bottom:clamp(3rem,6vw,5rem)">
+<!-- wp:group {"className":"tlharris-hero-media","layout":{"type":"constrained"}} -->
+<div class="wp-block-group tlharris-hero-media" aria-hidden="true">
+<!-- wp:image {"className":"tlharris-hero-slide tlharris-hero-slide-1","sizeSlug":"full"} -->
+<figure class="wp-block-image size-full tlharris-hero-slide tlharris-hero-slide-1"><img src="/wp-content/themes/tlharris-public/assets/images/hero/hero-1.jpg" alt=""/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"className":"tlharris-hero-slide tlharris-hero-slide-2","sizeSlug":"full"} -->
+<figure class="wp-block-image size-full tlharris-hero-slide tlharris-hero-slide-2"><img src="/wp-content/themes/tlharris-public/assets/images/hero/hero-2.jpg" alt=""/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"className":"tlharris-hero-slide tlharris-hero-slide-3","sizeSlug":"full"} -->
+<figure class="wp-block-image size-full tlharris-hero-slide tlharris-hero-slide-3"><img src="/wp-content/themes/tlharris-public/assets/images/hero/hero-3.jpg" alt=""/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"className":"tlharris-hero-slide tlharris-hero-slide-4","sizeSlug":"full"} -->
+<figure class="wp-block-image size-full tlharris-hero-slide tlharris-hero-slide-4"><img src="/wp-content/themes/tlharris-public/assets/images/hero/hero-4.jpg" alt=""/></figure>
+<!-- /wp:image -->
+<!-- wp:image {"className":"tlharris-hero-slide tlharris-hero-slide-5","sizeSlug":"full"} -->
+<figure class="wp-block-image size-full tlharris-hero-slide tlharris-hero-slide-5"><img src="/wp-content/themes/tlharris-public/assets/images/hero/hero-5.jpg" alt=""/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"tlharris-hero-content"} -->
+<div class="wp-block-group tlharris-hero-content">
 <!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
 <p class="tlharris-eyebrow has-muted-color has-text-color">Memphis-Shelby County Schools</p>
 <!-- /wp:paragraph -->
@@ -11,6 +32,8 @@
 <p class="tlharris-eyebrow has-muted-color has-text-color"></p>
 <!-- /wp:paragraph -->
 <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 <!-- wp:group {"align":"full","backgroundColor":"soft","style":{"spacing":{"padding":{"top":"4rem","right":"clamp(1rem,3vw,2.5rem)","bottom":"4rem","left":"clamp(1rem,3vw,2.5rem)"}}},"layout":{"type":"constrained"}} -->
@@ -239,6 +262,9 @@
 <!-- wp:paragraph -->
 <p>What happened, what was worked on, what is being watched, and what comes next.</p>
 <!-- /wp:paragraph -->
+<!-- wp:video {"className":"tlharris-report-video"} -->
+<figure class="wp-block-video tlharris-report-video"><video controls preload="metadata" poster="/wp-content/themes/tlharris-public/assets/images/report-video-poster.jpg" src="/wp-content/themes/tlharris-public/assets/video/report-to-district-6.mp4"></video></figure>
+<!-- /wp:video -->
 <!-- wp:query {"query":{"perPage":1,"pages":0,"offset":0,"postType":"board_update","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-report"} -->
 <div class="wp-block-query tlharris-query-report">
 <!-- wp:post-template -->
