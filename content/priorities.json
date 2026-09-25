@@ -1,6 +1,6 @@
 {
   "_comment": "The eight priority subjects, seeded as DRAFTS. Every record deliberately omits baseline, target, target date, actions and evidence: none of those exist from a verified public source yet, and a tracker that opens with invented numbers is worse than one that opens empty. The detail template renders 'Baseline not yet established from a verified public source.' wherever a field is absent. The office fills these in as real figures and real actions become available, each with its own source URL and verification date.",
-  "_historical_targets": "Every record is flagged campaign_origin: true, but historical_target is EMPTY on all eight. The original 2026 campaign wording is not in this repository and was not available to transcribe. Do not write it from memory. Retrieve it from the archived campaign site or the campaign's own records, paste it verbatim into historical_target, and it will render under a label marking it as historical context rather than a current commitment.",
+  "_historical_targets": "Filled 2026-09-24 per the office decision (2026-09-21) logged above: retrieved verbatim from the archived campaign site, not from memory — https://voteharris901.com/platform/ and https://voteharris901.com/about/ (accessed 2026-09-24, logged as S11 in docs/content-sources.md). Renders under tlharris_historical_target, labeled 'Campaign wording, kept as historical context. It is not a current commitment or a predicted outcome.' historical_source / historical_accessed are documentation fields only — the importer does not read them onto the post.",
   "_governance_note": "The role, direct_control, influence and district_context fields describe what any individual Board member can and cannot do. They contain no claim about anything T. L. Harris has personally done. The nine-member composition of the Board is from https://www.scsk12.org/board/ (accessed 2026-09-20). The rest is governance framing and needs office review before publication.",
   "_why_it_matters_note": "why_it_matters is filled in for four of the eight records (School Improvement Goals, Annual Literacy Growth Reports, Quarterly Town Halls, Public Performance Dashboard). Each is a statement about why public reporting or public access matters, not a claim about education outcomes. The other four (Early Literacy and Third-Grade Reading, Early Literacy Instruction and Structured Literacy, Early Intervention, Safe and Supportive Learning Environments) had a sentence asserting an education outcome or cost effect. Those are empirical claims with no cited source, so they were removed and the page shows 'Not yet documented.' until the office writes its own reasoning and cites a source. Do not restore them from memory.",
   "_campaign_origin_note": "campaign_origin: true on every record is an assumption. The eight subjects were taken from the 2026 campaign platform as described in docs/content-sources.md, but the platform itself is not in this repository. Confirm each flag against the archived campaign site, and turn it off for any subject that was not actually in the platform. The flag only controls whether a historical-context label is shown, and historical_target is empty everywhere, so no campaign wording is displayed yet. By office decision (2026-09-21): keep the original campaign wording, once supplied, as historical/source material only — it renders under a label marking it as history, never as a current promise or accomplishment — and the current public-facing description field stays framed around the present public-service issue, not the campaign target. That framing is already how description is written; nothing here changes it.",
@@ -13,100 +13,143 @@
       "category": "Early Literacy",
       "status": "Not Started",
       "campaign_origin": true,
-      "topics": ["Literacy"],
+      "topics": [
+        "Literacy"
+      ],
       "description": "Third-grade reading proficiency across Memphis-Shelby County Schools, and what the Board asks about it.",
       "role": "One of nine elected members of the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How he votes on items that come before the Board. What he asks for in Board meetings and puts on the public record. What he reports back to District 6.",
       "influence": "Which issues get Board discussion and how often. Requests for data and public reporting. Advocacy with colleagues and the administration.",
-      "district_context": "Reading outcomes depend on classroom instruction, school leadership and district-wide programs. The Board acts as a body, and any single member's vote is one of nine."
+      "district_context": "Reading outcomes depend on classroom instruction, school leadership and district-wide programs. The Board acts as a body, and any single member's vote is one of nine.",
+      "historical_target": "Increase third-grade reading proficiency by 10% within two academic years.",
+      "historical_source": "voteharris901.com/platform/ — \"The Third Grade Standard\"",
+      "historical_accessed": "2026-09-24"
     },
     {
       "title": "Early Literacy Instruction and Structured Literacy",
       "category": "Early Literacy",
       "status": "Not Started",
       "campaign_origin": true,
-      "topics": ["Literacy"],
+      "topics": [
+        "Literacy"
+      ],
       "description": "How reading is taught in the early grades, and which instructional approach the district uses.",
       "role": "One of nine elected members of the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How he votes on curriculum and budget items that reach the Board. What he asks about instructional practice in public session.",
       "influence": "Whether instructional approach is discussed at Board level, and what reporting the Board requests on it.",
-      "district_context": "Curriculum selection and teacher training are run by district administration. A Board member does not set classroom practice."
+      "district_context": "Curriculum selection and teacher training are run by district administration. A Board member does not set classroom practice.",
+      "historical_target": "Expand structured literacy practices across all K-3 classrooms.",
+      "historical_source": "voteharris901.com/platform/ — \"The Third Grade Standard\"",
+      "historical_accessed": "2026-09-24"
     },
     {
       "title": "Early Intervention",
       "category": "Student Achievement",
       "status": "Not Started",
       "campaign_origin": true,
-      "topics": ["Literacy", "Student Support"],
+      "topics": [
+        "Literacy",
+        "Student Support"
+      ],
       "description": "How quickly students who fall behind are identified, and what support follows.",
       "role": "One of nine elected members of the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How he votes on programs and funding that come before the Board. What he asks about identification and support in public session.",
       "influence": "Whether intervention data is reported to the Board and made public.",
-      "district_context": "Identification and support happen at school level, under district programs. Some requirements come from outside the district."
+      "district_context": "Identification and support happen at school level, under district programs. Some requirements come from outside the district.",
+      "historical_target": "Prioritize early intervention before grade retention becomes necessary.",
+      "historical_source": "voteharris901.com/platform/ — \"The Third Grade Standard\"",
+      "historical_accessed": "2026-09-24"
     },
     {
       "title": "School Improvement Goals",
       "category": "Student Achievement",
       "status": "Not Started",
       "campaign_origin": true,
-      "topics": ["School Improvement"],
+      "topics": [
+        "School Improvement"
+      ],
       "description": "School improvement goals: what they are, who sets them, and how the Board oversees progress against them.",
       "why_it_matters": "Improvement goals are how a district states publicly what it is trying to change.",
       "role": "One of nine elected members of the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How he votes on goals and plans presented to the Board. What he asks for in the way of progress reporting.",
       "influence": "How regularly progress is reviewed in public session.",
-      "district_context": "Goals are set and carried out by district and school leadership. The Board's role is oversight, exercised as a body."
+      "district_context": "Goals are set and carried out by district and school leadership. The Board's role is oversight, exercised as a body.",
+      "historical_target": "Require every District 6 school to publish annual measurable improvement goals.",
+      "historical_source": "voteharris901.com/about/ — \"Academic Growth Targets\"",
+      "historical_accessed": "2026-09-24"
     },
     {
       "title": "Safe and Supportive Learning Environments",
       "category": "Safe & Supportive Schools",
       "status": "Not Started",
       "campaign_origin": true,
-      "topics": ["School Climate", "Student Support"],
+      "topics": [
+        "School Climate",
+        "Student Support"
+      ],
       "description": "School climate, behavioral standards, and the support available to students and staff.",
       "role": "One of nine elected members of the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How he votes on policy that comes before the Board. What he raises publicly about school conditions in District 6.",
       "influence": "Whether climate and discipline data is reported to the Board and published.",
-      "district_context": "Day-to-day discipline and safety are handled by school leadership under district policy. A Board member does not manage staff or individual student matters."
+      "district_context": "Day-to-day discipline and safety are handled by school leadership under district policy. A Board member does not manage staff or individual student matters.",
+      "historical_target": "Reduce classroom disruptions by 15% within two years through clear behavioral standards. Every student deserves a learning environment where they feel secure, supported, and ready to learn.",
+      "historical_source": "voteharris901.com/about/ and /platform/ — \"Safe & Structured Schools\" / \"Safe Schools\"",
+      "historical_accessed": "2026-09-24"
     },
     {
       "title": "Annual Literacy Growth Reports",
       "category": "Accountability & Stewardship",
       "status": "Not Started",
       "campaign_origin": true,
-      "topics": ["Literacy", "Transparency"],
+      "topics": [
+        "Literacy",
+        "Transparency"
+      ],
       "description": "Whether literacy growth is reported publicly each year, and in a form residents can find and read.",
       "why_it_matters": "A commitment nobody reports on cannot be checked by anyone.",
       "role": "One of nine elected members of the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "What he asks the district to report. What he publishes to District 6 through this site, whether or not the district publishes its own.",
       "influence": "Whether the Board requests annual public reporting on literacy.",
-      "district_context": "District-wide reporting is produced by the administration. What this office can do on its own is publish what it has, and say plainly what it does not have."
+      "district_context": "District-wide reporting is produced by the administration. What this office can do on its own is publish what it has, and say plainly what it does not have.",
+      "historical_target": "Publish annual literacy growth reports for District 6 schools, and host quarterly public updates to ensure transparency and accountability.",
+      "historical_source": "voteharris901.com/platform/ — \"The Third Grade Standard\"",
+      "historical_accessed": "2026-09-24"
     },
     {
       "title": "Quarterly Town Halls",
       "category": "Family & Community Engagement",
       "status": "Not Started",
       "campaign_origin": true,
-      "topics": ["Community Engagement"],
+      "topics": [
+        "Community Engagement"
+      ],
       "description": "Regular public meetings in District 6 where residents can raise concerns directly.",
       "why_it_matters": "Residents need a predictable place to raise something and be answered in public.",
       "role": "One of nine elected members of the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "Whether the meetings are scheduled and held. Whether a summary is published afterwards. What follow-up is recorded.",
       "influence": "Whether concerns raised at a town hall reach the district and get a response.",
-      "district_context": "Holding the meetings is within this office's own control. Attendance, and what the district does in response to what is raised, are not."
+      "district_context": "Holding the meetings is within this office's own control. Attendance, and what the district does in response to what is raised, are not.",
+      "historical_target": "Host quarterly District 6 town halls and publish meeting summaries within 10 business days.",
+      "historical_source": "voteharris901.com/about/ — \"Parent Engagement\"",
+      "historical_accessed": "2026-09-24"
     },
     {
       "title": "Public Performance Dashboard",
       "category": "Accountability & Stewardship",
       "status": "Not Started",
       "campaign_origin": true,
-      "topics": ["Transparency"],
+      "topics": [
+        "Transparency"
+      ],
       "description": "Whether district performance information is published in one place the public can find and use.",
       "why_it_matters": "Information the public cannot find cannot hold anyone to account.",
       "role": "One of nine elected members of the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "What this office publishes and keeps current on this site.",
       "influence": "Whether the district builds or improves its own public reporting.",
-      "district_context": "A district-wide dashboard would be built and maintained by the district. Any figure shown here must come from a published district or state source, with that source named."
+      "district_context": "A district-wide dashboard would be built and maintained by the district. Any figure shown here must come from a published district or state source, with that source named.",
+      "historical_target": "Launch a publicly accessible quarterly performance dashboard within the first year of service.",
+      "historical_source": "voteharris901.com/about/ — \"Fiscal Transparency\"",
+      "historical_accessed": "2026-09-24"
     }
   ]
 }

@@ -15,6 +15,9 @@ before publishing anything date-sensitive, and record the date you checked.
 | S6 | School zone locator | https://www.schoolsitelocator.com/apps/shelbycounty/ | 2026-09-20 |
 | S7 | MSCS school directory | https://www.scsk12.org/schools | 2026-09-20 |
 | S8 | MSCS schools district map (PDF) | https://www.scsk12.org/schools25/files/26/mscs%20schools%2025-26%2042x42%20district%20map.pdf | 2026-09-20 |
+| S9 | District 6 Board Member profile: T. L. Harris biography | https://www.scsk12.org/board/?M=6&MID=27&PN=44 | 2026-09-24 |
+| S10 | Board of Education: composition (nine elected members), mission statement, meeting cadence, livestream/broadcast details | https://www.scsk12.org/board/ | 2026-09-24 |
+| S11 | T. L. Harris for District 6 campaign platform: "The Third Grade Standard," Safe Schools, Fiscal Transparency, Parent Engagement commitments | https://voteharris901.com/platform/ and https://voteharris901.com/about/ | 2026-09-24 |
 
 ## What each page is used for
 
@@ -81,6 +84,24 @@ From S4:
   covering 26 schools, each with an official school website link. Transcribed into
   `content/district-6-schools.json`.
 - No term start date and no individual contact details for the Board Member.
+
+From S9 (checked 2026-09-24; this biography was not present on 2026-09-20 — the
+district added it between the two checks, confirming this page needs re-checking
+before each publish, not just once):
+
+- Graduate of East High School; attended LeMoyne-Owen College, Louisiana State
+  University, and the University of Memphis.
+- Background includes military service, the Memphis Police Department, C-suite
+  executive roles, case management with Youth Villages, youth ministry, and CFO
+  of a private medical office; also music production, songwriting, and radio.
+- Personal connection to the Neighborhood Christian Center: received support
+  from it, later returned to serve the organization.
+- Self-described as an advocate for second chances; states a person's past
+  should not determine their future, and that strong communities come from
+  mentorship, resources, accountability, education, and opportunity.
+- District's stated view of what he brings to the Board: fiscal responsibility,
+  executive leadership, public-safety awareness, youth advocacy, community
+  engagement, effective communication, compassion.
 
 ## Correction log
 
