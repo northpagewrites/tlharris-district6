@@ -63,7 +63,7 @@
 <h3 class="wp-block-heading">Control</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Each priority separates what a Board member directly controls from what he can influence and what depends on the district. One member is one vote on a body that acts together.</p>
+<p>Each priority separates what a commissioner directly controls from what he can influence and what depends on the district. One commissioner is one vote of nine on a board that acts together.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

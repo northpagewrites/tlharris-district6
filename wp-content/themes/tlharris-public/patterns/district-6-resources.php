@@ -31,7 +31,7 @@
 <h3 class="wp-block-heading">MSCS Board</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p><a href="https://www.scsk12.org/board/">Board of Education</a> — schedule, members and Board information.</p>
+<p><a href="https://www.scsk12.org/board/">Board of Education</a>: schedule, commissioners and board information.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -52,5 +52,5 @@
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 <!-- wp:paragraph {"className":"tlharris-source"} -->
-<p class="tlharris-source">Source: MSCS District 6 Board Member profile. Accessed 20 September 2026. School names and links are transcribed from that page.</p>
+<p class="tlharris-source">Source: MSCS District 6 profile. Accessed 20 September 2026. School names and links are transcribed from that page.</p>
 <!-- /wp:paragraph -->

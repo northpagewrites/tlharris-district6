@@ -1,16 +1,26 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 <!-- wp:group {"tagName":"main","anchor":"main-content","layout":{"type":"constrained"}} -->
 <main id="main-content" class="wp-block-group">
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"4rem","bottom":"2rem"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="padding-top:4rem;padding-bottom:2rem">
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">About</p>
+<!-- wp:group {"align":"wide","className":"tlharris-profile","style":{"spacing":{"padding":{"top":"clamp(2.5rem,6vw,5rem)","bottom":"clamp(2rem,4vw,3rem)"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide tlharris-profile" style="padding-top:clamp(2.5rem,6vw,5rem);padding-bottom:clamp(2rem,4vw,3rem)">
+<!-- wp:group {"className":"tlharris-profile-text","layout":{"type":"default"}} -->
+<div class="wp-block-group tlharris-profile-text">
+<!-- wp:post-title {"level":1,"className":"tlharris-hero-name"} /-->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/identity","args":{"key":"line"}}}},"className":"tlharris-hero-role"} -->
+<p class="tlharris-hero-role"></p>
 <!-- /wp:paragraph -->
-<!-- wp:post-title {"level":1,"fontSize":"x-large"} /-->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/identity","args":{"key":"office_name"}}}},"className":"tlharris-meta"} -->
+<p class="tlharris-meta"></p>
+<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"3rem"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="padding-bottom:3rem">
+<!-- wp:image {"sizeSlug":"full","className":"tlharris-profile-photo"} -->
+<figure class="wp-block-image size-full tlharris-profile-photo"><img src="/wp-content/themes/tlharris-public/assets/images/hero/hero-5.jpg" alt="Speaking at a podium, microphone in hand"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"clamp(3rem,6vw,5rem)"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:clamp(3rem,6vw,5rem)">
 <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
 </div>
 <!-- /wp:group -->

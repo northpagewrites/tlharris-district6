@@ -34,7 +34,7 @@
 <h3 class="wp-block-heading">MSCS Board</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p><a href="https://www.scsk12.org/board/">Board of Education</a> — members, schedule and Board information.</p>
+<p><a href="https://www.scsk12.org/board/">Board of Education</a>: commissioners, schedule and board information.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -47,7 +47,7 @@
 <h3 class="wp-block-heading">Board meeting documents</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p><a href="http://www.boarddocs.com/tn/scsk12/Board.nsf/Public">BoardDocs</a> — agendas and meeting documents.</p>
+<p><a href="http://www.boarddocs.com/tn/scsk12/Board.nsf/Public">BoardDocs</a>: agendas and meeting documents.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -63,7 +63,7 @@
 <h3 class="wp-block-heading">Public comment</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p><a href="https://www.scsk12.org/board/?PN=49">Addressing the Board</a> — the full sign-up rules.</p>
+<p><a href="https://www.scsk12.org/board/?PN=49">Addressing the Board</a>: the full sign-up rules.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -76,7 +76,7 @@
 <h3 class="wp-block-heading">Board Office</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p><a href="https://www.scsk12.org/board/?PN=45">Board Office</a> — constituent concerns and Board business.</p>
+<p><a href="https://www.scsk12.org/board/?PN=45">Board Office</a>: constituent concerns and board business.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

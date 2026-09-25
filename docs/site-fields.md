@@ -37,7 +37,7 @@ Through the `tlharris/identity` block binding, never by hardcoding:
 
 Keys are the field names above, plus three derived values:
 
-- `line` — role and district joined, e.g. "Board Member · District 6"
+- `line` — role and district joined, e.g. "Commissioner · District 6"
 - `name_and_line` — display name with the line appended
 - `office_and_district` — office and district joined
 

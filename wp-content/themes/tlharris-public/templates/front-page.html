@@ -1,10 +1,10 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 <!-- wp:group {"tagName":"main","anchor":"main-content","layout":{"type":"constrained"}} -->
 <main id="main-content" class="wp-block-group">
-<!-- wp:group {"align":"wide","className":"tlharris-hero","style":{"spacing":{"padding":{"top":"clamp(3rem,7vw,6rem)","bottom":"clamp(3rem,6vw,5rem)"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide tlharris-hero" style="padding-top:clamp(3rem,7vw,6rem);padding-bottom:clamp(3rem,6vw,5rem)">
+<!-- wp:group {"align":"full","className":"tlharris-hero","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull tlharris-hero">
 <!-- wp:group {"className":"tlharris-hero-media","layout":{"type":"constrained"}} -->
-<div class="wp-block-group tlharris-hero-media" aria-hidden="true">
+<div class="wp-block-group tlharris-hero-media">
 <!-- wp:image {"className":"tlharris-hero-slide tlharris-hero-slide-1","sizeSlug":"full"} -->
 <figure class="wp-block-image size-full tlharris-hero-slide tlharris-hero-slide-1"><img src="/wp-content/themes/tlharris-public/assets/images/hero/hero-1.jpg" alt=""/></figure>
 <!-- /wp:image -->
@@ -22,272 +22,51 @@
 <!-- /wp:image -->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"className":"tlharris-hero-content"} -->
-<div class="wp-block-group tlharris-hero-content">
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Memphis-Shelby County Schools</p>
+<!-- wp:group {"align":"wide","className":"tlharris-hero-content","style":{"spacing":{"padding":{"top":"clamp(3rem,8vw,6rem)","right":"clamp(1rem,3vw,2.5rem)","bottom":"clamp(3rem,7vw,5.5rem)","left":"clamp(1rem,3vw,2.5rem)"}}}} -->
+<div class="wp-block-group alignwide tlharris-hero-content" style="padding-top:clamp(3rem,8vw,6rem);padding-right:clamp(1rem,3vw,2.5rem);padding-bottom:clamp(3rem,7vw,5.5rem);padding-left:clamp(1rem,3vw,2.5rem)">
+<!-- wp:post-title {"level":1} /-->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/identity","args":{"key":"line"}}}},"className":"tlharris-hero-role"} -->
+<p class="tlharris-hero-role"></p>
 <!-- /wp:paragraph -->
-<!-- wp:post-title {"level":1,"fontSize":"x-large"} /-->
-<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/identity","args":{"key":"line"}}}},"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color"></p>
-<!-- /wp:paragraph -->
-<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+<!-- wp:post-content {"layout":{"type":"default"}} /-->
 </div>
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"align":"full","backgroundColor":"soft","style":{"spacing":{"padding":{"top":"4rem","right":"clamp(1rem,3vw,2.5rem)","bottom":"4rem","left":"clamp(1rem,3vw,2.5rem)"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-soft-background-color has-background" style="padding-top:4rem;padding-right:clamp(1rem,3vw,2.5rem);padding-bottom:4rem;padding-left:clamp(1rem,3vw,2.5rem)">
-<!-- wp:group {"align":"wide"} -->
-<div class="wp-block-group alignwide">
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Current Work</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"fontSize":"large"} -->
-<h2 class="wp-block-heading has-large-font-size">The work in progress</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>This is a public view of the issues T. L. Harris is monitoring and developing through his District 6 and Board work — not a record of what has already been finished. Each one carries its own status, and a figure appears only alongside the source it came from.</p>
-<!-- /wp:paragraph -->
-<!-- wp:query {"query":{"perPage":4,"pages":0,"offset":0,"postType":"priority","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-current-work"} -->
-<div class="wp-block-query tlharris-query-current-work">
-<!-- wp:post-template {"layout":{"type":"grid","columnCount":4}} -->
-<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
-<div class="wp-block-group tlharris-card">
-<!-- wp:post-terms {"term":"progress_status","className":"tlharris-eyebrow"} /-->
-<!-- wp:post-title {"level":3,"isLink":true} /-->
-<!-- wp:post-excerpt /-->
-<!-- wp:read-more {"content":"View details"} /-->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"0","bottom":"clamp(3rem,6vw,5rem)"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-top:0;padding-bottom:clamp(3rem,6vw,5rem)">
+<!-- wp:pattern {"slug":"tlharris-public/home-facts"} /-->
 </div>
 <!-- /wp:group -->
-<!-- /wp:post-template -->
-<!-- wp:query-no-results -->
-<!-- wp:paragraph -->
-<p>Priorities will appear here as their tracking records are published on this site.</p>
-<!-- /wp:paragraph -->
-<!-- /wp:query-no-results -->
+<!-- wp:group {"align":"full","className":"tlharris-video-band","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull tlharris-video-band">
+<!-- wp:html -->
+<div class="tlharris-video-full">
+<video controls preload="none" poster="/wp-content/themes/tlharris-public/assets/images/hero/hero-3.jpg" src="/wp-content/themes/tlharris-public/assets/video/report-to-district-6.mp4"></video>
 </div>
-<!-- /wp:query -->
-<!-- wp:paragraph -->
-<p><a href="/priorities-progress/">See Priorities &amp; Progress</a>, including how each status is defined.</p>
-<!-- /wp:paragraph -->
+<p class="tlharris-video-caption"><strong>Report to District 6</strong> Video update</p>
+<!-- /wp:html -->
 </div>
 <!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"clamp(3rem,6vw,5rem)","bottom":"clamp(3rem,6vw,5rem)"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
+<!-- wp:pattern {"slug":"tlharris-public/home-meet"} /-->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"4rem","bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="padding-top:4rem;padding-bottom:4rem">
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Board Work</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"fontSize":"large"} -->
-<h2 class="wp-block-heading has-large-font-size">From the Board</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Meetings, decisions and the official records behind them.</p>
-<!-- /wp:paragraph -->
-<!-- wp:query {"query":{"perPage":3,"pages":0,"offset":0,"postType":"board_update","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-not-report"} -->
-<div class="wp-block-query tlharris-query-not-report">
-<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
-<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
-<div class="wp-block-group tlharris-card">
-<!-- wp:post-date {"className":"tlharris-meta"} /-->
-<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
-<!-- wp:post-excerpt /-->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"clamp(3rem,6vw,5rem)"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:clamp(3rem,6vw,5rem)">
+<!-- wp:pattern {"slug":"tlharris-public/home-priorities"} /-->
 </div>
 <!-- /wp:group -->
-<!-- /wp:post-template -->
-<!-- wp:query-no-results -->
-<!-- wp:paragraph -->
-<p>Board updates will appear here as they are published.</p>
-<!-- /wp:paragraph -->
-<!-- /wp:query-no-results -->
-</div>
-<!-- /wp:query -->
-<!-- wp:paragraph -->
-<p><a href="/board-work/">See all Board work</a></p>
-<!-- /wp:paragraph -->
+<!-- wp:pattern {"slug":"tlharris-public/home-help"} /-->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"clamp(3rem,6vw,5rem)","bottom":"clamp(3rem,6vw,5rem)"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
+<!-- wp:pattern {"slug":"tlharris-public/home-meetings"} /-->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="padding-bottom:4rem">
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Accountability</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"fontSize":"large"} -->
-<h2 class="wp-block-heading has-large-font-size">From priorities to progress</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Each priority sets out what this office controls, what the district controls, and what has and has not yet been recorded: baseline, action taken and evidence.</p>
-<!-- /wp:paragraph -->
-<!-- wp:query {"query":{"perPage":3,"pages":0,"offset":0,"postType":"priority","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-priorities-recent"} -->
-<div class="wp-block-query tlharris-query-priorities-recent">
-<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
-<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
-<div class="wp-block-group tlharris-card">
-<!-- wp:post-terms {"term":"progress_status","className":"tlharris-eyebrow"} /-->
-<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
-<!-- wp:post-excerpt /-->
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Last verified</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/date","args":{"key":"last_verified"}}}},"className":"tlharris-meta"} -->
-<p class="tlharris-meta"></p>
-<!-- /wp:paragraph -->
-<!-- wp:read-more {"content":"View details"} /-->
-</div>
-<!-- /wp:group -->
-<!-- /wp:post-template -->
-<!-- wp:query-no-results -->
-<!-- wp:paragraph -->
-<p>Priorities appear here once their status and sources have been checked.</p>
-<!-- /wp:paragraph -->
-<!-- /wp:query-no-results -->
-</div>
-<!-- /wp:query -->
-<!-- wp:paragraph -->
-<p><a href="/priorities-progress/">Open the full tracker</a></p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"align":"full","backgroundColor":"ink","textColor":"white","style":{"spacing":{"padding":{"top":"4rem","right":"clamp(1rem,3vw,2.5rem)","bottom":"4rem","left":"clamp(1rem,3vw,2.5rem)"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-white-color has-text-color has-ink-background-color has-background" style="padding-top:4rem;padding-right:clamp(1rem,3vw,2.5rem);padding-bottom:4rem;padding-left:clamp(1rem,3vw,2.5rem)">
-<!-- wp:group {"align":"wide"} -->
-<div class="wp-block-group alignwide">
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Constituent Services</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"fontSize":"large"} -->
-<h2 class="wp-block-heading has-large-font-size">Need help with a school or district issue?</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size">Start at the school when that is the right first step. If you are not getting anywhere, the Board Member can help you find the right channel.</p>
-<!-- /wp:paragraph -->
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","textColor":"ink"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-ink-color has-white-background-color has-text-color has-background wp-element-button" href="/get-help/">Get help</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"4rem","bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="padding-top:4rem;padding-bottom:4rem">
-<!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"width":"58%"} -->
-<div class="wp-block-column" style="flex-basis:58%">
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">District 6</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"fontSize":"large"} -->
-<h2 class="wp-block-heading has-large-font-size">Your district, your schools</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>School information, district resources, public meetings and community information in one place.</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p><a href="/district-6/">Explore District 6</a></p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:column --><!-- wp:column -->
-<div class="wp-block-column">
-<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
-<div class="wp-block-group tlharris-card">
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Official district resources</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>The district's own pages are the authoritative source: <a href="https://www.scsk12.org/board/">MSCS Board of Education</a> and <a href="https://www.scsk12.org/board/?PN=45">the Board Office</a>.</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"4rem"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide" style="padding-bottom:4rem">
-<!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"width":"58%"} -->
-<div class="wp-block-column" style="flex-basis:58%">
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Community</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"fontSize":"large"} -->
-<h2 class="wp-block-heading has-large-font-size">In the community</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Board meetings, town halls, school visits and community events.</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p><a href="/events/">See all events</a></p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:column --><!-- wp:column -->
-<div class="wp-block-column">
-<!-- wp:query {"query":{"perPage":1,"pages":0,"offset":0,"postType":"event","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-upcoming-events"} -->
-<div class="wp-block-query tlharris-query-upcoming-events">
-<!-- wp:post-template -->
-<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
-<div class="wp-block-group tlharris-card">
-<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
-<!-- wp:post-excerpt /-->
-</div>
-<!-- /wp:group -->
-<!-- /wp:post-template -->
-<!-- wp:query-no-results -->
-<!-- wp:paragraph -->
-<p>No upcoming events are confirmed right now.</p>
-<!-- /wp:paragraph -->
-<!-- /wp:query-no-results -->
-</div>
-<!-- /wp:query -->
-</div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"align":"full","backgroundColor":"soft","style":{"spacing":{"padding":{"top":"4rem","right":"clamp(1rem,3vw,2.5rem)","bottom":"4rem","left":"clamp(1rem,3vw,2.5rem)"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-soft-background-color has-background" style="padding-top:4rem;padding-right:clamp(1rem,3vw,2.5rem);padding-bottom:4rem;padding-left:clamp(1rem,3vw,2.5rem)">
-<!-- wp:group {"align":"wide"} -->
-<div class="wp-block-group alignwide">
-<!-- wp:paragraph {"className":"tlharris-eyebrow","textColor":"muted"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color">Report to District 6</p>
-<!-- /wp:paragraph -->
-<!-- wp:heading {"fontSize":"large"} -->
-<h2 class="wp-block-heading has-large-font-size">A regular look at the work</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>What happened, what was worked on, what is being watched, and what comes next.</p>
-<!-- /wp:paragraph -->
-<!-- wp:video {"className":"tlharris-report-video"} -->
-<figure class="wp-block-video tlharris-report-video"><video controls preload="metadata" poster="/wp-content/themes/tlharris-public/assets/images/report-video-poster.jpg" src="/wp-content/themes/tlharris-public/assets/video/report-to-district-6.mp4"></video></figure>
-<!-- /wp:video -->
-<!-- wp:query {"query":{"perPage":1,"pages":0,"offset":0,"postType":"board_update","order":"desc","orderBy":"date","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"},"className":"tlharris-query-report"} -->
-<div class="wp-block-query tlharris-query-report">
-<!-- wp:post-template -->
-<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
-<div class="wp-block-group tlharris-card">
-<!-- wp:post-date {"className":"tlharris-meta"} /-->
-<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
-<!-- wp:post-excerpt /-->
-</div>
-<!-- /wp:group -->
-<!-- /wp:post-template -->
-<!-- wp:query-no-results -->
-<!-- wp:paragraph -->
-<p>The first Report to District 6 has not been published yet.</p>
-<!-- /wp:paragraph -->
-<!-- /wp:query-no-results -->
-</div>
-<!-- /wp:query -->
-<!-- wp:paragraph -->
-<p><a href="/news/">Read News &amp; Updates</a></p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"clamp(3rem,6vw,5rem)"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:clamp(3rem,6vw,5rem)">
+<!-- wp:pattern {"slug":"tlharris-public/home-explore"} /-->
 </div>
 <!-- /wp:group -->
 </main>

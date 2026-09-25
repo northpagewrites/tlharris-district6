@@ -56,9 +56,9 @@ foreach ( array( 'post' => 'hello-world', 'page' => 'sample-page' ) as $tlharris
 $tlharris_patterns = get_stylesheet_directory() . '/patterns/';
 $tlharris_pages    = array(
 	'home'                 => array( 'T. L. Harris', 'page-home' ),
-	'about'                => array( 'About', 'page-about' ),
+	'about'                => array( 'About T. L. Harris', 'page-about' ),
 	'district-6'           => array( 'District 6', 'page-district-6' ),
-	'board-work'           => array( 'Board Work', 'page-board-work' ),
+	'board-work'           => array( 'The Board', 'page-board-work' ),
 	'priorities-progress'  => array( 'Priorities & Progress', 'page-priorities-progress' ),
 	'news'                 => array( 'News & Updates', 'page-news' ),
 	'events'               => array( 'Events', 'page-events' ),

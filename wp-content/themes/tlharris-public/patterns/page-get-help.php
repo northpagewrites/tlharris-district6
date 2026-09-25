@@ -33,7 +33,7 @@
 <h2 class="wp-block-heading">3. The MSCS Board Office</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>The Board Office helps parents and the community communicate their concerns to Board members, and works with departments across the district to resolve constituent concerns.</p>
+<p>The Board Office helps parents and the community communicate their concerns to commissioners, and works with departments across the district to resolve constituent concerns.</p>
 <!-- /wp:paragraph -->
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
@@ -53,7 +53,7 @@
 <h2 class="wp-block-heading">When to bring something to the Board</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>The Board Office handles matters involving the Board and its business. Board members are elected officials. They are not employees of the school system, and they do not have individual offices at the district's Central Office.</p>
+<p>The Board Office handles matters involving the Board and its business. Commissioners are elected officials. They are not employees of the school system, and they do not have individual offices at the district's Central Office.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>In practice that means questions about policy, about Board decisions, and about how the district is being held to account belong at the Board level. Questions about a particular classroom, a staffing decision or a day-to-day school operation are handled by the school and the responsible district department, and go faster there.</p>
@@ -88,7 +88,7 @@
 <h2 class="wp-block-heading">Contact T. L. Harris</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>You can also bring a District 6 matter to Board Member T. L. Harris.</p>
+<p>You can also bring a District 6 matter to Commissioner T. L. Harris.</p>
 <!-- /wp:paragraph -->
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->

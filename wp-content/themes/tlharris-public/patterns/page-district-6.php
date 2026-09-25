@@ -7,8 +7,8 @@
  */
 ?>
 <!-- wp:paragraph {"fontSize":"large"} -->
-<p class="has-large-font-size">T. L. Harris represents District 6 on the Memphis-Shelby County Schools Board of Education — 26 schools across Elementary, Middle and High levels.</p>
+<p class="has-large-font-size">District 6 takes in Whitehaven and neighborhoods across Southwest Memphis. The district lists 26 schools in it, from elementary through high school.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p>The schools listed on this page are the ones the district names as District 6 schools. Each entry links to that school's own official website. For Board meetings, agendas and public comment, see <a href="/board-work/">Board Work</a>.</p>
+<p>Each school below links to its own official website. For meetings, agendas and public comment, see <a href="/board-work/">The Board</a>.</p>
 <!-- /wp:paragraph -->

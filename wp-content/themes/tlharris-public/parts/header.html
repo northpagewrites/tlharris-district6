@@ -1,27 +1,41 @@
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"1rem","bottom":"1rem","left":"clamp(1rem,3vw,2.5rem)","right":"clamp(1rem,3vw,2.5rem)"}},"border":{"bottom":{"color":"var:preset|color|line","width":"1px"}}},"backgroundColor":"paper","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-<div class="wp-block-group alignfull has-paper-background-color has-background" style="border-bottom-color:var(--wp--preset--color--line);border-bottom-width:1px;padding-top:1rem;padding-right:clamp(1rem,3vw,2.5rem);padding-bottom:1rem;padding-left:clamp(1rem,3vw,2.5rem)">
-<!-- wp:group {"style":{"spacing":{"blockGap":"0.9rem"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-<div class="wp-block-group">
-<!-- wp:image {"width":"42px","height":"42px","sizeSlug":"full","linkDestination":"none","className":"tlharris-seal"} -->
-<figure class="wp-block-image size-full is-resized tlharris-seal"><img src="/wp-content/themes/tlharris-public/assets/images/tn-state-seal.svg" alt="Great Seal of the State of Tennessee" width="42" height="42"/></figure>
-<!-- /wp:image -->
-<!-- wp:group {"style":{"spacing":{"blockGap":"0.25rem"}}} -->
-<div class="wp-block-group">
-<!-- wp:site-title {"level":0,"fontSize":"medium","style":{"typography":{"fontWeight":"800","textTransform":"uppercase","letterSpacing":".06em"}}} /-->
-<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/identity","args":{"key":"line"}}}},"className":"tlharris-eyebrow","textColor":"muted","fontSize":"small"} -->
-<p class="tlharris-eyebrow has-muted-color has-text-color has-small-font-size"></p>
+<!-- wp:group {"align":"full","className":"tlharris-utility","backgroundColor":"ink","textColor":"white","style":{"spacing":{"padding":{"top":"0.5rem","bottom":"0.5rem","left":"clamp(1rem,3vw,2.5rem)","right":"clamp(1rem,3vw,2.5rem)"},"blockGap":"0.5rem"}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+<div class="wp-block-group alignfull tlharris-utility has-white-color has-ink-background-color has-text-color has-background" style="padding-top:0.5rem;padding-right:clamp(1rem,3vw,2.5rem);padding-bottom:0.5rem;padding-left:clamp(1rem,3vw,2.5rem)">
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/identity","args":{"key":"office_and_district"}}}},"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+<p style="margin-top:0;margin-bottom:0"></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+<p style="margin-top:0;margin-bottom:0"><a href="https://www.scsk12.org/board/">MSCS Board of Education</a> · <a href="https://www.boarddocs.com/tn/scsk12/Board.nsf/Public">Board agendas</a></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"tlharris-masthead","backgroundColor":"paper","style":{"spacing":{"padding":{"top":"1.25rem","bottom":"1.25rem","left":"clamp(1rem,3vw,2.5rem)","right":"clamp(1rem,3vw,2.5rem)"}}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group alignfull tlharris-masthead has-paper-background-color has-background" style="padding-top:1.25rem;padding-right:clamp(1rem,3vw,2.5rem);padding-bottom:1.25rem;padding-left:clamp(1rem,3vw,2.5rem)">
+<!-- wp:group {"className":"tlharris-wordmark-block","style":{"spacing":{"blockGap":"0.35rem"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group tlharris-wordmark-block">
+<!-- wp:site-title {"level":0} /-->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"tlharris/identity","args":{"key":"line"}}}},"className":"tlharris-wordmark-line"} -->
+<p class="tlharris-wordmark-line"></p>
+<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
-<!-- wp:navigation {"ariaLabel":"Primary","overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right"},"style":{"typography":{"fontSize":".94rem","fontWeight":"600"}}} -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/get-help/">Get help</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"tlharris-navbar","backgroundColor":"blue","textColor":"white","style":{"spacing":{"padding":{"top":"0.8rem","bottom":"0.8rem","left":"clamp(1rem,3vw,2.5rem)","right":"clamp(1rem,3vw,2.5rem)"}}},"layout":{"type":"flex","justifyContent":"left","flexWrap":"wrap"}} -->
+<div class="wp-block-group alignfull tlharris-navbar has-white-color has-blue-background-color has-text-color has-background" style="padding-top:0.8rem;padding-right:clamp(1rem,3vw,2.5rem);padding-bottom:0.8rem;padding-left:clamp(1rem,3vw,2.5rem)">
+<!-- wp:navigation {"ariaLabel":"Primary","overlayMenu":"mobile","textColor":"white","overlayBackgroundColor":"blue","overlayTextColor":"white","layout":{"type":"flex","justifyContent":"left"},"style":{"typography":{"fontSize":"1rem","fontWeight":"600"},"spacing":{"blockGap":"1.75rem"}}} -->
 <!-- wp:navigation-link {"label":"Home","url":"/","kind":"custom"} /-->
 <!-- wp:navigation-link {"label":"About","url":"/about/","kind":"custom"} /-->
+<!-- wp:navigation-link {"label":"Priorities","url":"/priorities-progress/","kind":"custom"} /-->
 <!-- wp:navigation-link {"label":"District 6","url":"/district-6/","kind":"custom"} /-->
-<!-- wp:navigation-link {"label":"Board Work","url":"/board-work/","kind":"custom"} /-->
-<!-- wp:navigation-link {"label":"Priorities & Progress","url":"/priorities-progress/","kind":"custom"} /-->
-<!-- wp:navigation-link {"label":"News & Updates","url":"/news/","kind":"custom"} /-->
+<!-- wp:navigation-link {"label":"The Board","url":"/board-work/","kind":"custom"} /-->
+<!-- wp:navigation-link {"label":"News","url":"/news/","kind":"custom"} /-->
 <!-- wp:navigation-link {"label":"Events","url":"/events/","kind":"custom"} /-->
 <!-- wp:navigation-link {"label":"Get Help","url":"/get-help/","kind":"custom"} /-->
 <!-- /wp:navigation -->

@@ -3,7 +3,7 @@ Theme Name: T. L. Harris Public Service
 Theme URI: https://github.com/
 Author: T. L. Harris Digital Team
 Description: Lightweight, Git-friendly block theme for the T. L. Harris public-service platform.
-Version: 0.3.0
+Version: 0.4.0
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
@@ -12,22 +12,74 @@ License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-:root { --tlharris-radius: 18px; }
+/* Design system, September 2026.
+   Palette: the Memphis-Shelby County Schools brand colours (blue PMS 286,
+   red PMS 187) on white, with a deep navy for text and dark bands. The colour
+   values live in theme.json; this file only refers to them by slug.
+   Type: one sans family, left-aligned, on a 12-column grid.
+   Signature: every section opens on a hairline rule with a short red bar at
+   its left end (.tlharris-keyline). No gradients for decoration, no glows, no
+   scroll animations, no rounded pills. */
 
-/* Editorial labels above a heading. */
-.tlharris-eyebrow { letter-spacing: .12em; text-transform: uppercase; font-size: .78rem; font-weight: 700; }
+:root {
+  --tlharris-radius: 0;
+  --tlharris-gutter: clamp(1rem, 3vw, 2.5rem);
+  --tlharris-max: 1240px;
+}
 
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+h1, h2, h3, h4 { letter-spacing: -.015em; }
+
+/* Small labels that name a real field ("Status", "Last verified").
+   Sentence case, not tracked capitals. */
+.tlharris-eyebrow {
+  font-size: .85rem; font-weight: 700; letter-spacing: 0; text-transform: none;
+  margin: 0 0 .35rem;
+}
+
+/* ---------------------------------------------------------------------
+   Signature rule: hairline with a red bar at the left end.
+   ------------------------------------------------------------------ */
+.tlharris-keyline {
+  position: relative;
+  border-top: 1px solid var(--wp--preset--color--line);
+  padding-top: clamp(2.25rem, 4vw, 3.25rem);
+}
+.tlharris-keyline::before {
+  content: "";
+  position: absolute; left: 0; top: -3px;
+  width: 64px; height: 5px;
+  background: var(--wp--preset--color--accent);
+}
+.has-ink-background-color .tlharris-keyline,
+.has-blue-background-color .tlharris-keyline { border-top-color: rgba(255, 255, 255, .25); }
+
+/* Section heading on the left, content on the right. */
+.tlharris-split {
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  column-gap: clamp(1.5rem, 4vw, 4rem); row-gap: 1rem;
+}
+.tlharris-split > :first-child h2 { margin-top: 0; }
+@media (max-width: 860px) { .tlharris-split { grid-template-columns: 1fr; } }
+
+.tlharris-lede { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.5; }
+
+/* ---------------------------------------------------------------------
+   Cards and record entries
+   ------------------------------------------------------------------ */
 .tlharris-card {
   border: 1px solid var(--wp--preset--color--line);
-  border-radius: var(--tlharris-radius);
-  padding: clamp(1.25rem, 2vw, 2rem);
+  border-radius: 0;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
   background: var(--wp--preset--color--white);
   height: 100%;
 }
-.tlharris-card { transition: transform .2s ease, box-shadow .2s ease; }
-.tlharris-card:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(18, 32, 45, .08); }
+.tlharris-card > :first-child { margin-top: 0; }
+.tlharris-card > :last-child { margin-bottom: 0; }
+.tlharris-card h3 { font-size: 1.2rem; line-height: 1.25; margin: 0 0 .6rem; }
 
-.tlharris-meta { font-size: .9rem; color: var(--wp--preset--color--muted); }
+.tlharris-meta { font-size: .92rem; color: var(--wp--preset--color--muted); }
 
 /* Source line under a public-record entry. */
 .tlharris-source { font-size: .85rem; color: var(--wp--preset--color--muted); }
@@ -36,6 +88,15 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
    inside its card, or it pushes the whole page wider than the screen. */
 .tlharris-card, .tlharris-source, .tlharris-field, .tlharris-progress { overflow-wrap: anywhere; }
 
+/* Status of a tracked priority. Square tag, never colour-coded: no status here
+   means "going well". */
+.tlharris-status, .wp-block-post-terms.tlharris-eyebrow a {
+  display: inline-block; font-size: .78rem; font-weight: 700; text-decoration: none;
+  color: var(--wp--preset--color--ink);
+  border: 1px solid var(--wp--preset--color--ink);
+  padding: .15rem .5rem; margin: 0 0 .75rem;
+}
+
 /* One field on a record: its label, and either the value or the reason there
    isn't one. The fallback is deliberately as visible as a real value. */
 /* Shortcode output is not a block, so blockGap does not separate it from the
@@ -43,39 +104,28 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 .tlharris-field { margin: 1.4rem 0 1.75rem; }
 .tlharris-field + .tlharris-field { margin-top: 1.1rem; }
 .tlharris-field__label {
-  font-size: .82rem; letter-spacing: .1em; text-transform: uppercase;
-  font-weight: 700; margin: 0 0 .4rem; color: var(--wp--preset--color--muted);
+  font-size: .85rem; font-weight: 700; margin: 0 0 .4rem; color: var(--wp--preset--color--muted);
 }
 .tlharris-field p { margin: 0 0 .6rem; }
 
 /* Counts of tracked records. Never district performance figures. */
-.tlharris-stats {
-  display: flex; flex-wrap: wrap; gap: 1rem; margin: 0 0 1rem;
-}
+.tlharris-stats { display: flex; flex-wrap: wrap; gap: 0; margin: 0 0 1rem; border-top: 1px solid var(--wp--preset--color--line); }
 .tlharris-stat {
-  flex: 1 1 8rem; padding: 1.1rem 1.2rem;
-  border-top: 3px solid var(--wp--preset--color--accent);
-  background: var(--wp--preset--color--white);
+  flex: 1 1 8rem; padding: 1.1rem 1.2rem 1.1rem 0;
+  border-bottom: 1px solid var(--wp--preset--color--line);
 }
-.tlharris-stat__number { display: block; font-size: 2.2rem; font-weight: 700; line-height: 1.1; }
-.tlharris-stat__label {
-  display: block; font-size: .85rem; color: var(--wp--preset--color--muted);
-  letter-spacing: .04em;
-}
+.tlharris-stat__number { display: block; font-size: 2.4rem; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
+.tlharris-stat__label { display: block; font-size: .9rem; color: var(--wp--preset--color--muted); }
 
 /* Only rendered when a real baseline, current value and target all exist and
    the evidence link for them is recorded. */
 .tlharris-progress { margin: 0 0 1.5rem; }
 .tlharris-progress__label { font-weight: 600; margin: 0 0 .5rem; }
 .tlharris-progress__track {
-  height: 14px; border-radius: 999px;
-  background: var(--wp--preset--color--soft);
-  border: 1px solid var(--wp--preset--color--line);
-  overflow: hidden;
+  height: 12px; background: var(--wp--preset--color--soft);
+  border: 1px solid var(--wp--preset--color--line); overflow: hidden;
 }
-.tlharris-progress__fill {
-  height: 100%; background: var(--wp--preset--color--accent);
-}
+.tlharris-progress__fill { height: 100%; background: var(--wp--preset--color--blue); }
 
 /* Campaign-era wording, kept as history and never as a current commitment. */
 .tlharris-historical {
@@ -87,12 +137,14 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
   color: var(--wp--preset--color--muted);
 }
 
+/* ---------------------------------------------------------------------
+   Accessibility helpers
+   ------------------------------------------------------------------ */
 .tlharris-skip { position: absolute; left: -9999px; top: 0; z-index: 100; }
 .tlharris-skip:focus {
   left: 1rem; top: 1rem; padding: .8rem 1rem;
-  background: #fff; color: #111; border: 2px solid #111; border-radius: 8px;
+  background: #fff; color: #111; border: 2px solid #111;
 }
-
 .screen-reader-text {
   border: 0; clip-path: inset(50%); height: 1px; margin: -1px;
   overflow: hidden; padding: 0; position: absolute; width: 1px; word-wrap: normal !important;
@@ -102,84 +154,195 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
   overflow: visible; position: fixed;
 }
 
-/* Gold at #946E2F clears 3:1 against paper, soft, white and ink. */
+/* Red (#C41230) clears 3:1 against white, soft and the navy ink. On the blue
+   bar and inside the hero the ring switches to white. */
 :focus-visible { outline: 3px solid var(--wp--preset--color--accent); outline-offset: 3px; }
+.tlharris-navbar :focus-visible,
+.tlharris-utility :focus-visible,
+.tlharris-hero :focus-visible,
+.has-blue-background-color :focus-visible,
+.has-accent-background-color :focus-visible { outline-color: #fff; }
 
-/* --- Official, editorial "pop": depth, rhythm and motion (Sept 2026) ---
-   Every effect here is CSS-only (no JS), stays inside the existing ink /
-   paper / gold palette, and is inert for anyone who has asked for reduced
-   motion or is on a browser that doesn't support it yet. */
+/* ---------------------------------------------------------------------
+   Header: navy utility bar, white masthead, MSCS-blue navigation bar
+   ------------------------------------------------------------------ */
+.tlharris-utility { font-size: .82rem; }
+.tlharris-utility a { color: #fff; text-decoration: none; }
+.tlharris-utility a:hover { text-decoration: underline; color: #fff; }
 
-/* A slim gold-ink-gold rule across the very top of every page: a formal,
-   ribbon-like mark rather than a campaign banner. */
-header { position: relative; }
-header::before {
-  content: "";
-  position: absolute; top: -1px; left: 0; right: 0; height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--wp--preset--color--accent) 0%,
-    var(--wp--preset--color--ink) 50%,
-    var(--wp--preset--color--accent) 100%
-  );
+.tlharris-masthead { border-bottom: 1px solid var(--wp--preset--color--line); }
+.tlharris-wordmark,
+.tlharris-masthead .wp-block-site-title {
+  font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 700; letter-spacing: -.025em;
+  line-height: 1; margin: 0;
 }
+.tlharris-wordmark a,
+.tlharris-masthead .wp-block-site-title a { color: var(--wp--preset--color--ink); text-decoration: none; }
+.tlharris-wordmark-line { font-size: .92rem; color: var(--wp--preset--color--muted); margin: .35rem 0 0; }
+.tlharris-wordmark-block { border-left: 5px solid var(--wp--preset--color--accent); padding-left: .85rem; }
 
-/* Subtle depth inside dark (ink) bands: a soft gold glow and a faint
-   highlight, not a photo substitute. Opacity is low enough that white
-   text keeps its full contrast against the ink base. */
-.has-ink-background-color.has-background {
-  background-image:
-    radial-gradient(ellipse 60% 80% at 100% 0%, rgba(148, 110, 47, .18), transparent 60%),
-    radial-gradient(ellipse 55% 65% at 0% 100%, rgba(255, 255, 255, .05), transparent 55%);
-}
+.tlharris-navbar a { color: #fff; text-decoration: none; font-weight: 600; }
+.tlharris-navbar a:hover { color: #fff; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.tlharris-navbar a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 3px; }
+.tlharris-navbar .wp-block-navigation-item__content:hover { text-decoration: underline; text-underline-offset: 6px; }
 
-/* Nav links: a gold underline that draws in on hover/focus instead of a
-   color-only change. */
-.wp-block-navigation .wp-block-navigation-item__content {
-  position: relative;
+/* ---------------------------------------------------------------------
+   Buttons: square, red primary
+   ------------------------------------------------------------------ */
+.wp-block-button__link, .tlharris-btn {
+  border-radius: 0; transition: background-color .15s ease, color .15s ease;
 }
-.wp-block-navigation .wp-block-navigation-item__content::after {
-  content: "";
-  position: absolute; left: 0; right: 0; bottom: -3px; height: 2px;
+.tlharris-btn {
+  display: inline-block; padding: .9rem 1.5rem; font-weight: 700; text-decoration: none;
+  background: var(--wp--preset--color--accent); color: #fff; border: 2px solid var(--wp--preset--color--accent);
+  line-height: 1.2;
+}
+.tlharris-btn:hover { background: var(--wp--preset--color--ink); border-color: var(--wp--preset--color--ink); color: #fff; }
+.tlharris-btn--ghost { background: transparent; color: var(--wp--preset--color--ink); border-color: var(--wp--preset--color--ink); }
+.tlharris-btn--ghost:hover { background: var(--wp--preset--color--ink); color: #fff; }
+.tlharris-btn--light { background: transparent; color: #fff; border-color: #fff; }
+.tlharris-btn--light:hover { background: #fff; color: var(--wp--preset--color--ink); border-color: #fff; }
+.wp-block-button.is-style-outline > .wp-block-button__link { border-width: 2px; }
+.tlharris-hero .wp-block-button.is-style-outline > .wp-block-button__link { color: #fff; border-color: #fff; background: transparent; }
+.tlharris-hero .wp-block-button.is-style-outline > .wp-block-button__link:hover { background: #fff; color: var(--wp--preset--color--ink); }
+
+/* ---------------------------------------------------------------------
+   Homepage hero: real photographs, name set at masthead scale
+   ------------------------------------------------------------------ */
+.tlharris-hero {
+  position: relative; overflow: hidden;
+  min-height: min(86vh, 800px);
+  display: flex; align-items: flex-end;
+  background: var(--wp--preset--color--ink);
+}
+.tlharris-hero-media { position: absolute; inset: 0; z-index: 0; margin: 0; }
+.tlharris-hero-media .tlharris-hero-slide { position: absolute; inset: 0; margin: 0; opacity: 0; }
+.tlharris-hero-media .tlharris-hero-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tlharris-hero-media .tlharris-hero-slide-1 { opacity: 1; }
+/* Legibility scrim, darkest behind the text column. */
+.tlharris-hero-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(4, 17, 50, .9) 0%, rgba(4, 17, 50, .72) 38%, rgba(4, 17, 50, .2) 72%, rgba(4, 17, 50, .1) 100%);
+}
+.tlharris-hero-content { position: relative; z-index: 1; width: 100%; color: #fff; }
+.tlharris-hero-content h1,
+.tlharris-hero-content p,
+.tlharris-hero-content .tlharris-eyebrow { color: #fff !important; }
+.tlharris-hero-content h1,
+.tlharris-hero-name {
+  font-size: clamp(3.4rem, 9.5vw, 8.5rem) !important; line-height: .92 !important;
+  letter-spacing: -.04em; font-weight: 700; margin: 0 0 1.25rem;
+}
+.tlharris-hero-content h1::before,
+.tlharris-hero-name::before {
+  content: ""; display: block; width: 72px; height: 6px; margin-bottom: 1.5rem;
   background: var(--wp--preset--color--accent);
-  transform: scaleX(0); transform-origin: center;
-  transition: transform .2s ease;
 }
-.wp-block-navigation .wp-block-navigation-item__content:hover::after,
-.wp-block-navigation .wp-block-navigation-item__content:focus-visible::after {
-  transform: scaleX(1);
-}
-
-/* Buttons: a small lift on hover/focus, matching the existing card
-   treatment. */
-.wp-block-button__link {
-  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
-}
-.wp-block-button__link:hover,
-.wp-block-button__link:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(18, 32, 45, .18);
-}
-
-/* Section entrances: headings, cards and stat tiles fade and rise into
-   place as the page scrolls, using the browser's native scroll-driven
-   animation timeline. No JavaScript. Browsers that don't support this
-   yet just show the content normally, already visible. */
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    main .wp-block-heading,
-    .tlharris-card,
-    .tlharris-stat {
-      animation: tlharris-reveal linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 30%;
-    }
-    @keyframes tlharris-reveal {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.tlharris-hero-role { font-size: clamp(1.05rem, 1.6vw, 1.3rem); font-weight: 700; margin: 0 0 .35rem; }
+.tlharris-hero-content .tlharris-lede,
+.tlharris-hero-content .has-large-font-size { max-width: 30em; font-size: clamp(1.1rem, 1.7vw, 1.35rem) !important; }
+@media (max-width: 781px) {
+  .tlharris-hero { min-height: min(80vh, 640px); }
+  .tlharris-hero-media::after {
+    background: linear-gradient(180deg, rgba(4, 17, 50, .25) 0%, rgba(4, 17, 50, .75) 45%, rgba(4, 17, 50, .94) 100%);
   }
 }
+@media (prefers-reduced-motion: no-preference) {
+  .tlharris-hero-media .tlharris-hero-slide-1 { animation: tlharris-hero-fade 30s ease-in-out infinite; }
+  .tlharris-hero-media .tlharris-hero-slide-2 { animation: tlharris-hero-fade 30s ease-in-out infinite; animation-delay: 6s; }
+  .tlharris-hero-media .tlharris-hero-slide-3 { animation: tlharris-hero-fade 30s ease-in-out infinite; animation-delay: 12s; }
+  .tlharris-hero-media .tlharris-hero-slide-4 { animation: tlharris-hero-fade 30s ease-in-out infinite; animation-delay: 18s; }
+  .tlharris-hero-media .tlharris-hero-slide-5 { animation: tlharris-hero-fade 30s ease-in-out infinite; animation-delay: 24s; }
+}
+@keyframes tlharris-hero-fade {
+  0%, 100% { opacity: 0; }
+  4% { opacity: 1; }
+  20% { opacity: 1; }
+  24% { opacity: 0; }
+}
+
+/* ---------------------------------------------------------------------
+   Facts strip under the hero
+   ------------------------------------------------------------------ */
+.tlharris-facts {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--wp--preset--color--line);
+  margin: 0; padding: 0; list-style: none;
+}
+.tlharris-facts > * {
+  padding: 1.5rem 1.25rem 1.5rem 0; margin: 0;
+  border-bottom: 1px solid var(--wp--preset--color--line);
+}
+.tlharris-facts > * + * { padding-left: 1.25rem; border-left: 1px solid var(--wp--preset--color--line); }
+.tlharris-fact-figure { display: block; font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; color: var(--wp--preset--color--ink); }
+.tlharris-fact-label { display: block; margin-top: .4rem; font-size: .95rem; color: var(--wp--preset--color--muted); }
+@media (max-width: 860px) {
+  .tlharris-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tlharris-facts > :nth-child(3) { padding-left: 0; border-left: 0; }
+}
+
+/* ---------------------------------------------------------------------
+   Video band
+   ------------------------------------------------------------------ */
+.tlharris-video-full { margin: 0; line-height: 0; background: var(--wp--preset--color--ink); }
+.tlharris-video-full video { width: 100%; display: block; aspect-ratio: 16 / 7; max-height: 680px; object-fit: cover; background: var(--wp--preset--color--ink); }
+.tlharris-video-caption {
+  line-height: 1.4; color: #fff; background: var(--wp--preset--color--ink);
+  padding: .9rem var(--tlharris-gutter); font-size: .95rem; margin: 0;
+}
+.tlharris-video-caption strong { margin-right: .5rem; }
+
+/* ---------------------------------------------------------------------
+   "Meet T. L. Harris": photograph beside a short biography
+   ------------------------------------------------------------------ */
+.tlharris-meet { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+.tlharris-meet-photo { margin: 0; }
+.tlharris-meet-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.tlharris-meet-photo figcaption { font-size: .85rem; color: var(--wp--preset--color--muted); margin-top: .5rem; line-height: 1.4; }
+@media (max-width: 860px) { .tlharris-meet { grid-template-columns: 1fr; } .tlharris-meet-photo img { aspect-ratio: 3 / 2; } }
+
+/* Pull quote: large type, red bar, attribution below. */
+.tlharris-quote { margin: 1.75rem 0; padding: 0 0 0 1.25rem; border-left: 5px solid var(--wp--preset--color--accent); }
+.tlharris-quote p { font-size: clamp(1.35rem, 2.4vw, 1.9rem); line-height: 1.25; font-weight: 700; letter-spacing: -.015em; margin: 0; }
+.tlharris-quote cite { display: block; margin-top: .75rem; font-size: .9rem; font-style: normal; color: var(--wp--preset--color--muted); }
+.has-ink-background-color .tlharris-quote cite,
+.has-blue-background-color .tlharris-quote cite { color: rgba(255, 255, 255, .8); }
+.tlharris-quote--display p { font-size: clamp(1.8rem, 4.2vw, 3.4rem); line-height: 1.1; letter-spacing: -.025em; }
+
+/* ---------------------------------------------------------------------
+   Link index: plain text links on a grid of hairlines
+   ------------------------------------------------------------------ */
+.tlharris-index { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(1rem, 3vw, 2.5rem); margin: 0; padding: 0; list-style: none; }
+.tlharris-index li { border-top: 1px solid var(--wp--preset--color--line); padding: 1.1rem 0 1.4rem; margin: 0; }
+.tlharris-index a { display: block; font-size: 1.25rem; font-weight: 700; letter-spacing: -.01em; color: var(--wp--preset--color--ink); text-decoration: none; }
+.tlharris-index a:hover { color: var(--wp--preset--color--accent); text-decoration: underline; text-underline-offset: 4px; }
+.tlharris-index span { display: block; margin-top: .3rem; color: var(--wp--preset--color--muted); font-size: .95rem; }
+@media (max-width: 860px) { .tlharris-index { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .tlharris-index { grid-template-columns: 1fr; } }
+
+/* Timeline on the About page. */
+.tlharris-timeline { list-style: none; margin: 0; padding: 0; }
+.tlharris-timeline li { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--wp--preset--color--line); margin: 0; }
+.tlharris-timeline li:last-child { border-bottom: 1px solid var(--wp--preset--color--line); }
+.tlharris-timeline strong { color: var(--wp--preset--color--accent); }
+@media (max-width: 520px) { .tlharris-timeline li { grid-template-columns: 1fr; gap: .2rem; } }
+
+/* Definition list of facts (education, memberships). */
+.tlharris-facts-list { margin: 0; }
+.tlharris-facts-list > div { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--wp--preset--color--line); }
+.tlharris-facts-list dt { font-weight: 700; }
+.tlharris-facts-list dd { margin: 0; }
+@media (max-width: 520px) { .tlharris-facts-list > div { grid-template-columns: 1fr; gap: .2rem; } }
+
+/* About page opening: name and lede beside a portrait. */
+.tlharris-profile { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: end; }
+.tlharris-profile-photo { margin: 0; }
+.tlharris-profile-photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 60% 35%; display: block; }
+.tlharris-profile-photo figcaption { font-size: .85rem; color: var(--wp--preset--color--muted); margin-top: .5rem; }
+@media (max-width: 860px) { .tlharris-profile { grid-template-columns: 1fr; } .tlharris-profile-photo img { aspect-ratio: 3 / 2; } }
+
+/* Dark bands: no decoration, just the colour. */
+.has-ink-background-color a:not(.wp-block-button__link):not(.tlharris-btn) { color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -187,55 +350,43 @@ header::before {
     transition: none !important;
     animation: none !important;
   }
-  .tlharris-card:hover,
-  .wp-block-button__link:hover,
-  .wp-block-button__link:focus-visible { transform: none; }
 }
 
-@media (max-width: 781px) {
-  .tlharris-card:hover,
-  .wp-block-button__link:hover,
-  .wp-block-button__link:focus-visible { transform: none; }
-}
+/* Footer on navy. */
+.tlharris-footer .tlharris-meta,
+.tlharris-footer .tlharris-source,
+.tlharris-footer .tlharris-eyebrow { color: rgba(255, 255, 255, .78); }
+.tlharris-footer a { color: #fff; }
+.tlharris-footer a:hover { color: #fff; text-decoration-thickness: 2px; }
+.tlharris-footer ul { list-style: none; padding-left: 0; }
+.tlharris-footer li { margin: .35rem 0; }
+.tlharris-footer .wp-block-site-title a { color: #fff; text-decoration: none; }
 
-/* --- Rotating hero photos + video section (homepage), pure CSS, no JS ---
-   Drop 5 photos into assets/images/hero/ named hero-1.jpg ... hero-5.jpg
-   and a video into assets/video/report-to-district-6.mp4 and this is done;
-   no further code changes needed. */
-.tlharris-hero { position: relative; overflow: hidden; border-radius: var(--tlharris-radius); }
-.tlharris-hero-media {
-  position: absolute; inset: 0; z-index: 0; margin: 0;
-  background: var(--wp--preset--color--ink);
-}
-.tlharris-hero-media .tlharris-hero-slide {
-  position: absolute; inset: 0; margin: 0; opacity: 0;
-}
-.tlharris-hero-media .tlharris-hero-slide img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-}
-.tlharris-hero-media .tlharris-hero-slide-1 { opacity: 1; }
-.tlharris-hero-media::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(22, 34, 44, .35), rgba(22, 34, 44, .72));
-}
-.tlharris-hero-content { position: relative; z-index: 1; padding: 1rem 0; }
-.tlharris-hero-content .tlharris-eyebrow { color: #fff !important; opacity: .85; }
-.tlharris-hero-content h1,
-.tlharris-hero-content p { color: #fff; }
+/* About page: name sized for its column; quote band. */
+.tlharris-profile .tlharris-hero-name { font-size: clamp(2.8rem, 6vw, 5.5rem) !important; margin-bottom: 1rem; }
+.tlharris-profile .tlharris-hero-role { margin: 0; }
+.tlharris-profile .tlharris-meta { margin: .2rem 0 0; }
+.tlharris-quote-band { padding: clamp(3rem, 7vw, 6rem) var(--tlharris-gutter); margin: 2.5rem 0 3.5rem; }
+.tlharris-quote-band .tlharris-quote { max-width: 1000px; margin: 0 auto; border-left-width: 6px; }
+.tlharris-story > * + * { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.tlharris-story p { max-width: 42em; }
 
-@media (prefers-reduced-motion: no-preference) {
-  .tlharris-hero-media .tlharris-hero-slide-1 { animation: tlharris-hero-fade 25s ease-in-out infinite; }
-  .tlharris-hero-media .tlharris-hero-slide-2 { animation: tlharris-hero-fade 25s ease-in-out infinite; animation-delay: 5s; }
-  .tlharris-hero-media .tlharris-hero-slide-3 { animation: tlharris-hero-fade 25s ease-in-out infinite; animation-delay: 10s; }
-  .tlharris-hero-media .tlharris-hero-slide-4 { animation: tlharris-hero-fade 25s ease-in-out infinite; animation-delay: 15s; }
-  .tlharris-hero-media .tlharris-hero-slide-5 { animation: tlharris-hero-fade 25s ease-in-out infinite; animation-delay: 20s; }
-}
-@keyframes tlharris-hero-fade {
-  0%, 100% { opacity: 0; }
-  4% { opacity: 1; }
-  18% { opacity: 1; }
-  22% { opacity: 0; }
-}
+/* Titles inside cards read as headings first, links second. */
+.tlharris-card h3 a,
+.tlharris-card .wp-block-post-title a { color: var(--wp--preset--color--ink); text-decoration: none; }
+.tlharris-card h3 a:hover,
+.tlharris-card .wp-block-post-title a:hover { color: var(--wp--preset--color--accent); text-decoration: underline; text-underline-offset: 3px; }
+.tlharris-footer li a { font-weight: 400; text-decoration: none; }
+.tlharris-footer li a:hover { text-decoration: underline; }
+.tlharris-press-list { list-style: none; padding-left: 0; }
+.tlharris-press-list li { border-top: 1px solid var(--wp--preset--color--line); padding: 1rem 0; }
+.tlharris-press-list .tlharris-meta { display: block; }
 
-.tlharris-report-video { margin: 1.5rem 0; border-radius: var(--tlharris-radius); overflow: hidden; }
-.tlharris-report-video video { width: 100%; display: block; }
+/* WordPress layout adjustments: the hero photographs and the video run edge to
+   edge, and the page starts directly under the header. */
+.wp-site-blocks > main,
+.wp-site-blocks > footer { margin-block-start: 0; }
+.tlharris-hero-media { max-width: none !important; margin: 0 !important; }
+.tlharris-hero > .tlharris-hero-content { margin-block-start: 0; }
+.tlharris-video-band > * { margin-block: 0; }
+.tlharris-hero-content .wp-block-buttons { margin-top: 1.5rem; }

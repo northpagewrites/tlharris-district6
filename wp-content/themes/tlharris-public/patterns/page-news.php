@@ -7,11 +7,23 @@
  */
 ?>
 <!-- wp:paragraph {"fontSize":"large"} -->
-<p class="has-large-font-size">A public record of updates and reports from the office.</p>
+<p class="has-large-font-size">Updates from the office, statements and news coverage.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p>Updates here are organized into five kinds: Board Update, Report to District 6, Statement, Community, and Education. Each one carries a date and, where it references a Board action or district fact, the official source behind it.</p>
+<p>Posts are filed as board updates, Reports to District 6, statements, community news or education news. Each one is dated, and any board action or district fact it mentions links to the official source.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p>Nothing has been published here yet. This office has taken no verified Board action and issued no statements so far — updates will appear as real work happens, not before.</p>
+<p>No updates have been posted yet.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">In the news</h2>
+<!-- /wp:heading -->
+<!-- wp:list {"className":"tlharris-press-list"} -->
+<ul class="wp-block-list tlharris-press-list"><!-- wp:list-item -->
+<li><a href="https://tnfirefly.com/news/two-new-board-members-elected-to-memphis-shelby-county-school-board">Two New Board Members Elected to Memphis-Shelby County School Board</a> <span class="tlharris-meta">Tennessee Firefly, August 10, 2026</span></li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+<!-- wp:paragraph {"className":"tlharris-source"} -->
+<p class="tlharris-source">Coverage links go to the original publication.</p>
 <!-- /wp:paragraph -->

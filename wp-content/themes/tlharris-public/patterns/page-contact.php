@@ -25,7 +25,7 @@
 <!-- /wp:heading -->
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li>(901) 416-5447 — MSCS Board Office</li>
+<li>MSCS Board Office: <a href="tel:+19014165447">(901) 416-5447</a></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
 <li><a href="mailto:boardoffice@scsk12.org">boardoffice@scsk12.org</a></li>

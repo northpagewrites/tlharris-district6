@@ -39,7 +39,7 @@ function tlharris_identity_fields() {
 		'role_title'           => array(
 			'label'   => 'Role title',
 			'type'    => 'text',
-			'default' => 'Board Member',
+			'default' => 'Commissioner',
 			'help'    => 'Current public role. Content, not brand.',
 		),
 		'office_name'          => array(
@@ -151,7 +151,7 @@ function tlharris_get_identity( $key = null ) {
 }
 
 /**
- * "Board Member · District 6" — assembled, never hardcoded in a template.
+ * "Commissioner · District 6" — assembled, never hardcoded in a template.
  */
 function tlharris_identity_line() {
 	$role     = trim( tlharris_get_identity( 'role_title' ) );
@@ -1258,7 +1258,7 @@ function tlharris_readable_date( $value ) {
  * @return string[]
  */
 function tlharris_date_field_keys() {
-	return array( 'last_verified', 'next_update', 'target_date' );
+	return array( 'last_verified', 'next_update', 'target_date', 'event_date' );
 }
 
 /**

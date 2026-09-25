@@ -15,11 +15,11 @@
 <h2 class="wp-block-heading">Media contact</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>This office has not yet designated a separate media contact. Until it does, media inquiries about T. L. Harris as District 6 Board Member can go through the MSCS Board Office, which routes correspondence to individual Board members.</p>
+<p>This office has not yet designated a separate media contact. Until it does, media inquiries about T. L. Harris as the District 6 commissioner can go through the MSCS Board Office, which routes correspondence to individual commissioners.</p>
 <!-- /wp:paragraph -->
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li>(901) 416-5447 — MSCS Board Office</li>
+<li>MSCS Board Office: <a href="tel:+19014165447">(901) 416-5447</a></li>
 <!-- /wp:list-item -->
 <!-- wp:list-item -->
 <li><a href="mailto:boardoffice@scsk12.org">boardoffice@scsk12.org</a></li>

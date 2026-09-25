@@ -6,13 +6,13 @@
  * Description: Front page hero paragraph and calls to action.
  */
 ?>
-<!-- wp:paragraph {"fontSize":"large"} -->
-<p class="has-large-font-size">Serving students, families and educators in District 6 of Memphis-Shelby County Schools.</p>
+<!-- wp:paragraph {"className":"tlharris-lede"} -->
+<p class="tlharris-lede">Working for the students, families and schools of District 6, from Whitehaven across Southwest Memphis.</p>
 <!-- /wp:paragraph -->
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/get-help/">Get help from this office</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/get-help/">Get help</a></div>
 <!-- /wp:button --><!-- wp:button {"className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/board-work/">Explore Board work</a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/about/">Meet T. L. Harris</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->

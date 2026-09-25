@@ -18,6 +18,11 @@ before publishing anything date-sensitive, and record the date you checked.
 | S9 | District 6 Board Member profile: T. L. Harris biography | https://www.scsk12.org/board/?M=6&MID=27&PN=44 | 2026-09-24 |
 | S10 | Board of Education: composition (nine elected members), mission statement, meeting cadence, livestream/broadcast details | https://www.scsk12.org/board/ | 2026-09-24 |
 | S11 | T. L. Harris for District 6 campaign platform: "The Third Grade Standard," Safe Schools, Fiscal Transparency, Parent Engagement commitments | https://voteharris901.com/platform/ and https://voteharris901.com/about/ | 2026-09-24 |
+| S9 (re-check) | District 6 profile biography re-read in full; unchanged. The page titles him "Board Member" and does not use "Commissioner" | https://www.scsk12.org/board/?M=6&MID=27&PN=44 | 2026-09-25 |
+| S11 (about) | Campaign biography: education list, Lost and Found Foundation, Kappa Alpha Psi and NAACP life memberships, 2024 Leaders of Color. Self-reported | https://voteharris901.com/about/ | 2026-09-25 |
+| S12 | Chalkbeat Tennessee voter guide, District 6 (14 April 2026): 30+ years in Whitehaven; led five community centers for the Memphis Gun Down summer program for three years (Frayser, Raleigh); quotes used on About | https://www.chalkbeat.org/tennessee/2026/04/14/voter-guide-memphis-shelby-county-schools-board-election-district-6/ | 2026-09-25 |
+| S13 | Tennessee Firefly (10 August 2026): elected in the first partisan school board election; won the May primary; takes office 1 September; succeeds Keith Williams; campaign focus; "any door they want can be opened with education" quote | https://tnfirefly.com/news/two-new-board-members-elected-to-memphis-shelby-county-school-board | 2026-09-25 |
+| S14 | MSCS brand colours: red PMS 187 #C41230, blue PMS 286 #005DAB (used for the site palette; no MSCS logo is used) | https://www.scsk12.org/communications/?PN=65 | 2026-09-25 |
 
 ## What each page is used for
 
@@ -266,3 +271,22 @@ open office decisions, not something to build ahead of them).
 3. Every public-record entry carries `tlharris_source_url` and
    `tlharris_last_verified`, so a page can show where a fact came from and when it
    was last confirmed.
+
+## Biography, 2026-09-25
+
+The About page and the homepage "Meet T. L. Harris" section draw on S9, S11,
+S12 and S13. Left out on purpose:
+
+- The City of Memphis Life-Saving Medal (campaign site only; no independent
+  source found).
+- The name of the healthcare practice. S12 reports that Chalkbeat could not
+  verify it. The page uses S9's wording instead: chief financial officer of a
+  private medical office.
+- Degree titles. S9 says he continued his education at LeMoyne-Owen College, LSU
+  and the University of Memphis; the campaign site lists specific degrees. The
+  page uses S9's wording until the office confirms the degrees.
+- Anything that belongs to the reserved `/my-story/` decision.
+
+The biography still needs the office's written approval before it is published
+(see CLAUDE.md, "Never do without explicit approval").
+
