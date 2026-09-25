@@ -191,7 +191,6 @@ def header(active: str) -> str:
       <p class="tlharris-wordmark-line">{e(IDENTITY["line"])}</p>
     </div>
   </div>
-  <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="get-help.html">Get help</a></div></div>
 </div>
 <nav class="tlharris-navbar has-ink-background-color" aria-label="Primary">
   <ul>{"".join(items)}</ul>
