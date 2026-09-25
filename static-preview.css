@@ -6,14 +6,13 @@
    theme's style.css, which every preview page also loads. */
 
 :root {
-  --wp--preset--color--ink: #041132;
-  --wp--preset--color--paper: #FFFFFF;
+  --wp--preset--color--ink: #16222C;
+  --wp--preset--color--paper: #F7F5F1;
   --wp--preset--color--white: #FFFFFF;
-  --wp--preset--color--accent: #C41230;
-  --wp--preset--color--blue: #005DAB;
-  --wp--preset--color--muted: #525B66;
-  --wp--preset--color--line: #D6DBE2;
-  --wp--preset--color--soft: #F2F4F7;
+  --wp--preset--color--accent: #946E2F;
+  --wp--preset--color--muted: #5B6873;
+  --wp--preset--color--line: #DCE1E4;
+  --wp--preset--color--soft: #EEF1F2;
   --wp--preset--font-size--small: .92rem;
   --wp--preset--font-size--medium: 1.1rem;
   --wp--preset--font-size--large: clamp(1.2rem, 1.8vw, 1.45rem);
@@ -38,7 +37,7 @@ h3 { font-size: 1.3rem; line-height: 1.25; margin: 0 0 .6rem; }
 p { margin: 0 0 1rem; }
 ul, ol { margin: 0 0 1rem; }
 
-a { color: var(--wp--preset--color--blue); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+a { color: var(--wp--preset--color--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 a:hover { color: var(--wp--preset--color--accent); }
 
 /* Layout */
@@ -57,10 +56,9 @@ a:hover { color: var(--wp--preset--color--accent); }
 .has-white-color { color: #fff; }
 .has-muted-color { color: var(--wp--preset--color--muted); }
 .has-ink-background-color { background-color: var(--wp--preset--color--ink); }
-.has-blue-background-color { background-color: var(--wp--preset--color--blue); }
 .has-soft-background-color { background-color: var(--wp--preset--color--soft); }
 .has-white-background-color { background-color: #fff; }
-.has-paper-background-color { background-color: #fff; }
+.has-paper-background-color { background-color: var(--wp--preset--color--paper); }
 .has-ink-background-color h2, .has-ink-background-color h3 { color: #fff; }
 .has-large-font-size { font-size: var(--wp--preset--font-size--large); line-height: 1.45; }
 .has-small-font-size { font-size: var(--wp--preset--font-size--small); }

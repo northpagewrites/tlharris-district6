@@ -10,14 +10,13 @@
       "defaultGradients": false,
       "custom": false,
       "palette": [
-        { "slug": "ink", "color": "#041132", "name": "Navy" },
-        { "slug": "paper", "color": "#FFFFFF", "name": "Paper" },
+        { "slug": "ink", "color": "#16222C", "name": "Ink" },
+        { "slug": "paper", "color": "#F7F5F1", "name": "Paper" },
         { "slug": "white", "color": "#FFFFFF", "name": "White" },
-        { "slug": "accent", "color": "#C41230", "name": "MSCS Red" },
-        { "slug": "blue", "color": "#005DAB", "name": "MSCS Blue" },
-        { "slug": "muted", "color": "#525B66", "name": "Muted" },
-        { "slug": "line", "color": "#D6DBE2", "name": "Line" },
-        { "slug": "soft", "color": "#F2F4F7", "name": "Soft" }
+        { "slug": "accent", "color": "#946E2F", "name": "Gold" },
+        { "slug": "muted", "color": "#5B6873", "name": "Muted" },
+        { "slug": "line", "color": "#DCE1E4", "name": "Line" },
+        { "slug": "soft", "color": "#EEF1F2", "name": "Soft" }
       ]
     },
     "spacing": {
@@ -50,7 +49,7 @@
       "h2": { "typography": { "fontSize": "clamp(1.75rem, 3vw, 2.5rem)", "lineHeight": "1.08" } },
       "h3": { "typography": { "fontSize": "1.3rem", "lineHeight": "1.25" } },
       "link": {
-        "color": { "text": "var:preset|color|blue" },
+        "color": { "text": "var:preset|color|ink" },
         "typography": { "textDecoration": "underline", "fontWeight": "600" },
         ":hover": { "color": { "text": "var:preset|color|accent" } }
       },

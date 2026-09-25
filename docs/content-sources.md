@@ -20,9 +20,10 @@ before publishing anything date-sensitive, and record the date you checked.
 | S11 | T. L. Harris for District 6 campaign platform: "The Third Grade Standard," Safe Schools, Fiscal Transparency, Parent Engagement commitments | https://voteharris901.com/platform/ and https://voteharris901.com/about/ | 2026-09-24 |
 | S9 (re-check) | District 6 profile biography re-read in full; unchanged. The page titles him "Board Member" and does not use "Commissioner" | https://www.scsk12.org/board/?M=6&MID=27&PN=44 | 2026-09-25 |
 | S11 (about) | Campaign biography: education list, Lost and Found Foundation, Kappa Alpha Psi and NAACP life memberships, 2024 Leaders of Color. Self-reported | https://voteharris901.com/about/ | 2026-09-25 |
+| S11 (home) | Campaign home page: slogan "The Standard Starts Now", headline "Raising the Standard for District 6", and the four phrases "Safe schools. Strong academics. Fiscal discipline. Community partnership." Wording only | https://voteharris901.com/home/ | 2026-09-25 |
 | S12 | Chalkbeat Tennessee voter guide, District 6 (14 April 2026): 30+ years in Whitehaven; led five community centers for the Memphis Gun Down summer program for three years (Frayser, Raleigh); quotes used on About | https://www.chalkbeat.org/tennessee/2026/04/14/voter-guide-memphis-shelby-county-schools-board-election-district-6/ | 2026-09-25 |
 | S13 | Tennessee Firefly (10 August 2026): elected in the first partisan school board election; won the May primary; takes office 1 September; succeeds Keith Williams; campaign focus; "any door they want can be opened with education" quote | https://tnfirefly.com/news/two-new-board-members-elected-to-memphis-shelby-county-school-board | 2026-09-25 |
-| S14 | MSCS brand colours: red PMS 187 #C41230, blue PMS 286 #005DAB (used for the site palette; no MSCS logo is used) | https://www.scsk12.org/communications/?PN=65 | 2026-09-25 |
+| S14 | MSCS brand colours: red PMS 187 #C41230, blue PMS 286 #005DAB (no longer used: the site palette went back to its original ink, paper and gold on 2026-09-25; no MSCS logo is used) | https://www.scsk12.org/communications/?PN=65 | 2026-09-25 |
 
 ## What each page is used for
 

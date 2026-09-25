@@ -13,11 +13,10 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /* Design system, September 2026.
-   Palette: the Memphis-Shelby County Schools brand colours (blue PMS 286,
-   red PMS 187) on white, with a deep navy for text and dark bands. The colour
+   Palette: the site's original colours, ink, warm paper and gold. The colour
    values live in theme.json; this file only refers to them by slug.
    Type: one sans family, left-aligned, on a 12-column grid.
-   Signature: every section opens on a hairline rule with a short red bar at
+   Signature: every section opens on a hairline rule with a short gold bar at
    its left end (.tlharris-keyline). No gradients for decoration, no glows, no
    scroll animations, no rounded pills. */
 
@@ -39,7 +38,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 }
 
 /* ---------------------------------------------------------------------
-   Signature rule: hairline with a red bar at the left end.
+   Signature rule: hairline with a gold bar at the left end.
    ------------------------------------------------------------------ */
 .tlharris-keyline {
   position: relative;
@@ -52,8 +51,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
   width: 64px; height: 5px;
   background: var(--wp--preset--color--accent);
 }
-.has-ink-background-color .tlharris-keyline,
-.has-blue-background-color .tlharris-keyline { border-top-color: rgba(255, 255, 255, .25); }
+.has-ink-background-color .tlharris-keyline { border-top-color: rgba(255, 255, 255, .25); }
 
 /* Section heading on the left, content on the right. */
 .tlharris-split {
@@ -125,7 +123,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
   height: 12px; background: var(--wp--preset--color--soft);
   border: 1px solid var(--wp--preset--color--line); overflow: hidden;
 }
-.tlharris-progress__fill { height: 100%; background: var(--wp--preset--color--blue); }
+.tlharris-progress__fill { height: 100%; background: var(--wp--preset--color--accent); }
 
 /* Campaign-era wording, kept as history and never as a current commitment. */
 .tlharris-historical {
@@ -154,17 +152,17 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
   overflow: visible; position: fixed;
 }
 
-/* Red (#C41230) clears 3:1 against white, soft and the navy ink. On the blue
-   bar and inside the hero the ring switches to white. */
+/* Gold (#946E2F) clears 3:1 against paper, white and soft. On the dark bands
+   and inside the hero the ring switches to white. */
 :focus-visible { outline: 3px solid var(--wp--preset--color--accent); outline-offset: 3px; }
 .tlharris-navbar :focus-visible,
 .tlharris-utility :focus-visible,
 .tlharris-hero :focus-visible,
-.has-blue-background-color :focus-visible,
+.has-ink-background-color :focus-visible,
 .has-accent-background-color :focus-visible { outline-color: #fff; }
 
 /* ---------------------------------------------------------------------
-   Header: navy utility bar, white masthead, MSCS-blue navigation bar
+   Header: ink utility bar, paper masthead, ink navigation bar
    ------------------------------------------------------------------ */
 .tlharris-utility { font-size: .82rem; }
 .tlharris-utility a { color: #fff; text-decoration: none; }
@@ -225,7 +223,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 /* Legibility scrim, darkest behind the text column. */
 .tlharris-hero-media::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(4, 17, 50, .9) 0%, rgba(4, 17, 50, .72) 38%, rgba(4, 17, 50, .2) 72%, rgba(4, 17, 50, .1) 100%);
+  background: linear-gradient(90deg, rgba(22, 34, 44, .9) 0%, rgba(22, 34, 44, .72) 38%, rgba(22, 34, 44, .2) 72%, rgba(22, 34, 44, .1) 100%);
 }
 .tlharris-hero-content { position: relative; z-index: 1; width: 100%; color: #fff; }
 .tlharris-hero-content h1,
@@ -247,7 +245,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 @media (max-width: 781px) {
   .tlharris-hero { min-height: min(80vh, 640px); }
   .tlharris-hero-media::after {
-    background: linear-gradient(180deg, rgba(4, 17, 50, .25) 0%, rgba(4, 17, 50, .75) 45%, rgba(4, 17, 50, .94) 100%);
+    background: linear-gradient(180deg, rgba(22, 34, 44, .25) 0%, rgba(22, 34, 44, .75) 45%, rgba(22, 34, 44, .94) 100%);
   }
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -304,12 +302,11 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 .tlharris-meet-photo figcaption { font-size: .85rem; color: var(--wp--preset--color--muted); margin-top: .5rem; line-height: 1.4; }
 @media (max-width: 860px) { .tlharris-meet { grid-template-columns: 1fr; } .tlharris-meet-photo img { aspect-ratio: 3 / 2; } }
 
-/* Pull quote: large type, red bar, attribution below. */
+/* Pull quote: large type, gold bar, attribution below. */
 .tlharris-quote { margin: 1.75rem 0; padding: 0 0 0 1.25rem; border-left: 5px solid var(--wp--preset--color--accent); }
 .tlharris-quote p { font-size: clamp(1.35rem, 2.4vw, 1.9rem); line-height: 1.25; font-weight: 700; letter-spacing: -.015em; margin: 0; }
 .tlharris-quote cite { display: block; margin-top: .75rem; font-size: .9rem; font-style: normal; color: var(--wp--preset--color--muted); }
-.has-ink-background-color .tlharris-quote cite,
-.has-blue-background-color .tlharris-quote cite { color: rgba(255, 255, 255, .8); }
+.has-ink-background-color .tlharris-quote cite { color: rgba(255, 255, 255, .8); }
 .tlharris-quote--display p { font-size: clamp(1.8rem, 4.2vw, 3.4rem); line-height: 1.1; letter-spacing: -.025em; }
 
 /* ---------------------------------------------------------------------
@@ -355,7 +352,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
   }
 }
 
-/* Footer on navy. */
+/* Footer on ink. */
 .tlharris-footer .tlharris-meta,
 .tlharris-footer .tlharris-source,
 .tlharris-footer .tlharris-eyebrow { color: rgba(255, 255, 255, .78); }
@@ -393,3 +390,17 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 .tlharris-hero > .tlharris-hero-content { margin-block-start: 0; }
 .tlharris-video-band > * { margin-block: 0; }
 .tlharris-hero-content .wp-block-buttons { margin-top: 1.5rem; }
+
+/* ---------------------------------------------------------------------
+   Slogan and the four commitments (wording from the campaign site, S11)
+   ------------------------------------------------------------------ */
+.tlharris-hero-tagline { font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 700; letter-spacing: -.01em; margin: .9rem 0 1.25rem; }
+.tlharris-standard-band { padding: clamp(2.25rem, 4vw, 3.25rem) var(--tlharris-gutter); }
+.tlharris-standard { max-width: var(--tlharris-max); margin: 0 auto; }
+.tlharris-standard-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 1.25rem; color: rgba(255, 255, 255, .85); }
+.tlharris-pillars { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+.tlharris-pillars li { margin: 0; padding-top: .9rem; border-top: 4px solid var(--wp--preset--color--accent); font-size: clamp(1.15rem, 2vw, 1.6rem); font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }
+.tlharris-standard-note { margin: 0; font-size: .95rem; }
+.tlharris-standard a { color: #fff; }
+@media (max-width: 860px) { .tlharris-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .tlharris-pillars { grid-template-columns: 1fr; } }

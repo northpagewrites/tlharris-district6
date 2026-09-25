@@ -182,10 +182,8 @@ checks = [
     ('accent', 'soft', 3.0, 'focus ring on the soft band'),
     ('accent', 'white', 3.0, 'focus ring on cards'),
     ('accent', 'ink', 3.0, 'focus ring on the dark band'),
-    ('white', 'blue', 4.5, 'text on the blue navigation bar'),
-    ('white', 'accent', 4.5, 'text on red buttons'),
-    ('blue', 'paper', 4.5, 'links on paper'),
-    ('blue', 'soft', 4.5, 'links on the soft band'),
+    ('white', 'accent', 4.5, 'text on gold buttons'),
+    ('ink', 'soft', 4.5, 'links on the soft band'),
 ]
 for fg, bg, need, label in checks:
     if fg not in palette or bg not in palette:

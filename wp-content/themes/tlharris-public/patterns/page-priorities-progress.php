@@ -12,3 +12,6 @@
 <!-- wp:paragraph -->
 <p>A commissioner is one vote of nine on a board that acts together. Where an outcome depends on the full Board, on district administration or on school leadership, that is stated rather than claimed.</p>
 <!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>During his campaign, T. L. Harris called his early-reading commitment “The Third Grade Standard.” That wording is kept here as history, not as a current promise. Each priority shows where the subject stands today.</p>
+<!-- /wp:paragraph -->

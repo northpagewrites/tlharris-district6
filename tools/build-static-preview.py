@@ -193,7 +193,7 @@ def header(active: str) -> str:
   </div>
   <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="get-help.html">Get help</a></div></div>
 </div>
-<nav class="tlharris-navbar has-blue-background-color" aria-label="Primary">
+<nav class="tlharris-navbar has-ink-background-color" aria-label="Primary">
   <ul>{"".join(items)}</ul>
 </nav>
 </header>
@@ -297,6 +297,7 @@ def home() -> str:
 <div class="wrap tlharris-hero-content" style="padding-top:clamp(3rem,8vw,6rem);padding-bottom:clamp(3rem,7vw,5.5rem)">
 <h1>{e(IDENTITY["name"])}</h1>
 <p class="tlharris-hero-role">{e(IDENTITY["line"])}</p>
+<p class="tlharris-hero-tagline">The Standard Starts Now</p>
 {to_static(pattern("page-home"))}</div>
 </div>
 <div class="wrap" style="padding-bottom:clamp(3rem,6vw,5rem)">
@@ -307,7 +308,7 @@ def home() -> str:
 <p class="tlharris-video-caption"><strong>Report to District 6</strong> Video update</p>
 <div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(pattern("home-meet"))}</div>
-<div class="wrap" style="padding-bottom:clamp(3rem,6vw,5rem)">
+{to_static(pattern("home-standard"))}<div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(priorities)}</div>
 {to_static(pattern("home-help"))}<div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(meetings)}</div>

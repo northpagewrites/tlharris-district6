@@ -2,6 +2,23 @@
 
 Resolved choices that change how the site is built or what it says. Newest first.
 
+## 2026-09-25 (later) — Original colours back; slogan and four phrases added
+
+**Colours are back to the original palette.** Chris's call. Ink #16222C, warm paper
+#F7F5F1 and gold #946E2F as the accent, with muted #5B6873, line #DCE1E4 and soft
+#EEF1F2. This replaces the MSCS red and blue palette in the entry below. The `blue`
+palette slug is gone: the navigation bar and links use ink, buttons and the short
+section bars use gold. The layout and design system in the entry below are unchanged.
+
+**Slogan and phrases from the campaign site (S11), wording only.** Hero tagline "The
+Standard Starts Now"; a dark band on the homepage headed "Raising the Standard for
+District 6" with "Safe schools. Strong academics. Fiscal discipline. Community
+partnership."; one sentence on the Priorities page that names "The Third Grade
+Standard" as campaign wording kept as history. Not carried over: Donate, Volunteer,
+Join Team Harris, the endorsement quote, and the third-grade dropout statistic (no
+cited source; the same reason the `why_it_matters` lines were removed). The office
+should approve the slogan wording before launch.
+
 ## 2026-09-25 — Title, colours and design system
 
 **Public title is "Commissioner".** Directed by the office (Chris Dorsey, web lead).
