@@ -184,9 +184,12 @@ def header(active: str) -> str:
   <p><a href="https://www.scsk12.org/board/">MSCS Board of Education</a> · <a href="https://www.boarddocs.com/tn/scsk12/Board.nsf/Public">Board agendas</a></p>
 </div>
 <div class="tlharris-masthead">
-  <div class="tlharris-wordmark-block">
-    <p class="tlharris-wordmark"><a href="local-preview.html">{e(IDENTITY["name"])}</a></p>
-    <p class="tlharris-wordmark-line">{e(IDENTITY["line"])}</p>
+  <div class="tlharris-brand">
+    <figure class="tlharris-seal"><img src="wp-content/themes/tlharris-public/assets/images/tn-state-seal.svg" alt="Seal of the State of Tennessee"></figure>
+    <div class="tlharris-wordmark-block">
+      <p class="tlharris-wordmark"><a href="local-preview.html">{e(IDENTITY["name"])}</a></p>
+      <p class="tlharris-wordmark-line">{e(IDENTITY["line"])}</p>
+    </div>
   </div>
   <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link" href="get-help.html">Get help</a></div></div>
 </div>

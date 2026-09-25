@@ -180,6 +180,9 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 .tlharris-masthead .wp-block-site-title a { color: var(--wp--preset--color--ink); text-decoration: none; }
 .tlharris-wordmark-line { font-size: .92rem; color: var(--wp--preset--color--muted); margin: .35rem 0 0; }
 .tlharris-wordmark-block { border-left: 5px solid var(--wp--preset--color--accent); padding-left: .85rem; }
+.tlharris-brand { display: flex; align-items: center; gap: 1rem; flex-wrap: nowrap; }
+.tlharris-seal { margin: 0; flex: 0 0 auto; }
+.tlharris-seal img { display: block; width: clamp(48px, 6vw, 64px); height: auto; }
 
 .tlharris-navbar a { color: #fff; text-decoration: none; font-weight: 600; }
 .tlharris-navbar a:hover { color: #fff; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }

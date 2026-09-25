@@ -33,6 +33,13 @@ replaced the theme's font sizes.
 Tennessee and this is not a state office. The header now uses the name as the
 wordmark. The SVG file is still in `assets/images/` and is not referenced.
 
+**Tennessee state seal put back, top-left of the header (Chris's call, Sept. 25).**
+Chris asked for it after the note above. It sits left of the name in the masthead.
+The concern above still stands, so the office must approve it in writing before
+launch. To take it out: delete the `tlharris-brand` seal image in
+`parts/header.html` and the `<figure class="tlharris-seal">` line in
+`tools/build-static-preview.py`, then rebuild.
+
 **Homepage is about the person first.** Order: hero, four sourced facts, the
 Report to District 6 video, "Meet T. L. Harris", priorities, get help, upcoming
 meetings, site index. Section copy lives in `patterns/home-*.php`, not in the
