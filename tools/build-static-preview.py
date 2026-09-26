@@ -31,7 +31,6 @@ IDENTITY = {
     "line": "Commissioner · District 6",
     "office_name": "Memphis-Shelby County Schools",
     "office_and_district": "Memphis-Shelby County Schools · District 6",
-    "notice": "This website is published by the office of T. L. Harris and is not an official Memphis-Shelby County Schools website.",
 }
 
 # WordPress routes and the static file that stands in for each.
@@ -203,7 +202,6 @@ def footer() -> str:
     <p class="tlharris-footer-name">{e(IDENTITY["name"])}</p>
     <p class="tlharris-meta">{e(IDENTITY["line"])}</p>
     <p class="tlharris-meta">{e(IDENTITY["office_and_district"])}</p>
-    <p class="tlharris-source">{e(IDENTITY["notice"])}</p>
   </div>
   <div>
     <p class="tlharris-eyebrow">Explore</p>
@@ -289,7 +287,7 @@ def home() -> str:
 <div class="tlharris-hero-media">
 {slides}
 </div>
-<div class="wrap tlharris-hero-content" style="padding-top:clamp(3rem,8vw,6rem);padding-bottom:clamp(3rem,7vw,5.5rem)">
+<div class="wrap tlharris-hero-content" style="padding-top:clamp(2rem,4vw,3rem);padding-bottom:clamp(2rem,4vw,3.25rem)">
 <h1>{e(IDENTITY["name"])}</h1>
 <p class="tlharris-hero-role">{e(IDENTITY["line"])}</p>
 <p class="tlharris-hero-tagline">The Standard Starts Now</p>

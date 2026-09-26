@@ -22,7 +22,7 @@ The current role is configuration, not brand. These fields live in the
 | `board_office_phone` | text | MSCS Board Office phone |
 | `board_office_email` | email | MSCS Board Office email |
 | `site_operator` | text | Who publishes this site |
-| `official_site_notice` | textarea | Statement that this is not an official MSCS site |
+| `official_site_notice` | textarea | Statement that this is not an official MSCS site. Not shown anywhere since Sept. 25, 2026 (removed from the footer at Chris's request); the field is still here if the office wants it back |
 | `primary_domain` | url | Canonical domain |
 
 ## How templates read them
