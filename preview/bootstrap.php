@@ -62,7 +62,6 @@ $tlharris_pages    = array(
 	'priorities-progress'  => array( 'Priorities & Progress', 'page-priorities-progress' ),
 	'news'                 => array( 'News & Updates', 'page-news' ),
 	'events'               => array( 'Events', 'page-events' ),
-	'get-help'             => array( 'Get Help', 'page-get-help' ),
 	'press'                => array( 'Press & Media', 'page-press' ),
 	'contact'              => array( 'Contact', 'page-contact' ),
 	'get-involved'         => array( 'Get Involved', 'page-get-involved' ),

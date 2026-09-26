@@ -43,7 +43,6 @@ ROUTES = {
     "/board-work/": "board-work.html",
     "/news/": "news.html",
     "/events/": "events.html",
-    "/get-help/": "get-help.html",
     "/press/": "press.html",
     "/contact/": "contact.html",
     "/get-involved/": "get-involved.html",
@@ -57,7 +56,6 @@ NAV = [
     ("The Board", "/board-work/"),
     ("News", "/news/"),
     ("Events", "/events/"),
-    ("Get Help", "/get-help/"),
 ]
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
@@ -221,7 +219,6 @@ def footer() -> str:
   <div>
     <p class="tlharris-eyebrow">Constituents</p>
     <ul>
-      <li><a href="get-help.html">Get Help</a></li>
       <li><a href="events.html">Events</a></li>
       <li><a href="news.html">News</a></li>
       <li><a href="get-involved.html">Get Involved</a></li>
@@ -309,7 +306,7 @@ def home() -> str:
 {to_static(pattern("home-meet"))}</div>
 {to_static(pattern("home-standard"))}<div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(priorities)}</div>
-{to_static(pattern("home-help"))}<div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
+<div class="wrap" style="padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(meetings)}</div>
 <div class="wrap" style="padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(pattern("home-explore"))}</div>
@@ -392,12 +389,6 @@ def events() -> str:
     return document("Events", "Board meetings and community events in District 6.", "/events/", standard_page("Events", body))
 
 
-def get_help() -> str:
-    body = to_static(pattern("page-get-help"))
-    body += '<section class="page-section tlharris-keyline">' + to_static(pattern("get-help-resources")) + "</section>\n"
-    return document("Get Help", "Where to take a question or concern about Memphis-Shelby County Schools.", "/get-help/", standard_page("Get Help", body))
-
-
 def simple(name: str, title: str, route: str, description: str) -> str:
     return document(title, description, route, standard_page(title, to_static(pattern(name))))
 
@@ -410,7 +401,6 @@ PAGES = {
     "district-6.html": district6,
     "news.html": news,
     "events.html": events,
-    "get-help.html": get_help,
     "press.html": lambda: simple("page-press", "Press & Media", "/press/", "Media resources for T. L. Harris."),
     "contact.html": lambda: simple("page-contact", "Contact", "/contact/", "How to reach the office of T. L. Harris."),
     "get-involved.html": lambda: simple("page-get-involved", "Get Involved", "/get-involved/", "Ways to take part in public education in District 6."),

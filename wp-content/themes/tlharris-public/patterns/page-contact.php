@@ -10,17 +10,6 @@
 <p class="has-large-font-size">Use the route that matches what you need.</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Help with a school or district issue</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Constituent questions have their own page, with the district's own channels listed first.</p>
-<!-- /wp:paragraph -->
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/get-help/">Get help</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons -->
-<!-- wp:heading -->
 <h2 class="wp-block-heading">Official Board channels</h2>
 <!-- /wp:heading -->
 <!-- wp:list -->

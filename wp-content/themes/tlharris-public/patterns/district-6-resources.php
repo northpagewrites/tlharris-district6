@@ -36,19 +36,6 @@
 </div>
 <!-- /wp:group -->
 </div>
-<!-- /wp:column --><!-- wp:column -->
-<div class="wp-block-column">
-<!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
-<div class="wp-block-group tlharris-card">
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Get help</h3>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>Working through a school or district concern, step by step: <a href="/get-help/">Get Help</a>.</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 <!-- wp:paragraph {"className":"tlharris-source"} -->

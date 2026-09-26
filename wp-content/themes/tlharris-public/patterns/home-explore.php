@@ -18,6 +18,5 @@
 <li><a href="/district-6/">District 6</a><span>The 26 schools in the district and how to find yours</span></li>
 <li><a href="/board-work/">The Board</a><span>How the board works, meetings and public comment</span></li>
 <li><a href="/news/">News</a><span>Updates from the office and coverage of his work</span></li>
-<li><a href="/get-help/">Get Help</a><span>Where to take a school or district concern</span></li>
 </ul>
 <!-- /wp:html -->

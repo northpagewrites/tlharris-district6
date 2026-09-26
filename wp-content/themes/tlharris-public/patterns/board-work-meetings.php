@@ -35,8 +35,6 @@
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline"} -->
 <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://www.scsk12.org/board/?PN=49">How to address the Board</a></div>
-<!-- /wp:button --><!-- wp:button {"className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/get-help/">Get help with a school concern</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 <!-- wp:paragraph {"className":"tlharris-source"} -->

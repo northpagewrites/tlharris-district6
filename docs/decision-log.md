@@ -2,6 +2,17 @@
 
 Resolved choices that change how the site is built or what it says. Newest first.
 
+## 2026-09-25 (latest) — Get Help removed from the site
+
+Chris's call. Removed: the menu link, the footer link, the homepage "Need help with a
+school issue?" band, the "Find your way around" entry, the Get Help page itself
+(template, page and resources patterns, static preview page, and its entry in
+`preview/bootstrap.php`), and every button or link that pointed to it (Contact,
+Support, The Board, District 6 resources). The Get Involved button "How to speak at a
+meeting" now goes to the MSCS "Addressing the Board" page. The Contact page still lists
+the Board Office phone and email. The open "Get Help contact form" decision is moot.
+Do not re-add a `/get-help/` route without asking Chris.
+
 ## 2026-09-25 (later) — Original colours back; slogan and four phrases added
 
 **Colours are back to the original palette.** Chris's call. Ink #16222C, warm paper

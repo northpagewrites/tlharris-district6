@@ -36,7 +36,6 @@ the seed; the page is the source of truth afterwards.
 | Priorities & Progress | `priorities-progress` | Priorities & Progress — page content |
 | News & Updates | `news` | News & Updates — page content |
 | Events | `events` | Events — page content |
-| Get Help | `get-help` | Get Help — page content |
 | Press | `press` | Press & Media — page content |
 | Contact | `contact` | Contact — page content |
 | Get Involved | `get-involved` | Get Involved — page content |
@@ -47,15 +46,13 @@ the seed; the page is the source of truth afterwards.
 
 `My Story` already exists as a draft. Leave it that way.
 
-Templates attach by slug (`page-get-help.html` serves the page at `get-help`),
+Templates attach by slug (`page-events.html` serves the page at `events`),
 so the slugs above must match exactly.
 
 ### Page titles drive the H1
 
 Each page template takes its H1 from the page title, so the title is what a
-visitor reads. If the office wants the Get Help H1 to be a question, set that
-page's title to "Need Help With a School or District Concern?" — the navigation
-label is defined separately in `parts/header.html` and stays "Get Help".
+visitor reads.
 
 ## 3a. Import the verified content
 

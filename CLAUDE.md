@@ -26,7 +26,7 @@ Read this file plus `docs/` before changing architecture. Strategy, the full dec
 
 ## Build order
 1. Live-site week-one cleanup runs in parallel; see `docs/live-site-week-one.md`.
-2. Get Help, then Board Work, then District 6 — grounded in official MSCS sources and office workflow.
+2. Board Work, then District 6 — grounded in official MSCS sources and office workflow.
 3. Priorities & Progress, Events, News/Report to District 6, Press.
 4. About as a verified shell until credentials, experience and portrait are approved.
 5. `/my-story/` stays a reserved draft/noindex route. Do not publish it without written approval from the office.
@@ -103,8 +103,9 @@ Taxonomies: `progress_status` (seeded: Not Started, Monitoring, In Progress, Com
 See `docs/site-fields.md`.
 
 ## Important routes/pages
-`/`, `/about/`, `/district-6/`, `/board-work/`, `/priorities-progress/`, `/news/`, `/events/`, `/get-help/`, `/press/`, `/contact/`, `/support/`, `/privacy/`, `/terms/`, `/accessibility/`
+`/`, `/about/`, `/district-6/`, `/board-work/`, `/priorities-progress/`, `/news/`, `/events/`, `/press/`, `/contact/`, `/support/`, `/privacy/`, `/terms/`, `/accessibility/`
 
+- `/get-help/` was removed on 2026-09-25 at Chris's direction (see `docs/decision-log.md`). Do not add it back.
 - `/get-involved/` — non-primary route for civic/community participation, not campaign canvassing.
 - `/my-story/` — reserved draft/noindex route. The plugin stores its page ID and excludes it from robots and the sitemap, so renaming the slug cannot silently un-reserve it.
 

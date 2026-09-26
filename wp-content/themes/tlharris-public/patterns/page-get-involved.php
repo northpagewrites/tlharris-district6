@@ -17,7 +17,7 @@
 <!-- /wp:paragraph -->
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/get-help/">How to speak at a meeting</a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://www.scsk12.org/board/?PN=49">How to speak at a meeting</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 <!-- wp:heading -->
