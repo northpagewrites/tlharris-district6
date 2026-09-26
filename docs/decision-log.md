@@ -11,7 +11,10 @@ under the photos. "The Standard Starts Now" and "Working for the students, famil
 schools of District 6, from Whitehaven across Southwest Memphis." sit directly under the
 Sources line below the four facts, in the space that was already there. The "Meet T. L.
 Harris" button was dropped (About is in the menu). The name and title are already in the
-header; the page keeps a hidden page title for screen readers. (2) Removed the footer line "This
+header; the page keeps a hidden page title for screen readers. The photos are shown whole,
+never cropped: the hero takes the photos' 3:2 shape (capped to fit the window), and on wide
+screens a dimmed, blurred copy of the same photo fills the side space behind it. (2) Removed
+the footer line "This
 website is published by the office of T. L. Harris and is not an official Memphis-Shelby
 County Schools website." It was on every page. The `official_site_notice` field is still in
 the plugin, unused, so it can be put back by adding the identity paragraph back to
