@@ -322,7 +322,7 @@ def home() -> str:
 def about() -> str:
     main = f"""<div class="wrap tlharris-profile" style="padding-top:clamp(2.5rem,6vw,5rem);padding-bottom:clamp(2rem,4vw,3rem)">
 <div class="tlharris-profile-text">
-<h1 class="tlharris-hero-name">About Me</h1>
+<h1 class="tlharris-hero-name">About T. L. Harris</h1>
 <p class="tlharris-hero-role">{e(IDENTITY["line"])}</p>
 <p class="tlharris-meta">{e(IDENTITY["office_name"])}</p>
 </div>
@@ -331,7 +331,7 @@ def about() -> str:
 <div class="wrap page-body">
 {to_static(pattern("page-about"))}</div>
 """
-    return document("About Me", "My story: my background, my service and why I serve the District 6 seat on the Memphis-Shelby County Schools Board of Education.", "/about/", main)
+    return document("About T. L. Harris", "T. L. Harris: his background, his service and why he serves the District 6 seat on the Memphis-Shelby County Schools Board of Education.", "/about/", main)
 
 
 def board() -> str:

@@ -5,7 +5,7 @@
   "_why_it_matters_note": "why_it_matters is filled in for four of the eight records (School Improvement Goals, Annual Literacy Growth Reports, Quarterly Town Halls, Public Performance Dashboard). Each is a statement about why public reporting or public access matters, not a claim about education outcomes. The other four (Early Literacy and Third-Grade Reading, Early Literacy Instruction and Structured Literacy, Early Intervention, Safe and Supportive Learning Environments) had a sentence asserting an education outcome or cost effect. Those are empirical claims with no cited source, so they were removed and the page shows 'Not yet documented.' until the office writes its own reasoning and cites a source. Do not restore them from memory.",
   "_campaign_origin_note": "campaign_origin: true on every record is an assumption. The eight subjects were taken from the 2026 campaign platform as described in docs/content-sources.md, but the platform itself is not in this repository. Confirm each flag against the archived campaign site, and turn it off for any subject that was not actually in the platform. The flag only controls whether a historical-context label is shown, and historical_target is empty everywhere, so no campaign wording is displayed yet. By office decision (2026-09-21): keep the original campaign wording, once supplied, as historical/source material only — it renders under a label marking it as history, never as a current promise or accomplishment — and the current public-facing description field stays framed around the present public-service issue, not the campaign target. That framing is already how description is written; nothing here changes it.",
   "_description_note": "description is the excerpt shown on the priority cards. Each one names a subject to be tracked. None asserts that a goal, report or program exists, or how well anything is working: that is what the tracker is for, and it is filled in from sources.",
-  "_status_note": "Update 2026-09-25: status labels are no longer shown on the public pages (Chris\u0027s decision, see docs/decision-log.md). The status field stays in the data. Original note: All eight open as 'Not Started', which is the accurate description of a tracker with no recorded baseline and no recorded action. The office sets real statuses as work begins. By office decision (2026-09-21), the seeded status is kept rather than left blank, and the site presents it neutrally: the same uncoloured label used everywhere else, listed in lifecycle order rather than alphabetically, next to text stating plainly that no status here means 'going well' and that Not Started is not a judgement of effort.",
+  "_status_note": "Update 2026-09-25: status labels are no longer shown on the public pages (Chris's decision, see docs/decision-log.md). The status field stays in the data. Original note: All eight open as 'Not Started', which is the accurate description of a tracker with no recorded baseline and no recorded action. The office sets real statuses as work begins. By office decision (2026-09-21), the seeded status is kept rather than left blank, and the site presents it neutrally: the same uncoloured label used everywhere else, listed in lifecycle order rather than alphabetically, next to text stating plainly that no status here means 'going well' and that Not Started is not a judgement of effort.",
   "_review_status_note": "By office decision (2026-09-21): the role/direct_control/influence/district_context governance framing, and the four remaining why_it_matters lines, are pending office review and are not final public copy. Every priority record stays a WordPress draft (never published) until that review happens, which is the mechanism that keeps this text out of public view in the meantime. Reviewing and then publishing a record is a manual, per-record decision in the CMS; it is not something the importer does.",
   "priorities": [
     {
@@ -16,7 +16,7 @@
       "topics": [
         "Literacy"
       ],
-      "description": "Third-grade reading proficiency across Memphis-Shelby County Schools, and what the Board asks about it.",
+      "description": "Reading by the end of third grade decides how school goes from then on. I'll keep third-grade reading in front of the Board, ask for the numbers school by school, and report what I learn back to District 6 every quarter. I'm one of nine commissioners, so I'll say plainly what I can move and what depends on the district.",
       "role": "I am one of nine elected commissioners on the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How I vote on items that come before the Board. What I ask for in Board meetings and put on the public record. What I report back to District 6.",
       "influence": "Which issues get Board discussion and how often. Requests for data and public reporting. Advocacy with colleagues and the administration.",
@@ -33,7 +33,7 @@
       "topics": [
         "Literacy"
       ],
-      "description": "How reading is taught in the early grades, and which instructional approach the district uses.",
+      "description": "How reading is taught in kindergarten through third grade matters as much as how often. I'll ask in public session which approach the district uses and what results it's getting, and I'll keep pressing for structured literacy practices in every early classroom. Curriculum belongs to the district, so my job is to ask the questions and keep the answers public.",
       "role": "I am one of nine elected commissioners on the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How I vote on curriculum and budget items that reach the Board. What I ask about instructional practice in public session.",
       "influence": "Whether instructional approach is discussed at Board level, and what reporting the Board requests on it.",
@@ -51,7 +51,7 @@
         "Literacy",
         "Student Support"
       ],
-      "description": "How quickly students who fall behind are identified, and what support follows.",
+      "description": "A child who falls behind should be noticed early, not after retention is the only option left. I'll ask how quickly students are identified and what support follows, and I'll push for that data to be reported to the Board and made public. Support happens at the school level, so I'll keep the answers visible and follow up.",
       "role": "I am one of nine elected commissioners on the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How I vote on programs and funding that come before the Board. What I ask about identification and support in public session.",
       "influence": "Whether intervention data is reported to the Board and made public.",
@@ -68,7 +68,7 @@
       "topics": [
         "School Improvement"
       ],
-      "description": "School improvement goals: what they are, who sets them, and how the Board oversees progress against them.",
+      "description": "A goal only means something if the public can see it and check it. I'll ask that schools in District 6 publish clear, measurable improvement goals each year and share regular progress updates in public session. The goals are set by district and school leaders, and the Board's role is oversight.",
       "why_it_matters": "Improvement goals are how a district states publicly what it is trying to change.",
       "role": "I am one of nine elected commissioners on the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How I vote on goals and plans presented to the Board. What I ask for in the way of progress reporting.",
@@ -87,7 +87,7 @@
         "School Climate",
         "Student Support"
       ],
-      "description": "School climate, behavioral standards, and the support available to students and staff.",
+      "description": "Students learn when they feel secure, and teachers teach better when expectations are clear. I'll ask for school climate and discipline data to be reported to the Board and published, and I'll raise conditions I see in District 6 schools on the public record. I don't run individual schools or handle student matters, but I can make sure the Board is looking at the right information.",
       "role": "I am one of nine elected commissioners on the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "How I vote on policy that comes before the Board. What I raise publicly about school conditions in District 6.",
       "influence": "Whether climate and discipline data is reported to the Board and published.",
@@ -105,7 +105,7 @@
         "Literacy",
         "Transparency"
       ],
-      "description": "Whether literacy growth is reported publicly each year, and in a form residents can find and read.",
+      "description": "A commitment nobody reports on can't be checked by anyone. I'll ask the district for annual literacy reporting, and I'll publish here what I have and say plainly what I don't. You'll always know where a number came from.",
       "why_it_matters": "A commitment nobody reports on cannot be checked by anyone.",
       "role": "I am one of nine elected commissioners on the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "What I ask the district to report. What I publish to District 6 through this site, whether or not the district publishes its own.",
@@ -123,7 +123,7 @@
       "topics": [
         "Community Engagement"
       ],
-      "description": "Regular public meetings in District 6 where residents can raise concerns directly.",
+      "description": "Residents should have a predictable place to raise something and get answered in public. I'll hold a town hall in District 6 every quarter and publish a summary afterward, including what was asked and what follow-up is owed. What the district does with what's raised is out of my hands, so I'll keep following up until residents get an answer.",
       "why_it_matters": "Residents need a predictable place to raise something and be answered in public.",
       "role": "I am one of nine elected commissioners on the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "Whether the meetings are scheduled and held. Whether a summary is published afterwards. What follow-up is recorded.",
@@ -141,7 +141,7 @@
       "topics": [
         "Transparency"
       ],
-      "description": "Whether district performance information is published in one place the public can find and use.",
+      "description": "Information the public can't find can't hold anyone accountable. I'll keep the numbers on this site current, with every figure tied to a named district or state source. I'll also ask the district to improve its own public reporting, since a district-wide dashboard is theirs to build.",
       "why_it_matters": "Information the public cannot find cannot hold anyone to account.",
       "role": "I am one of nine elected commissioners on the Memphis-Shelby County Schools Board of Education.",
       "direct_control": "What I publish and keep current on this site.",

@@ -2,7 +2,11 @@
 
 Resolved choices that change how the site is built or what it says. Newest first.
 
-## 2026-09-25 (newest) — Site copy is in T. L. Harris's own voice
+## 2026-09-26 (newest) — Biography goes back to third person
+
+Chris's call: the site stays first person, but the biography reads better about him than as him. Home "Meet T. L. Harris" and the whole About page ("About T. L. Harris", was "About Me") are third person ("he", "Harris"). The explore-card line for About and the quote attribution ("T. L. Harris", no date) follow. Everything else stays first person. Same sourced facts, nothing new claimed; still needs the office's written approval.
+
+## 2026-09-25 — Site copy is in T. L. Harris's own voice
 
 Chris's call: the site should read as his page, not as a page written about him. Copy across
 the theme is now first person ("I", "my") instead of "he", "his" and "T. L. Harris": Home

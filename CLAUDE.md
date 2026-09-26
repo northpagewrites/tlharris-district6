@@ -32,7 +32,7 @@ Read this file plus `docs/` before changing architecture. Strategy, the full dec
 5. `/my-story/` stays a reserved draft/noindex route. Do not publish it without written approval from the office.
 
 ## Content rules
-- **Voice: first person.** The site speaks as T. L. Harris ("I", "my"), not about him. Chris's call, Sept. 25, 2026. Keep new copy in that voice, and keep it to facts already sourced. It is his voice, so he or the office must approve wording before launch.
+- **Voice: first person.** The site speaks as T. L. Harris ("I", "my"), not about him. Chris's call, Sept. 25, 2026. Keep new copy in that voice, and keep it to facts already sourced. **Exception: the biography (Home "Meet T. L. Harris" and the About page) is third person ("he"), Chris's call, Sept. 26, 2026.** It is his voice, so he or the office must approve wording before launch.
 - Do not invent current votes, meeting dates, school data, endorsements, credentials, accomplishments, or event details.
 - Prefer official MSCS sources for Board schedules, agendas, school information, Board role, and district data.
 - **Do not assert anything about the structure of the office that is not on a cited page.** A claim about Board members' offices and employment status was carried for a full version without being on any cited source, and it shaped public copy. If a source cannot be produced, the claim is removed, not softened.
