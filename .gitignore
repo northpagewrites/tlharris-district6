@@ -10,3 +10,7 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# Static preview output - scripts/vercel-build.sh writes here
+site-out/
+.vercel
