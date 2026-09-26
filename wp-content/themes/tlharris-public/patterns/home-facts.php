@@ -12,7 +12,7 @@
 <li><span class="tlharris-fact-figure">District 6</span><span class="tlharris-fact-label">Whitehaven and Southwest Memphis</span></li>
 <li><span class="tlharris-fact-figure">1 of 9</span><span class="tlharris-fact-label">Elected commissioners on the school board</span></li>
 <li><span class="tlharris-fact-figure">Sept. 1, 2026</span><span class="tlharris-fact-label">Took office</span></li>
-<li><span class="tlharris-fact-figure">30+ years</span><span class="tlharris-fact-label">Living in Whitehaven</span></li>
+<li><span class="tlharris-fact-figure">30+ years</span><span class="tlharris-fact-label">Living in Memphis</span></li>
 </ul>
 <!-- /wp:html -->
 
