@@ -19,7 +19,7 @@
 <!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"className":"tlharris-lede"} -->
-<p class="tlharris-lede">He ran on early reading, safe schools, transparency and parent engagement. Each commitment is now tracked in public, with its status, what one commissioner can do about it and what depends on the district.</p>
+<p class="tlharris-lede">He ran on early reading, safe schools, transparency and parent engagement. Progress on each is reported every quarter.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
@@ -31,7 +31,6 @@
 <!-- wp:post-template {"layout":{"type":"grid","columnCount":4}} -->
 <!-- wp:group {"className":"tlharris-card","layout":{"type":"constrained"}} -->
 <div class="wp-block-group tlharris-card">
-<!-- wp:post-terms {"term":"progress_status","className":"tlharris-eyebrow"} /-->
 <!-- wp:post-title {"level":3,"isLink":true} /-->
 <!-- wp:post-excerpt /-->
 </div>
@@ -46,5 +45,5 @@
 <!-- /wp:query -->
 
 <!-- wp:paragraph -->
-<p><a href="/priorities-progress/">See all eight priorities and how each is measured</a></p>
+<p><a href="/priorities-progress/">See all eight priorities and the quarterly reports</a></p>
 <!-- /wp:paragraph -->

@@ -117,7 +117,6 @@ def slug(text: str) -> str:
 def priority_card(p: dict, full: bool = False) -> str:
     link = f'priorities.html#{slug(p["title"])}'
     parts = [f'<div class="tlharris-card priority-card" id="{slug(p["title"])}">' if full else '<div class="tlharris-card priority-card">']
-    parts.append(f'<span class="tlharris-status">{e(p.get("status") or "Not Started")}</span>')
     if full:
         parts.append(f'<h3>{e(p["title"])}</h3>')
     else:
@@ -344,27 +343,22 @@ def board() -> str:
 
 
 def priorities() -> str:
-    body = to_static(pattern("page-priorities-progress"))
-    order = ["Not Started", "Monitoring", "In Progress", "Completed", "On Hold"]
-    tally = {k: sum(1 for p in PRIORITIES if (p.get("status") or "Not Started") == k) for k in order}
-    cats = []
-    for p in PRIORITIES:
-        if p["category"] not in cats:
-            cats.append(p["category"])
-    body += (
-        '<section class="page-section tlharris-keyline"><h2>Accountability at a glance</h2>'
-        '<div class="tlharris-stats">'
-        + "".join(f'<div class="tlharris-stat"><span class="tlharris-stat__number">{n}</span><span class="tlharris-stat__label">{k}</span></div>' for k, n in tally.items() if n)
-        + '</div><p class="tlharris-source">Statuses are listed in their fixed order. The order is not a ranking of how things are going.</p></section>\n'
+    rows = "\n".join(
+        f'<li><div class="tlharris-plist__body"><h3>{e(p["title"])}</h3><p>{e(p.get("description", ""))}</p></div>'
+        f'<div class="tlharris-plist__cat">{e(p["category"])}</div></li>'
+        for p in PRIORITIES
     )
-    body += '<section class="page-section tlharris-keyline"><h2>Current priorities</h2>'
-    for c in cats:
-        items = [p for p in PRIORITIES if p["category"] == c]
-        body += f'<h3 class="category-title">{e(c)}</h3><div class="cards">' + "\n".join(priority_card(p, full=True) for p in items) + "</div>\n"
-    body += "</section>\n"
-    body += '<section class="page-section tlharris-keyline">' + to_static(pattern("priorities-how-measured")) + "</section>\n"
-    body += '<p class="tlharris-source">Sources: MSCS Board of Education; T. L. Harris campaign platform, voteharris901.com (campaign wording only).</p>\n'
-    return document("Priorities & Progress", "The issues T. L. Harris is tracking, their status, and what one commissioner controls.", "/priorities-progress/", standard_page("Priorities & Progress", body))
+    main = (
+        '<div class="wrap page-head"><h1>Priorities &amp; Progress</h1></div>\n'
+        '<div class="wrap" style="padding-bottom:clamp(2rem,4vw,3rem)">\n' + to_static(pattern("page-priorities-progress")) + '</div>\n'
+        + to_static(pattern("priorities-quarterly"))
+        + '<div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">\n'
+        + '<h2 class="tlharris-keyline">The eight priorities</h2>\n'
+        + f'<ol class="tlharris-plist">\n{rows}\n</ol>\n</div>\n'
+        + '<div class="wrap page-body">\n' + to_static(pattern("priorities-how-measured"))
+        + '<p class="tlharris-source">Sources: MSCS Board of Education; T. L. Harris campaign platform, voteharris901.com (campaign wording only).</p>\n</div>\n'
+    )
+    return document("Priorities & Progress", "The eight priorities T. L. Harris is working on for District 6, with progress reported every quarter.", "/priorities-progress/", main)
 
 
 def district6() -> str:

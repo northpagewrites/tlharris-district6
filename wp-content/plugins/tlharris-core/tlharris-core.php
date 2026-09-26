@@ -1156,7 +1156,7 @@ function tlharris_progress_shortcode( $atts ) {
 
 	if ( ! $have_numbers ) {
 		return '<p class="tlharris-source">'
-			. esc_html__( 'Baseline not yet established from a verified public source. No progress figure is shown.', 'tlharris-core' )
+			. esc_html__( 'Progress figures are reported each quarter where a published baseline and current value exist.', 'tlharris-core' )
 			. '</p>';
 	}
 

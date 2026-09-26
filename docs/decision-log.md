@@ -2,6 +2,20 @@
 
 Resolved choices that change how the site is built or what it says. Newest first.
 
+## 2026-09-25 (newest) — Priorities page redesigned; status labels no longer shown
+
+Chris's call. The Priorities & Progress page now lists all eight priorities as a numbered
+list and states that progress reports are published four times a year, once every
+quarter. Removed from every public page: the status labels (including "Not Started"),
+the "Accountability at a glance" counts, the "Recently updated" and "Updates due"
+sections, and the "not yet documented" style fallbacks on each priority's own page,
+which now say the item is reported each quarter. This replaces the 2026-09-21 office
+decision to show the seeded status neutrally. The status field stays in the data.
+No priority is labelled "In Progress" or "Completed" until a recorded action or
+document supports it. Campaign targets and the "what a commissioner controls" detail
+stay on each priority's own page and are not on the list page. The office should
+confirm the quarterly statement and the new wording before launch.
+
 ## 2026-09-25 (latest) — Get Help removed from the site
 
 Chris's call. Removed: the menu link, the footer link, the homepage "Need help with a
