@@ -286,7 +286,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
    ------------------------------------------------------------------ */
 .tlharris-meet { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
 .tlharris-meet-photo { margin: 0; }
-.tlharris-meet-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.tlharris-meet-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; display: block; }
 .tlharris-meet-photo figcaption { font-size: .85rem; color: var(--wp--preset--color--muted); margin-top: .5rem; line-height: 1.4; }
 @media (max-width: 860px) { .tlharris-meet { grid-template-columns: 1fr; } .tlharris-meet-photo img { aspect-ratio: 3 / 2; } }
 
@@ -325,7 +325,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 /* About page opening: name and lede beside a portrait. */
 .tlharris-profile { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: end; }
 .tlharris-profile-photo { margin: 0; }
-.tlharris-profile-photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 60% 35%; display: block; }
+.tlharris-profile-photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 12%; display: block; }
 .tlharris-profile-photo figcaption { font-size: .85rem; color: var(--wp--preset--color--muted); margin-top: .5rem; }
 @media (max-width: 860px) { .tlharris-profile { grid-template-columns: 1fr; } .tlharris-profile-photo img { aspect-ratio: 3 / 2; } }
 

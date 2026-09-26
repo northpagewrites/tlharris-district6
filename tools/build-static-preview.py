@@ -326,7 +326,7 @@ def about() -> str:
 <p class="tlharris-hero-role">{e(IDENTITY["line"])}</p>
 <p class="tlharris-meta">{e(IDENTITY["office_name"])}</p>
 </div>
-<figure class="tlharris-profile-photo"><img src="wp-content/themes/tlharris-public/assets/images/hero/hero-5.jpg" alt="Speaking at a podium, microphone in hand"></figure>
+<figure class="tlharris-profile-photo"><img src="wp-content/themes/tlharris-public/assets/images/portrait.jpg" alt="T. L. Harris in a navy suit and red paisley tie"></figure>
 </div>
 <div class="wrap page-body">
 {to_static(pattern("page-about"))}</div>

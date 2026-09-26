@@ -9,7 +9,7 @@
 ?>
 <!-- wp:html -->
 <div class="tlharris-meet">
-<figure class="tlharris-meet-photo"><img src="/wp-content/themes/tlharris-public/assets/images/hero/hero-2.jpg" alt="A swearing-in ceremony on stage, with family standing behind the person taking the oath" loading="lazy" width="2000" height="1333"><figcaption>Swearing-in ceremony, 2026.</figcaption></figure>
+<figure class="tlharris-meet-photo"><img src="/wp-content/themes/tlharris-public/assets/images/portrait.jpg" alt="T. L. Harris in a navy suit and red paisley tie" loading="lazy" width="1098" height="1023"></figure>
 <div class="tlharris-meet-text">
 <h2 class="tlharris-keyline">Meet T. L. Harris</h2>
 <p class="tlharris-lede">T. L. Harris has lived in Whitehaven for more than 30 years. He came up through Memphis public schools, graduating from East High School, and now helps govern them as the District 6 commissioner on the Memphis-Shelby County Schools Board of Education.</p>
