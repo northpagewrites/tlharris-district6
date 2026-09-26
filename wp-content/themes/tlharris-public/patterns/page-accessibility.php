@@ -53,9 +53,3 @@
 <!-- wp:paragraph -->
 <p>Some pages link to documents and sites run by others, such as PDFs, BoardDocs and the Memphis-Shelby County Schools website. Their accessibility is the responsibility of the people who run them.</p>
 <!-- /wp:paragraph -->
-<!-- wp:heading -->
-<h2 class="wp-block-heading">Tell us about a problem</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>If any part of this site is hard to use, or you need information in another format, please tell me which page and what happened. You can reach the MSCS Board Office at (901) 416-5447 or <a href="mailto:boardoffice@scsk12.org">boardoffice@scsk12.org</a>, or through the <a href="/contact/">Contact</a> page. My office will work with you to get you the information you need.</p>
-<!-- /wp:paragraph -->
