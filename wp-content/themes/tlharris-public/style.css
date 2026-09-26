@@ -286,7 +286,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
    Video band
    ------------------------------------------------------------------ */
 .tlharris-video-full { margin: 0; line-height: 0; background: var(--wp--preset--color--ink); }
-.tlharris-video-full video { width: 100%; display: block; aspect-ratio: 16 / 7; max-height: 680px; object-fit: cover; background: var(--wp--preset--color--ink); }
+.tlharris-video-full video { width: 100%; display: block; aspect-ratio: 16 / 9; max-height: 680px; object-fit: contain; background: var(--wp--preset--color--ink); }
 .tlharris-video-caption {
   line-height: 1.4; color: #fff; background: var(--wp--preset--color--ink);
   padding: .9rem var(--tlharris-gutter); font-size: .95rem; margin: 0;

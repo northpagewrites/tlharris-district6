@@ -2,7 +2,20 @@
 
 Resolved choices that change how the site is built or what it says. Newest first.
 
-## 2026-09-25 (newest) — Priorities page redesigned; status labels no longer shown
+## 2026-09-25 (newest) — Homepage video is the WREG interview
+
+Chris's call. The homepage video band now plays T. L. Harris's interview on WREG's
+"Informed Sources Extra" (file: `assets/video/wreg-informed-sources-extra.mp4`, with a
+poster frame beside it). It came from a phone screen recording, so it was re-encoded
+to a 14 MB web MP4 (720p, H.264). The caption reads "In the news", not "Report to
+District 6", because it is a TV station's broadcast, not his own update. The band now
+shows the full 16:9 picture instead of a wide crop, so the station's name bar and the
+top of his head are not cut off. On-screen title in the clip is "MSCS School Board
+Member, Dist. 6" (WREG's wording). Still needed before launch: WREG's or the
+office's OK to host the clip (or swap in a link to WREG's own page), and captions for
+accessibility. The "Report to District 6" video slot is free again for his own update.
+
+## 2026-09-25 — Priorities page redesigned; status labels no longer shown
 
 Chris's call. The Priorities & Progress page now lists all eight priorities as a numbered
 list and states that progress reports are published four times a year, once every

@@ -298,9 +298,9 @@ def home() -> str:
 <div class="wrap" style="padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(pattern("home-facts"))}</div>
 <div class="tlharris-video-full">
-<video controls preload="none" poster="wp-content/themes/tlharris-public/assets/images/hero/hero-3.jpg" src="wp-content/themes/tlharris-public/assets/video/report-to-district-6.mp4"></video>
+<video controls playsinline preload="none" poster="wp-content/themes/tlharris-public/assets/video/wreg-informed-sources-extra-poster.jpg" src="wp-content/themes/tlharris-public/assets/video/wreg-informed-sources-extra.mp4"></video>
 </div>
-<p class="tlharris-video-caption"><strong>Report to District 6</strong> Video update</p>
+<p class="tlharris-video-caption"><strong>In the news</strong> T. L. Harris on WREG’s Informed Sources Extra</p>
 <div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(pattern("home-meet"))}</div>
 {to_static(pattern("home-standard"))}<div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
