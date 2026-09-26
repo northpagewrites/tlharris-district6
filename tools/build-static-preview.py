@@ -133,7 +133,7 @@ def priority_card(p: dict, full: bool = False) -> str:
         if p.get("why_it_matters"):
             parts.append(f'<p>{e(p["why_it_matters"])}</p>')
         if p.get("direct_control"):
-            parts.append(f'<p><strong>What he controls</strong>{e(p["direct_control"])}</p>')
+            parts.append(f'<p><strong>What I control</strong>{e(p["direct_control"])}</p>')
         if p.get("district_context"):
             parts.append(f'<p><strong>What depends on the district</strong>{e(p["district_context"])}</p>')
     parts.append("</div>")
@@ -301,7 +301,7 @@ def home() -> str:
 <div class="tlharris-video-full">
 <video controls playsinline preload="none" poster="wp-content/themes/tlharris-public/assets/video/wreg-informed-sources-extra-poster.jpg" src="wp-content/themes/tlharris-public/assets/video/wreg-informed-sources-extra.mp4"></video>
 </div>
-<p class="tlharris-video-caption"><strong>In the news</strong> T. L. Harris on WREG’s Informed Sources Extra</p>
+<p class="tlharris-video-caption"><strong>In the news</strong> My interview on WREG’s Informed Sources Extra</p>
 <div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(pattern("home-meet"))}</div>
 {to_static(pattern("home-standard"))}<div class="wrap" style="padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem)">
@@ -322,7 +322,7 @@ def home() -> str:
 def about() -> str:
     main = f"""<div class="wrap tlharris-profile" style="padding-top:clamp(2.5rem,6vw,5rem);padding-bottom:clamp(2rem,4vw,3rem)">
 <div class="tlharris-profile-text">
-<h1 class="tlharris-hero-name">About T. L. Harris</h1>
+<h1 class="tlharris-hero-name">About Me</h1>
 <p class="tlharris-hero-role">{e(IDENTITY["line"])}</p>
 <p class="tlharris-meta">{e(IDENTITY["office_name"])}</p>
 </div>
@@ -331,7 +331,7 @@ def about() -> str:
 <div class="wrap page-body">
 {to_static(pattern("page-about"))}</div>
 """
-    return document("About T. L. Harris", "Biography of T. L. Harris, District 6 commissioner on the Memphis-Shelby County Schools Board of Education.", "/about/", main)
+    return document("About Me", "My story: my background, my service and why I serve the District 6 seat on the Memphis-Shelby County Schools Board of Education.", "/about/", main)
 
 
 def board() -> str:
@@ -357,9 +357,9 @@ def priorities() -> str:
         + '<h2 class="tlharris-keyline">The eight priorities</h2>\n'
         + f'<ol class="tlharris-plist">\n{rows}\n</ol>\n</div>\n'
         + '<div class="wrap page-body">\n' + to_static(pattern("priorities-how-measured"))
-        + '<p class="tlharris-source">Sources: MSCS Board of Education; T. L. Harris campaign platform, voteharris901.com (campaign wording only).</p>\n</div>\n'
+        + '<p class="tlharris-source">Sources: MSCS Board of Education; my campaign platform, voteharris901.com (campaign wording only).</p>\n</div>\n'
     )
-    return document("Priorities & Progress", "The eight priorities T. L. Harris is working on for District 6, with progress reported at the start of every quarter.", "/priorities-progress/", main)
+    return document("Priorities & Progress", "My eight priorities for District 6, with progress reported at the start of every quarter.", "/priorities-progress/", main)
 
 
 def district6() -> str:
@@ -373,7 +373,7 @@ def district6() -> str:
 
 
 def news() -> str:
-    return document("News & Updates", "Updates from the office of T. L. Harris and news coverage.", "/news/", standard_page("News & Updates", to_static(pattern("page-news"))))
+    return document("News & Updates", "Updates from my office and news coverage.", "/news/", standard_page("News & Updates", to_static(pattern("page-news"))))
 
 
 def events() -> str:
@@ -396,12 +396,12 @@ PAGES = {
     "district-6.html": district6,
     "news.html": news,
     "events.html": events,
-    "press.html": lambda: simple("page-press", "Press & Media", "/press/", "Media resources for T. L. Harris."),
-    "contact.html": lambda: simple("page-contact", "Contact", "/contact/", "How to reach the office of T. L. Harris."),
+    "press.html": lambda: simple("page-press", "Press & Media", "/press/", "Media resources and how to reach my office."),
+    "contact.html": lambda: simple("page-contact", "Contact", "/contact/", "How to reach my office."),
     "get-involved.html": lambda: simple("page-get-involved", "Get Involved", "/get-involved/", "Ways to take part in public education in District 6."),
     "privacy.html": lambda: simple("page-privacy", "Privacy", "/privacy/", "How this site handles visitor information."),
-    "terms.html": lambda: simple("page-terms", "Terms", "/terms/", "Terms of use for the site of T. L. Harris."),
-    "accessibility.html": lambda: simple("page-accessibility", "Accessibility", "/accessibility/", "Accessibility statement for the site of T. L. Harris."),
+    "terms.html": lambda: simple("page-terms", "Terms", "/terms/", "Terms of use for this site."),
+    "accessibility.html": lambda: simple("page-accessibility", "Accessibility", "/accessibility/", "Accessibility statement for this site."),
 }
 
 

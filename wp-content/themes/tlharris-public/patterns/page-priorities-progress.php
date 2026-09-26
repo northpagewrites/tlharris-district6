@@ -7,8 +7,8 @@
  */
 ?>
 <!-- wp:paragraph {"fontSize":"large"} -->
-<p class="has-large-font-size">Eight priorities for District 6, and a progress report on each one every quarter.</p>
+<p class="has-large-font-size">My eight priorities for District 6, and a progress report on each one at the start of every quarter.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p>During his campaign, T. L. Harris called his early-reading goal “The Third Grade Standard.”</p>
+<p>During my campaign, I called my early-reading goal “The Third Grade Standard.”</p>
 <!-- /wp:paragraph -->

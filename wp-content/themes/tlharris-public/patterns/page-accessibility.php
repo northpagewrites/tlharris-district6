@@ -10,13 +10,13 @@
 <p class="tlharris-meta">Last updated September 25, 2026</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p>T. L. Harris’s office wants everyone in District 6 to be able to use this website, including people who use screen readers, keyboards, voice control, magnification or other assistive technology.</p>
+<p>I want everyone in District 6 to be able to use this website, including people who use screen readers, keyboards, voice control, magnification or other assistive technology.</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading -->
 <h2 class="wp-block-heading">Our goal</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>We aim for this site to meet the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA.</p>
+<p>My goal is for this site to meet the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA.</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading -->
 <h2 class="wp-block-heading">What is built in</h2>
@@ -45,10 +45,10 @@
 <h2 class="wp-block-heading">Video</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Video on the site uses the standard player controls, which work with a keyboard. Not every video has captions yet, and we are working to add them. If you need captions or a written version of a video, please ask.</p>
+<p>Video on the site uses the standard player controls, which work with a keyboard. Not every video has captions yet, and my office is working to add them. If you need captions or a written version of a video, please ask.</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading -->
-<h2 class="wp-block-heading">What we do not control</h2>
+<h2 class="wp-block-heading">What I do not control</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
 <p>Some pages link to documents and sites run by others, such as PDFs, BoardDocs and the Memphis-Shelby County Schools website. Their accessibility is the responsibility of the people who run them.</p>
@@ -57,5 +57,5 @@
 <h2 class="wp-block-heading">Tell us about a problem</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>If any part of this site is hard to use, or you need information in another format, please tell us which page and what happened. You can reach the MSCS Board Office at (901) 416-5447 or <a href="mailto:boardoffice@scsk12.org">boardoffice@scsk12.org</a>, or through the <a href="/contact/">Contact</a> page. We will work with you to get you the information you need.</p>
+<p>If any part of this site is hard to use, or you need information in another format, please tell me which page and what happened. You can reach the MSCS Board Office at (901) 416-5447 or <a href="mailto:boardoffice@scsk12.org">boardoffice@scsk12.org</a>, or through the <a href="/contact/">Contact</a> page. My office will work with you to get you the information you need.</p>
 <!-- /wp:paragraph -->

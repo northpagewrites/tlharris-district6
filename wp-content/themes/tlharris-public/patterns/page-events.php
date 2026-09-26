@@ -7,7 +7,7 @@
  */
 ?>
 <!-- wp:paragraph {"fontSize":"large"} -->
-<p class="has-large-font-size">Board meetings, town halls, school visits and community events confirmed by this office or by official district sources.</p>
+<p class="has-large-font-size">Board meetings, town halls, school visits and community events confirmed by my office or by official district sources.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>The board's published meetings are listed below. Town halls, school visits and community events will be added as their dates are set.</p>

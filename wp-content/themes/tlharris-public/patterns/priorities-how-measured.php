@@ -16,7 +16,7 @@
 <div><dt>Timing</dt><dd>Reports are published at the start of every quarter: January, April, July and October.</dd></div>
 <div><dt>Sources</dt><dd>A figure appears only when it comes from a published source, and that source is named.</dd></div>
 <div><dt>Evidence</dt><dd>Where a document, dataset or official record supports an entry, the entry links to it and shows the date it was last checked.</dd></div>
-<div><dt>Control</dt><dd>Each priority separates what a commissioner directly controls from what he can influence and what depends on the district. One commissioner is one vote of nine on a board that acts together.</dd></div>
+<div><dt>Control</dt><dd>Each priority separates what I directly control from what I can influence and what depends on the district. I am one vote of nine on a board that acts together.</dd></div>
 </dl>
 <!-- /wp:html -->
 </div>

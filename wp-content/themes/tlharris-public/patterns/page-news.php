@@ -7,7 +7,7 @@
  */
 ?>
 <!-- wp:paragraph {"fontSize":"large"} -->
-<p class="has-large-font-size">Updates from the office, statements and news coverage.</p>
+<p class="has-large-font-size">Updates from my office, statements and news coverage.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>Posts are filed as board updates, Reports to District 6, statements, community news or education news. Each one is dated, and any board action or district fact it mentions links to the official source.</p>

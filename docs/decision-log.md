@@ -2,7 +2,24 @@
 
 Resolved choices that change how the site is built or what it says. Newest first.
 
-## 2026-09-25 (newest) — Quarter months, legal pages, Facebook link, share preview
+## 2026-09-25 (newest) — Site copy is in T. L. Harris's own voice
+
+Chris's call: the site should read as his page, not as a page written about him. Copy across
+the theme is now first person ("I", "my") instead of "he", "his" and "T. L. Harris": Home
+(meet section, "My goals for District 6", explore cards, video caption "My interview on WREG's
+Informed Sources Extra"), About (retitled "About Me"), Priorities intro and "How each report
+works", The Board, Press, Events, News, District 6, and the Privacy, Terms and Accessibility
+pages. The priority records (`content/priorities.json`, `direct_control`, `role`,
+`district_context`) and the editor field labels in `tlharris-core` ("What I directly
+control", "What I can influence") follow the same voice. His name still appears where a name
+belongs: header, footer, page titles, photo captions and the About heading. Wording stays
+limited to facts already sourced; nothing new was claimed. First person puts words in his
+mouth, so he or the office must read and approve the copy before launch (the quote and the
+"I have said" line on About are his own words from the sources). Existing WordPress pages do
+not update on their own, so the office must re-seed or edit page content in WP admin. Recorded
+in `CLAUDE.md` Content rules so later edits keep the voice.
+
+## 2026-09-25 — Quarter months, legal pages, Facebook link, share preview
 
 Chris's calls, four changes. (1) Progress reports now name their months: the start of each
 quarter, January, April, July and October (Q1 to Q4). The Priorities page band, the "How each

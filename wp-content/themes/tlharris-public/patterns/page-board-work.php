@@ -7,7 +7,7 @@
  */
 ?>
 <!-- wp:paragraph {"className":"tlharris-lede"} -->
-<p class="tlharris-lede">The Memphis-Shelby County Schools Board of Education sets policy for the district and oversees its business. T. L. Harris holds the District 6 seat, one of nine.</p>
+<p class="tlharris-lede">The Memphis-Shelby County Schools Board of Education sets policy for the district and oversees its business. I hold the District 6 seat, one of nine.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:html -->

@@ -10,7 +10,7 @@
 <h2 class="wp-block-heading">Find your school</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Attendance zones are set by the district, not by this office. Use the district's own tools to find the school for an address.</p>
+<p>Attendance zones are set by the district, not by my office. Use the district's own tools to find the school for an address.</p>
 <!-- /wp:paragraph -->
 <!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->

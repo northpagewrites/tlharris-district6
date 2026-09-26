@@ -12,14 +12,14 @@
 <!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group">
 <!-- wp:heading -->
-<h2 class="wp-block-heading">What he's working on</h2>
+<h2 class="wp-block-heading">My goals for District 6</h2>
 <!-- /wp:heading -->
 </div>
 <!-- /wp:group -->
 <!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"className":"tlharris-lede"} -->
-<p class="tlharris-lede">He ran on early reading, safe schools, transparency and parent engagement. Progress on each is reported at the start of every quarter.</p>
+<p class="tlharris-lede">I ran on early reading, safe schools, transparency and parent engagement. Progress on each is reported at the start of every quarter.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

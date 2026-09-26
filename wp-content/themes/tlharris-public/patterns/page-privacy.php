@@ -10,7 +10,7 @@
 <p class="tlharris-meta">Last updated September 25, 2026</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p>This is the website of T. L. Harris, the District 6 commissioner on the Memphis-Shelby County Schools Board of Education. This page explains what information the site collects and how it is used. In short: the site does not ask you to create an account, does not show advertising, and does not sell or rent information about visitors.</p>
+<p>This is my website as the District 6 commissioner on the Memphis-Shelby County Schools Board of Education. This page explains what information the site collects and how it is used. In short: the site does not ask you to create an account, does not show advertising, and does not sell or rent information about visitors.</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading -->
 <h2 class="wp-block-heading">What the site collects</h2>
@@ -31,7 +31,7 @@
 <h2 class="wp-block-heading">Contacting the office</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>If you email, call or write to the MSCS Board Office or to this office, we receive what you send, such as your name, contact details and message. It is used to respond to you and to carry out the work of the office.</p>
+<p>If you email, call or write to the MSCS Board Office or to my office, that office receives what you send, such as your name, contact details and message. It is used to respond to you and to carry out the work of the office.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>Messages sent to or from a public official about public business may be public records under the Tennessee Public Records Act, which means they can be requested and released. Please do not include Social Security numbers, medical details or private student information in a message.</p>
