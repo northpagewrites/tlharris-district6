@@ -289,11 +289,10 @@ def home() -> str:
 </div>
 <h1 class="screen-reader-text">{e(IDENTITY["name"])}, {e(IDENTITY["line"])}</h1>
 </div>
-<div class="wrap" style="padding-top:clamp(2rem,4vw,3rem);padding-bottom:clamp(3rem,6vw,5rem)">
-<div class="tlharris-intro">
+<div class="wrap" style="padding-top:clamp(1rem,2vw,1.5rem);padding-bottom:clamp(2rem,4vw,3rem)">
+{to_static(pattern("home-facts"))}<div class="tlharris-intro">
 <p class="tlharris-hero-tagline">The Standard Starts Now</p>
-{to_static(pattern("page-home"))}</div>
-{to_static(pattern("home-facts"))}</div>
+{to_static(pattern("page-home"))}</div></div>
 <div class="tlharris-video-full">
 <video controls playsinline preload="none" poster="wp-content/themes/tlharris-public/assets/video/wreg-informed-sources-extra-poster.jpg" src="wp-content/themes/tlharris-public/assets/video/wreg-informed-sources-extra.mp4"></video>
 </div>

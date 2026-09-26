@@ -6,10 +6,12 @@ Resolved choices that change how the site is built or what it says. Newest first
 
 Chris's call, two changes. (1) The homepage hero is now the photographs only: no text on
 them and no dark band under them (a first try with a dark band below was taken out the same
-day). Just a thin gold line under the photos. "The Standard Starts Now", the intro line and
-the "Meet T. L. Harris" button are plain text at the top of the white area under the photos,
-above the four facts, with no new section. The name and title are already in the header;
-the page keeps a hidden page title for screen readers. (2) Removed the footer line "This
+day, and a second try with the text above the facts was moved too). Just a thin gold line
+under the photos. "The Standard Starts Now" and "Working for the students, families and
+schools of District 6, from Whitehaven across Southwest Memphis." sit directly under the
+Sources line below the four facts, in the space that was already there. The "Meet T. L.
+Harris" button was dropped (About is in the menu). The name and title are already in the
+header; the page keeps a hidden page title for screen readers. (2) Removed the footer line "This
 website is published by the office of T. L. Harris and is not an official Memphis-Shelby
 County Schools website." It was on every page. The `official_site_notice` field is still in
 the plugin, unused, so it can be put back by adding the identity paragraph back to

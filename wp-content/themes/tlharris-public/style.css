@@ -208,8 +208,8 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 .tlharris-hero .wp-block-button.is-style-outline > .wp-block-button__link:hover { background: #fff; color: var(--wp--preset--color--ink); }
 
 /* ---------------------------------------------------------------------
-   Homepage hero: the photographs only. The slogan and intro sit in the
-   white area under them (.tlharris-intro); nothing sits on the photographs.
+   Homepage hero: the photographs only, nothing on them or under them. The slogan
+   and intro line sit below the facts strip (.tlharris-intro).
    ------------------------------------------------------------------ */
 .tlharris-hero {
   position: relative; overflow: hidden;
@@ -383,11 +383,10 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
    Slogan and the four commitments (wording from the campaign site, S11)
    ------------------------------------------------------------------ */
 .tlharris-hero-tagline { font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 700; letter-spacing: -.01em; margin: .9rem 0 1.25rem; }
-/* Slogan, intro line and button: plain text at the top of the white area under the photos. */
-.tlharris-intro { max-width: 46rem; margin: 0 0 clamp(1.75rem, 3vw, 2.5rem); }
+/* Slogan and intro line: plain text under the facts and their Sources line. */
+.tlharris-intro { max-width: 46rem; margin: 1.5rem 0 0; }
 .tlharris-intro .tlharris-hero-tagline { font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 .6rem; }
 .tlharris-intro .tlharris-lede { max-width: 40em; margin: 0; font-size: clamp(1.1rem, 1.7vw, 1.3rem); }
-.tlharris-intro .wp-block-buttons { margin: 1.25rem 0 0; }
 .tlharris-standard-band { padding: clamp(2.25rem, 4vw, 3.25rem) var(--tlharris-gutter); }
 .tlharris-standard { max-width: var(--tlharris-max); margin: 0 auto; }
 .tlharris-standard-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 1.25rem; color: rgba(255, 255, 255, .85); }
