@@ -287,13 +287,12 @@ def home() -> str:
 <div class="tlharris-hero-media">
 {slides}
 </div>
-<div class="wrap tlharris-hero-content" style="padding-top:clamp(2rem,4vw,3rem);padding-bottom:clamp(2rem,4vw,3.25rem)">
-<h1>{e(IDENTITY["name"])}</h1>
-<p class="tlharris-hero-role">{e(IDENTITY["line"])}</p>
+<h1 class="screen-reader-text">{e(IDENTITY["name"])}, {e(IDENTITY["line"])}</h1>
+</div>
+<div class="wrap" style="padding-top:clamp(2rem,4vw,3rem);padding-bottom:clamp(3rem,6vw,5rem)">
+<div class="tlharris-intro">
 <p class="tlharris-hero-tagline">The Standard Starts Now</p>
 {to_static(pattern("page-home"))}</div>
-</div>
-<div class="wrap" style="padding-bottom:clamp(3rem,6vw,5rem)">
 {to_static(pattern("home-facts"))}</div>
 <div class="tlharris-video-full">
 <video controls playsinline preload="none" poster="wp-content/themes/tlharris-public/assets/video/wreg-informed-sources-extra-poster.jpg" src="wp-content/themes/tlharris-public/assets/video/wreg-informed-sources-extra.mp4"></video>

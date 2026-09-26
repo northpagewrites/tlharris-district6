@@ -2,18 +2,20 @@
 
 Resolved choices that change how the site is built or what it says. Newest first.
 
-## 2026-09-25 (newest) — Hero text moved off the photos; site notice removed
+## 2026-09-25 (newest) — Hero is photos only; site notice removed
 
-Chris's call, two changes. (1) The homepage hero text no longer sits on the photographs.
-The photos run clean across the top (no dark overlay) with a gold line under them, and the
-name, "Commissioner · District 6", "The Standard Starts Now", the intro line and the
-"Meet T. L. Harris" button sit on a solid dark band directly below. (2) Removed the footer
-line "This website is published by the office of T. L. Harris and is not an official
-Memphis-Shelby County Schools website." It was on every page. The `official_site_notice`
-field is still in the plugin, unused, so it can be put back by adding the identity
-paragraph back to `parts/footer.html`. Open point for the office: with the Tennessee seal
-in the header and no notice, a visitor could take this for an official MSCS site. The
-office should confirm it is comfortable without the line before launch.
+Chris's call, two changes. (1) The homepage hero is now the photographs only: no text on
+them and no dark band under them (a first try with a dark band below was taken out the same
+day). Just a thin gold line under the photos. "The Standard Starts Now", the intro line and
+the "Meet T. L. Harris" button are plain text at the top of the white area under the photos,
+above the four facts, with no new section. The name and title are already in the header;
+the page keeps a hidden page title for screen readers. (2) Removed the footer line "This
+website is published by the office of T. L. Harris and is not an official Memphis-Shelby
+County Schools website." It was on every page. The `official_site_notice` field is still in
+the plugin, unused, so it can be put back by adding the identity paragraph back to
+`parts/footer.html`. Open point for the office: with the Tennessee seal in the header and no
+notice, a visitor could take this for an official MSCS site. The office should confirm it is
+comfortable without the line before launch.
 
 ## 2026-09-25 — Homepage video is the WREG interview
 
