@@ -40,9 +40,9 @@ the seed; the page is the source of truth afterwards.
 | Contact | `contact` | Contact — page content |
 | Get Involved | `get-involved` | Get Involved — page content |
 | Support | `support` | Support — page content |
-| Privacy | `privacy` | — approved legal copy required |
-| Terms | `terms` | — approved legal copy required |
-| Accessibility | `accessibility` | — approved copy required |
+| Privacy | `privacy` | Privacy — page content (standard text; office or counsel to review) |
+| Terms | `terms` | Terms — page content (standard text; office or counsel to review) |
+| Accessibility | `accessibility` | Accessibility — page content (standard statement; office to review) |
 
 `My Story` already exists as a draft. Leave it that way.
 

@@ -19,7 +19,7 @@
 <!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group">
 <!-- wp:paragraph {"className":"tlharris-lede"} -->
-<p class="tlharris-lede">He ran on early reading, safe schools, transparency and parent engagement. Progress on each is reported every quarter.</p>
+<p class="tlharris-lede">He ran on early reading, safe schools, transparency and parent engagement. Progress on each is reported at the start of every quarter.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

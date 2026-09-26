@@ -45,6 +45,9 @@ ROUTES = {
     "/press/": "press.html",
     "/contact/": "contact.html",
     "/get-involved/": "get-involved.html",
+    "/privacy/": "privacy.html",
+    "/terms/": "terms.html",
+    "/accessibility/": "accessibility.html",
 }
 
 NAV = [
@@ -202,6 +205,7 @@ def footer() -> str:
     <p class="tlharris-footer-name">{e(IDENTITY["name"])}</p>
     <p class="tlharris-meta">{e(IDENTITY["line"])}</p>
     <p class="tlharris-meta">{e(IDENTITY["office_and_district"])}</p>
+    <p class="tlharris-meta"><a href="https://www.facebook.com/p/Vote-Harris-901-61588380617604/" rel="noopener">Follow on Facebook</a></p>
   </div>
   <div>
     <p class="tlharris-eyebrow">Explore</p>
@@ -231,7 +235,8 @@ def footer() -> str:
     </ul>
   </div>
 </div>
-<div class="tlharris-footer-bottom"><p class="tlharris-meta">© T. L. Harris</p></div>
+<div class="tlharris-footer-bottom"><p class="tlharris-meta">© T. L. Harris</p>
+<p class="tlharris-meta"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="accessibility.html">Accessibility</a></p></div>
 </footer>
 """
 
@@ -354,7 +359,7 @@ def priorities() -> str:
         + '<div class="wrap page-body">\n' + to_static(pattern("priorities-how-measured"))
         + '<p class="tlharris-source">Sources: MSCS Board of Education; T. L. Harris campaign platform, voteharris901.com (campaign wording only).</p>\n</div>\n'
     )
-    return document("Priorities & Progress", "The eight priorities T. L. Harris is working on for District 6, with progress reported every quarter.", "/priorities-progress/", main)
+    return document("Priorities & Progress", "The eight priorities T. L. Harris is working on for District 6, with progress reported at the start of every quarter.", "/priorities-progress/", main)
 
 
 def district6() -> str:
@@ -394,6 +399,9 @@ PAGES = {
     "press.html": lambda: simple("page-press", "Press & Media", "/press/", "Media resources for T. L. Harris."),
     "contact.html": lambda: simple("page-contact", "Contact", "/contact/", "How to reach the office of T. L. Harris."),
     "get-involved.html": lambda: simple("page-get-involved", "Get Involved", "/get-involved/", "Ways to take part in public education in District 6."),
+    "privacy.html": lambda: simple("page-privacy", "Privacy", "/privacy/", "How this site handles visitor information."),
+    "terms.html": lambda: simple("page-terms", "Terms", "/terms/", "Terms of use for the site of T. L. Harris."),
+    "accessibility.html": lambda: simple("page-accessibility", "Accessibility", "/accessibility/", "Accessibility statement for the site of T. L. Harris."),
 }
 
 

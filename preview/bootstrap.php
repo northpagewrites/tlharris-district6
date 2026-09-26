@@ -66,9 +66,9 @@ $tlharris_pages    = array(
 	'contact'              => array( 'Contact', 'page-contact' ),
 	'get-involved'         => array( 'Get Involved', 'page-get-involved' ),
 	'support'              => array( 'Support', 'page-support' ),
-	'privacy'              => array( 'Privacy', '' ),
-	'terms'                => array( 'Terms', '' ),
-	'accessibility'        => array( 'Accessibility', '' ),
+	'privacy'              => array( 'Privacy', 'page-privacy' ),
+	'terms'                => array( 'Terms', 'page-terms' ),
+	'accessibility'        => array( 'Accessibility', 'page-accessibility' ),
 );
 
 foreach ( $tlharris_pages as $tlharris_slug => $tlharris_page ) {

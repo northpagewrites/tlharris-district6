@@ -2,7 +2,30 @@
 
 Resolved choices that change how the site is built or what it says. Newest first.
 
-## 2026-09-25 (newest) — Hero is photos only; site notice removed
+## 2026-09-25 (newest) — Quarter months, legal pages, Facebook link, share preview
+
+Chris's calls, four changes. (1) Progress reports now name their months: the start of each
+quarter, January, April, July and October (Q1 to Q4). The Priorities page band, the "How each
+report works" Timing row and the homepage line say so. The office should confirm it will
+publish on that schedule before launch, since the first quarter start after taking office is
+October 2026. (2) Privacy, Terms and Accessibility pages now have standard text
+(`patterns/page-privacy.php`, `page-terms.php`, `page-accessibility.php`), built into the
+static preview and the preview bootstrap. They are standard wording, not lawyer-written:
+the office or counsel should read them. They say the site has no accounts, forms or
+advertising trackers, so update the Privacy page the day a contact form, sign-up form or
+analytics is added. They point to the MSCS Board Office for questions until the office has
+its own contact. The Terms page says who publishes the site and that official MSCS sources
+control; that is the only place that idea now appears. (3) The footer links to the Facebook
+page "Vote Harris 901 | Memphis TN" (https://www.facebook.com/p/Vote-Harris-901-61588380617604/),
+labeled "Follow on Facebook". That is a campaign-named page, and this project keeps
+campaign and constituent work separate (see the Support page), so the office or campaign
+counsel should confirm the link is fine on this site. (4) Link previews: `functions.php`
+now adds Open Graph and Twitter tags, using `assets/images/share.jpg` (1200 by 630, cropped
+from the swearing-in photo), so shared links show a picture, title and description. The
+static preview pages do not carry these tags because the image link must be a full web
+address.
+
+## 2026-09-25 — Hero is photos only; site notice removed
 
 Chris's call, two changes. (1) The homepage hero is now the photographs only: no text on
 them and no dark band under them (a first try with a dark band below was taken out the same

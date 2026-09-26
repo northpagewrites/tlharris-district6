@@ -417,7 +417,8 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
   background: var(--wp--preset--color--accent);
 }
 .tlharris-quarters strong { display: block; font-size: 1.9rem; line-height: 1; letter-spacing: -.02em; margin-bottom: .45rem; }
-.tlharris-quarters span { font-size: .92rem; color: rgba(255, 255, 255, .82); }
+.tlharris-quarters span { display: block; font-size: .92rem; color: rgba(255, 255, 255, .82); }
+.tlharris-quarters .tlharris-quarter-month { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: .15rem; }
 @media (max-width: 860px) { .tlharris-quarterly { grid-template-columns: 1fr; } }
 
 .tlharris-plist {
@@ -448,5 +449,6 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 @media (max-width: 480px) {
   .tlharris-quarters strong { font-size: 1.4rem; }
   .tlharris-quarters span { font-size: .8rem; }
+  .tlharris-quarters .tlharris-quarter-month { font-size: .9rem; }
   .tlharris-quarters li { padding-right: .5rem; }
 }
