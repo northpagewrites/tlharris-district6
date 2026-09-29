@@ -222,10 +222,11 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 .tlharris-hero-media .tlharris-hero-slide { position: absolute; inset: 0; margin: 0; opacity: 0; }
 .tlharris-hero-media .tlharris-hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
 .tlharris-hero-media .tlharris-hero-slide-1 img { object-position: 50% 10%; }
-.tlharris-hero-media .tlharris-hero-slide-3 img { object-position: 50% 15%; }
+.tlharris-hero-media .tlharris-hero-slide-3 img { object-position: 32% 15%; }
+.tlharris-hero-media .tlharris-hero-slide-4 img { object-position: 78% 22%; }
 .tlharris-hero-media .tlharris-hero-slide-1 { opacity: 1; }
 @media (max-width: 781px) {
-  .tlharris-hero { min-height: min(80vh, 640px); }
+  .tlharris-hero { min-height: min(65vh, 520px); }
 }
 .tlharris-hero-name {
   font-size: clamp(3.4rem, 9.5vw, 8.5rem) !important; line-height: .92 !important;
