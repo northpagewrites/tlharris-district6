@@ -9,7 +9,7 @@
 ?>
 <!-- wp:html -->
 <div class="tlharris-meet">
-<figure class="tlharris-meet-photo"><img src="/wp-content/themes/tlharris-public/assets/images/portrait.jpg" alt="T. L. Harris in a navy suit and red paisley tie" loading="lazy" width="1098" height="1023"></figure>
+<figure class="tlharris-meet-photo"><img src="/wp-content/themes/tlharris-public/assets/images/portrait.jpg" alt="T. L. Harris, official portrait" loading="lazy" width="909" height="909"></figure>
 <div class="tlharris-meet-text">
 <h2 class="tlharris-keyline">Meet T. L. Harris</h2>
 <p class="tlharris-lede">T. L. Harris has lived in Whitehaven for more than 30 years. He came up through Memphis public schools, graduating from East High School, and now helps govern them as the District 6 commissioner on the Memphis-Shelby County Schools Board of Education.</p>

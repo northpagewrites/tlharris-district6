@@ -3,9 +3,8 @@
  * Title: Press &amp; Media — page content
  * Slug: tlharris-public/page-press
  * Categories: tlharris
- * Description: Introduction and media contact for the press listing. No headshots,
- * downloadable photography or biography are included: none has been supplied or
- * approved by the office yet.
+ * Description: Introduction and media contact for the press listing, plus a
+ * small photo library (headshot and approved community photos).
  */
 ?>
 <!-- wp:paragraph {"fontSize":"large"} -->
@@ -31,9 +30,19 @@
 <!-- wp:paragraph -->
 <p>You can also reach me directly about a District 6 matter: <a href="/contact/">Contact</a>.</p>
 <!-- /wp:paragraph -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Photos</h2>
+<!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Biography, headshots and approved event photography will be added to this page once my office supplies and approves them.</p>
+<p>Downloadable headshot and approved community photos. A full biography is still being finalized.</p>
 <!-- /wp:paragraph -->
+<!-- wp:html -->
+<div class="tlharris-photo-grid">
+<figure><img src="/wp-content/themes/tlharris-public/assets/images/portrait.jpg" alt="T. L. Harris, official portrait" loading="lazy"><figcaption>Official portrait</figcaption></figure>
+<figure><img src="/wp-content/themes/tlharris-public/assets/images/press/portrait-navy-paisley-2026.jpg" alt="T. L. Harris in a navy suit and red paisley tie" loading="lazy"><figcaption>T. L. Harris</figcaption></figure>
+<figure><img src="/wp-content/themes/tlharris-public/assets/images/press/community-photo-1.jpg" alt="T. L. Harris at a community event" loading="lazy"><figcaption>Community event</figcaption></figure>
+</div>
+<!-- /wp:html -->
 <!-- wp:paragraph {"className":"tlharris-source"} -->
 <p class="tlharris-source">Source: Memphis-Shelby County Schools Board Office. Last verified 20 September 2026.</p>
 <!-- /wp:paragraph -->
