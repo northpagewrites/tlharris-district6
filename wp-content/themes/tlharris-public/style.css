@@ -91,6 +91,7 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 }
 @media (max-width: 781px) {
   .tlharris-photo-grid { grid-template-columns: 1fr; }
+  .tlharris-photo-grid img { height: auto; }
 }
 
 .tlharris-meta { font-size: .92rem; color: var(--wp--preset--color--muted); }
@@ -230,20 +231,16 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
    ------------------------------------------------------------------ */
 .tlharris-hero {
   position: relative; overflow: hidden;
-  min-height: min(86vh, 800px);
+  /* Same shape as the photo (3:2), so phones and tablets show the whole
+     picture. Very wide screens are capped in height and crop top/bottom. */
+  width: 100%; min-height: 0;
+  height: min(calc(100vw / 1.5), 88vh, 860px);
   background: var(--wp--preset--color--ink);
   border-bottom: 6px solid var(--wp--preset--color--accent);
 }
 .tlharris-hero-media { position: absolute; inset: 0; z-index: 0; margin: 0; }
-.tlharris-hero-media .tlharris-hero-slide { position: absolute; inset: 0; margin: 0; opacity: 0; }
-.tlharris-hero-media .tlharris-hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
-.tlharris-hero-media .tlharris-hero-slide-1 img { object-position: 50% 10%; }
-.tlharris-hero-media .tlharris-hero-slide-3 img { object-position: 32% 15%; }
-.tlharris-hero-media .tlharris-hero-slide-4 img { object-position: 78% 22%; }
-.tlharris-hero-media .tlharris-hero-slide-1 { opacity: 1; }
-@media (max-width: 781px) {
-  .tlharris-hero { min-height: min(65vh, 520px); }
-}
+.tlharris-hero-media .tlharris-hero-photo { position: absolute; inset: 0; margin: 0; }
+.tlharris-hero-media .tlharris-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 35% 22%; display: block; }
 .tlharris-hero-name {
   font-size: clamp(3.4rem, 9.5vw, 8.5rem) !important; line-height: .92 !important;
   letter-spacing: -.04em; font-weight: 700; margin: 0 0 1.25rem;
@@ -253,19 +250,6 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
   background: var(--wp--preset--color--accent);
 }
 .tlharris-hero-role { font-size: clamp(1.05rem, 1.6vw, 1.3rem); font-weight: 700; margin: 0 0 .35rem; }
-@media (prefers-reduced-motion: no-preference) {
-  .tlharris-hero-media .tlharris-hero-slide-1 { animation: tlharris-hero-fade 30s ease-in-out infinite; }
-  .tlharris-hero-media .tlharris-hero-slide-2 { animation: tlharris-hero-fade 30s ease-in-out infinite; animation-delay: 6s; }
-  .tlharris-hero-media .tlharris-hero-slide-3 { animation: tlharris-hero-fade 30s ease-in-out infinite; animation-delay: 12s; }
-  .tlharris-hero-media .tlharris-hero-slide-4 { animation: tlharris-hero-fade 30s ease-in-out infinite; animation-delay: 18s; }
-  .tlharris-hero-media .tlharris-hero-slide-5 { animation: tlharris-hero-fade 30s ease-in-out infinite; animation-delay: 24s; }
-}
-@keyframes tlharris-hero-fade {
-  0%, 100% { opacity: 0; }
-  4% { opacity: 1; }
-  20% { opacity: 1; }
-  24% { opacity: 0; }
-}
 
 /* ---------------------------------------------------------------------
    Facts strip under the hero
@@ -303,9 +287,9 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
    ------------------------------------------------------------------ */
 .tlharris-meet { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
 .tlharris-meet-photo { margin: 0; }
-.tlharris-meet-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; display: block; }
+.tlharris-meet-photo img { width: 100%; height: auto; display: block; }
 .tlharris-meet-photo figcaption { font-size: .85rem; color: var(--wp--preset--color--muted); margin-top: .5rem; line-height: 1.4; }
-@media (max-width: 860px) { .tlharris-meet { grid-template-columns: 1fr; } .tlharris-meet-photo img { aspect-ratio: 3 / 2; } }
+@media (max-width: 860px) { .tlharris-meet { grid-template-columns: 1fr; } .tlharris-meet-photo { max-width: 460px; } }
 
 /* Pull quote: large type, gold bar, attribution below. */
 .tlharris-quote { margin: 1.75rem 0; padding: 0 0 0 1.25rem; border-left: 5px solid var(--wp--preset--color--accent); }
@@ -342,9 +326,9 @@ h1, h2, h3, h4 { letter-spacing: -.015em; }
 /* About page opening: name and lede beside a portrait. */
 .tlharris-profile { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: end; }
 .tlharris-profile-photo { margin: 0; }
-.tlharris-profile-photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 12%; display: block; }
+.tlharris-profile-photo img { width: 100%; height: auto; display: block; }
 .tlharris-profile-photo figcaption { font-size: .85rem; color: var(--wp--preset--color--muted); margin-top: .5rem; }
-@media (max-width: 860px) { .tlharris-profile { grid-template-columns: 1fr; } .tlharris-profile-photo img { aspect-ratio: 3 / 2; } }
+@media (max-width: 860px) { .tlharris-profile { grid-template-columns: 1fr; } .tlharris-profile-photo { max-width: 460px; } }
 
 /* Dark bands: no decoration, just the colour. */
 .has-ink-background-color a:not(.wp-block-button__link):not(.tlharris-btn) { color: #fff; }

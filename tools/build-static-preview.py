@@ -273,10 +273,7 @@ def standard_page(title: str, body: str) -> str:
 # Pages
 # ---------------------------------------------------------------------------
 def home() -> str:
-    slides = "\n".join(
-        f'<figure class="tlharris-hero-slide tlharris-hero-slide-{i}"><img src="wp-content/themes/tlharris-public/assets/images/hero/hero-{i}.jpg" alt=""></figure>'
-        for i in range(1, 6)
-    )
+    slides = '<figure class="tlharris-hero-photo"><img src="wp-content/themes/tlharris-public/assets/images/hero/hero-swearing-in.jpg" alt="T. L. Harris taking the oath of office as District 6 commissioner"></figure>'
     featured = [p for p in PRIORITIES if p["title"] in (
         "Early Literacy and Third-Grade Reading",
         "Safe and Supportive Learning Environments",
