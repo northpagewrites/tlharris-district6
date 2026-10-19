@@ -63,7 +63,7 @@ add_action(
 		}
 
 		$image = get_theme_file_uri( 'assets/images/share.jpg' );
-		$alt   = 'T. L. Harris taking the oath of office as District 6 commissioner.';
+		$alt   = 'T. L. Harris, Commissioner, District 6, Memphis-Shelby County Schools Board of Education.';
 
 		echo "\n";
 		printf( '<meta name="description" content="%s" />' . "\n", esc_attr( $description ) );
